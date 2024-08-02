@@ -9,15 +9,15 @@ change word:
 	key("c")
 	key("w")
 
+vim (no|disable) colors:
+	key(":")
+	insert("set t_Co=0")
+	key(enter)
+
 vim put:
 	key("p")
 
 vim yank:
-	key("y")
-	key("y")
-
-vim two yank:
-	key("2")
 	key("y")
 	key("y")
 
