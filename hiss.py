@@ -25,7 +25,6 @@ ludicrous_time = 2.0
 
 
 @mod.action_class
-#@ctx.action_class('user')
 class UserActions:
     def noise_hiss_start():
         """Invoked when the user starts hissing (potentially while speaking)"""
@@ -44,23 +43,12 @@ class UserActions:
         last_activity_at= time.monotonic()
 
         hiss_length_in_seconds =  hiss_end_time - hiss_start_time
-        #print("Length of hiss:" + str(hiss_length_in_seconds))
-
-        # if hiss_length_in_seconds < min_dot_time:
-        #     print("I'm not doing anything.")
 
         if hiss_length_in_seconds >= max_dot_time and hiss_length_in_seconds < ludicrous_time:
-            print("I'm a DOUBLE click from Noises/hiss__short_and_long.py")
             actions.mouse_click(0)
             actions.mouse_click(0)
 
         elif hiss_length_in_seconds >= min_dot_time and hiss_length_in_seconds < max_dot_time:
-            print("I'm a Single click from Noises/hiss__short_and_long")
-            #print("nothing")
-            #actions.mouse_click(0)
-            #
-            # ALL OF THESE ACTIONS NEEDED FOR CLICK TO WORK IN SLACK
-            # sleep needed so that Scroll down works in Slack
             actions.mouse_drag(0)
             actions.sleep("150ms")
             actions.mouse_release(0)

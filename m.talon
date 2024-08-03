@@ -66,3 +66,23 @@ tmux seek:
 tmux paste:
 	key(ctrl-a)
 	insert("]")
+
+key(ctrl-e):
+	tracking.control_toggle()
+
+repl four:
+	insert("repl4")
+	key(enter)
+
+bash CD:
+	insert("cd ")
+
+bash LTR:
+	insert("ltr")
+	key(enter)
+
+bash L:
+	insert("ls -l ")
+
+
+
