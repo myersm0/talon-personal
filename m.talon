@@ -77,6 +77,10 @@ repl four:
 bash CD:
 	insert("cd ")
 
+bash go home:
+	insert("cd")
+	key(enter)
+
 bash LTR:
 	insert("ltr")
 	key(enter)
@@ -84,5 +88,7 @@ bash LTR:
 bash L:
 	insert("ls -l ")
 
+git commit:
+	insert("git commit -a -m ")
 
 
