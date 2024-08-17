@@ -1,11 +1,13 @@
 
 
 Talent todo:
--  practice undoing  things in both command mode an dictation mode;  and revising text
--try limiting the dictionary in in dictation mode to get rid of words that I'm never going to use like mote
--try limiting the command palate to get rid of frequently confused things like trot and drag
--figure out what's going on with my mouse and how it likes to reorient the cursor all the time
--make keyboard shortcuts for switching   workspace
+o practice undoing  things in both command mode an dictation mode;  and revising text
+o try limiting the dictionary in in dictation mode to get rid of words that I'm never going to use like mote
+o try limiting the command palate to get rid of frequently confused things like trot and drag
+x figure out what's going on with my mouse and how it likes to reorient the cursor all the time
+x make keyboard shortcuts for switching   workspace
+x Figure out why I can't press backspace
+o set up a shortcut to take them PWD from one tmux pain and navigate to that path in a different  pain
 
 
 

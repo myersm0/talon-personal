@@ -7,7 +7,7 @@ ctx = Context()
 
 
 start = 0
-noise_length = 0.2
+noise_length = 0.32
 
 
 # global last_activity_at
@@ -18,7 +18,7 @@ hiss_end_time   = 0
 
 
 # short: Single Click
-min_dot_time = 0.2
+min_dot_time = 0.32
 # Medium: Double Click
 max_dot_time = 1.0
 ludicrous_time = 2.0
