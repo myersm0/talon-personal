@@ -1,5 +1,5 @@
 select everything:
-	key(cmd-a)
+iterate	key(cmd-a)
 
 change to end:
 	key("c")
@@ -90,5 +90,24 @@ bash L:
 
 git commit:
 	insert("git commit -a -m ")
+
+service account:
+	insert("nrg-svc-hcpi")
+
+set minus oh VI:
+	insert("set -o vi")
+	key(enter)
+
+bash read lines:
+	insert("while IFS= read -r line; do")
+
+bash loop over files:
+	insert("for file in \"${filelist[@]}\"; do")
+
+
+
+
+
+
 
 
