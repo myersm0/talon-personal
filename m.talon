@@ -1,5 +1,5 @@
 select everything:
-iterate	key(cmd-a)
+	key(cmd-a)
 
 change to end:
 	key("c")
@@ -101,13 +101,15 @@ set minus oh VI:
 bash read lines:
 	insert("while IFS= read -r line; do")
 
-bash loop over files:
+bash loop (over|through) files:
 	insert("for file in \"${filelist[@]}\"; do")
 
+backspace:
+	key(bksp)
 
-
-
-
-
-
+workspace next:
+	key(ctrl-alt-right)
+	
+workspace previous:
+	key(ctrl-alt-left)
 

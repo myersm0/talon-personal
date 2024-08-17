@@ -1,0 +1,16 @@
+
+
+Talent todo:
+-  practice undoing  things in both command mode an dictation mode;  and revising text
+-try limiting the dictionary in in dictation mode to get rid of words that I'm never going to use like mote
+-try limiting the command palate to get rid of frequently confused things like trot and drag
+-figure out what's going on with my mouse and how it likes to reorient the cursor all the time
+-make keyboard shortcuts for switching   workspace
+
+
+
+
+
+
+
+
