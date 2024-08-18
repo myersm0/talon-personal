@@ -13,6 +13,10 @@ big down:
 	key(escape)
 	key("j:30")
 
+huge down:
+	key(escape)
+	key("j:100")
+
 tiny up:
 	key(escape)
 	key("k:5")
@@ -24,6 +28,10 @@ little up:
 big up:
 	key(escape)
 	key("k:30")
+
+huge up:
+	key(escape)
+	key("k:100")
 
 tiny left:
 	key(escape)
@@ -37,6 +45,10 @@ big left:
 	key(escape)
 	key("h:30")
 
+huge left:
+	key(escape)
+	key("h:100")
+
 tiny right:
 	key(escape)
 	key("l:5")
@@ -49,6 +61,9 @@ big right:
 	key(escape)
 	key("l:30")
 
+huge right:
+	key(escape)
+	key("l:100")
 
 change to end:
 	key(escape)
