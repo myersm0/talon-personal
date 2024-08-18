@@ -113,3 +113,12 @@ workspace next:
 workspace previous:
 	key(ctrl-alt-left)
 
+path desdemona:
+	insert("/media/m/desdemona/contents/")
+
+path daphne:
+	insert("/media/m/daphne/contents/")
+
+path diomedes:
+	insert("/media/m/diomedes/contents/")
+
