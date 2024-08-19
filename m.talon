@@ -10,10 +10,10 @@ service account:
 backspace:
 	key(bksp)
 
-workspace next:
+workspace (right|next):
 	key(ctrl-alt-right)
 	
-workspace previous:
+workspace (left|previous):
 	key(ctrl-alt-left)
 
 path desdemona:
