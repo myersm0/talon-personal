@@ -1,3 +1,8 @@
+
+^meeting mode$:
+    mode.enable("user.meeting")
+    speech.disable()
+
 select everything:
 	key(cmd-a)
 
@@ -24,4 +29,14 @@ path daphne:
 
 path diomedes:
 	insert("/media/m/diomedes/contents/")
+
+take context:
+    key(f8)
+
+take screenshot:
+    key(f9)
+
+(take note | note to self):
+    key(f10)
+
 
