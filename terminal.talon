@@ -65,6 +65,11 @@ huge right:
 	key(escape)
 	key("l:100")
 
+select to end:
+	key(escape)
+	key("v")
+	key("$")
+
 change to end:
 	key(escape)
 	key("c")
@@ -170,12 +175,16 @@ go home:
 	insert("cd")
 	key(enter)
 
-LTR:
-	insert("ltr")
+list latest:
+	insert("ls -ltr")
 	key(enter)
 
-L:
+list:
 	insert("ls -l")
+	key(enter)
+
+CDM:
+	insert("cdm")
 	key(enter)
 
 git commit:
