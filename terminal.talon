@@ -115,6 +115,13 @@ vim quit:
 	key("q")
 	key(enter)
 
+vim force quit:
+	key(escape)
+	key(":")
+	key("q")
+	key("!")
+	key(enter)
+
 vim go:
 	key(escape)
 	insert(":g/")

@@ -30,6 +30,15 @@ path daphne:
 path diomedes:
 	insert("/media/m/diomedes/contents/")
 
+key(f6:down):
+	speech.disable()
+
+key(f6:up):
+	speech.enable()
+
+key(f7):
+	speech.toggle()
+
 take context:
     key(f8)
 
