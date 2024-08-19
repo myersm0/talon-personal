@@ -96,16 +96,32 @@ vim save:
 	key(escape)
 	key(":")
 	key("w")
+	key(enter)
 
 vim save quit:
 	key(escape)
 	key(":")
 	insert("wq")
+	key(enter)
 
 vim quit:
 	key(escape)
 	key(":")
 	key("q")
+	key(enter)
+
+vim go:
+	key(escape)
+	insert(":g/")
+
+vim replace from <user.number> to <user.number>:
+	key(escape)
+	insert(":")
+	key(user.number_1)
+	key(",")
+	key(user.number_2)
+	insert("s/")
+
 
 undo:
 	key(escape)
@@ -163,7 +179,7 @@ L:
 	key(enter)
 
 git commit:
-	insert("git commit -a -m \\"\\"")
+	insert("git commit -a -m \"\"")
 	key(left)
 
 set minus oh VI:
@@ -173,6 +189,8 @@ set minus oh VI:
 bash read lines:
 	insert("while IFS= read -r line; do")
 
-bash loop (over|through) files:
-	insert("for file in \"${filelist[@]}\"; do")
+#bash loop (over|through) files:
+#	insert("for file in \"${filelist[@]}\\"; do")
 
+send selection:
+	key(ctrl-c-c)
