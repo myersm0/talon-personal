@@ -6,7 +6,7 @@ east_button_held = False
 east_button_timer = None
 current_char_index = 0
 last_char = "."
-cycle_chars = [",", "?", ":", ";", "(", ")"]
+cycle_chars = [",", "?"]
 
 @mod.action_class
 class Actions:
