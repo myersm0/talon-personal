@@ -1,6 +1,8 @@
 app: firefox
 app: gedit
 app: xed
+app: xviewer
+app: celluloid
 -
 
 gamepad(dpad_left:down): key(left:down)
@@ -16,10 +18,4 @@ gamepad(north:down): key(space)
 gamepad(south:down): key(enter)
 gamepad(west:down): key(backspace)
 gamepad(east:down): key(".")
-
-gamepad(east:down):
-    user.handle_east_button_down()
-
-gamepad(east:up):
-    user.handle_east_button_up()
 

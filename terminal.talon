@@ -252,6 +252,14 @@ gamepad(select):
 	insert("..")
 	key(enter)
 
+gamepad(l2):
+	key(escape)
+    key(0)
+
+gamepad(r2):
+	key(escape)
+    key(shift-A)
+
 gamepad(start):
 	insert("cd ")
 
@@ -262,6 +270,13 @@ gamepad(l3):
 gamepad(r3):
 	insert("ls -ltr")
 	key(enter)
+
+
+
+
+
+
+
 
 
 
