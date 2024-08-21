@@ -12,11 +12,6 @@ key(f5:down):
 key(f5:up):
     speech.disable()
 
-^toggle mute$:
-    key(alt+a)
-
-gamepad(r2):
-    key(alt+a)
 
 gamepad(l2:down):
     speech.enable()
