@@ -143,31 +143,31 @@ redo:
 	key(escape)
 	key(ctrl-r)
 
-^down$:
+^tmux down$:
 	key(ctrl-a)
 	insert("j")
 
-^up$:
+^tmux up$:
 	key(ctrl-a)
 	insert("k")
 
-^left$:
+^tmux left$:
 	key(ctrl-a)
 	insert("h")
 
-^right$:
+^tmux right$:
 	key(ctrl-a)
 	insert("l")
 
-fullsize:
+tmux fullsize:
 	key(ctrl-a)
 	insert("z")
 
-seek:
+tmux seek:
 	key(ctrl-a)
 	insert("[")
 
-put|paste:
+tmux put|paste:
 	key(ctrl-a)
 	insert("]")
 
@@ -209,4 +209,23 @@ bash read lines:
 #	insert("for file in \"${filelist[@]}\\"; do")
 
 send selection:
-	key(ctrl-c-c)
+	key(f3)
+
+gamepad(dpad_left:down): key(b:down)
+gamepad(dpad_left:up): key(b:up)
+gamepad(dpad_right:down): key(w:down)
+gamepad(dpad_right:up): key(w:up)
+gamepad(dpad_down:down): key(j:down)
+gamepad(dpad_down:up): key(j:up)
+gamepad(dpad_up:down): key(k:down)
+gamepad(dpad_up:up): key(k:up)
+
+gamepad(north): key(space)
+gamepad(south): key(enter)
+gamepad(west): key(backspace)
+gamepad(east): key(ctrl-c)
+
+gamepad(l1):
+	key(escape)
+	key(f12)
+

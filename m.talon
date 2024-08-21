@@ -48,4 +48,12 @@ take screenshot:
 (take note | note to self):
     key(f10)
 
+surround <user.symbol_key>:
+	key(" ")
+	key(symbol_key)
+	key(" ")
 
+surround <user.letter>:
+	key(" ")
+	key(letter)
+	key(" ")
