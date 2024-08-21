@@ -1,5 +1,5 @@
 
-title: Terminal
+app: /terminal/i
 -
 
 tiny down:
