@@ -254,11 +254,11 @@ gamepad(select):
 
 gamepad(l2):
 	key(escape)
-    key(0)
+	key(0)
 
 gamepad(r2):
 	key(escape)
-    key(shift-A)
+   key(shift-A)
 
 gamepad(start):
 	insert("cd ")

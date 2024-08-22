@@ -19,3 +19,6 @@ gamepad(south:down): key(enter)
 gamepad(west:down): key(backspace)
 gamepad(east:down): key(".")
 
+gamepad(l1):	key(ctrl-pagedown)
+gamepad(r1):	key(ctrl-pageup)
+
