@@ -3,6 +3,7 @@ app: gedit
 app: xed
 app: xviewer
 app: celluloid
+app: pavucontrol
 -
 
 gamepad(dpad_left:down): key(left:down)
@@ -19,6 +20,6 @@ gamepad(south:down): key(enter)
 gamepad(west:down): key(backspace)
 gamepad(east:down): key(".")
 
-gamepad(l1):	key(ctrl-pagedown)
-gamepad(r1):	key(ctrl-pageup)
+gamepad(l1):	key(ctrl-pageup)
+gamepad(r1):	key(ctrl-pagedown)
 

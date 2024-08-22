@@ -12,7 +12,6 @@ key(f5:down):
 key(f5:up):
     speech.disable()
 
-
 gamepad(l2:down):
     speech.enable()
 
