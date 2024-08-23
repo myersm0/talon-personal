@@ -34,17 +34,17 @@ in terminals when not in vim:
 - select,start: .., cd
 
 in terminals when in vim in edit mode:
-- dpad: hjbw (forces visual mode)
-- action: space, enter, backspace, newline
+- dpad: up down left right
+- action: space, enter, backspace, escape
 - l1,r1: tab, tab
 - l2,r2: 0, shift-a (force visual mode for both)
 - l3,r3: 
 - select,start: tina seek,tmux put
 
 in terminals when in vim in visual mode:
-- dpad: hjbw 
+- dpad: up down left right
 - action: redo,i,undo,o
-- l1,r1: tab, tab
+- l1,r1: b,w
 - l2,r2: 0, shift-a (force visual mode for both)
 - l3,r3: 
 - select,start: tina seek,tmux put

@@ -1,10 +1,5 @@
-app: firefox
-app: gedit
-app: xed
-app: xviewer
-app: celluloid
-app: pavucontrol
-not mode: user.seek
+app: /terminal/i
+mode: user.seek
 -
 
 gamepad(dpad_left:down): key(left:down)
@@ -18,9 +13,14 @@ gamepad(dpad_up:up): key(up:up)
 
 gamepad(north:down): key(space)
 gamepad(south:down): key(enter)
-gamepad(west:down): key(backspace)
-gamepad(east:down): key(".")
+gamepad(west:down): key(q)
+gamepad(east:down): key("$")
 
-gamepad(l1):	key(ctrl-pageup)
-gamepad(r1):	key(ctrl-pagedown)
+key(enter):
+	mode.disable("user.seek")
+	key(enter)
+
+key(q):
+	mode.disable("user.seek")
+	key(q)
 

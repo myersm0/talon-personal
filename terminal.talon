@@ -1,5 +1,6 @@
 
 app: /terminal/i
+not mode: user.seek
 -
 
 tiny down:
@@ -165,10 +166,12 @@ tmux fullsize:
 	insert("z")
 
 tmux seek:
+	mode.enable("user.seek")
 	key(ctrl-a)
 	insert("[")
 
 tmux put|paste:
+	mode.disable("user.seek")
 	key(ctrl-a)
 	insert("]")
 
