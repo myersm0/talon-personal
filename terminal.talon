@@ -266,16 +266,15 @@ gamepad(r2):
 gamepad(start):
 	insert("cd ")
 
-gamepad(l3):
-	insert("ls -l")
-	key(enter)
+gamepad(l3:down):
+	key(shift:down)
+gamepad(l3:up):
+	key(shift:up)
 
-gamepad(r3):
-	insert("ls -ltr")
-	key(enter)
-
-
-
+gamepad(r3:down):
+	key(ctrl:down)
+gamepad(r3:up):
+	key(ctrl:up)
 
 
 
