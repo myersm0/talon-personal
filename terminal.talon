@@ -239,9 +239,9 @@ gamepad(dpad_up:down):
 gamepad(dpad_up:up):
     key(k:up)
 
-gamepad(north): key(space)
+gamepad(west): key(space)
 gamepad(south): key(enter)
-gamepad(west): key(backspace)
+gamepad(north): key(backspace)
 gamepad(east): key(ctrl-c)
 
 gamepad(l1):
