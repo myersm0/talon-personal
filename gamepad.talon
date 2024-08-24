@@ -16,9 +16,9 @@ gamepad(dpad_down:up): key(down:up)
 gamepad(dpad_up:down): key(up:down)
 gamepad(dpad_up:up): key(up:up)
 
-gamepad(west:down): key(space)
+gamepad(north:down): key(space)
 gamepad(south:down): key(enter)
-gamepad(north:down): key(backspace)
+gamepad(west:down): key(backspace)
 gamepad(east:down): key(".")
 
 gamepad(l1):	key(ctrl-pageup)
