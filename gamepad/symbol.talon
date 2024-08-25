@@ -25,9 +25,7 @@ gamepad(l3:down):
 gamepad(l3:up):
 	key(shift:up)
 
-gamepad(r3:down):
-	key(ctrl:down)
-gamepad(r3:up):
-	key(ctrl:up)
+gamepad(r3):
+	key("/")
 
 

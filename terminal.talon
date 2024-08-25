@@ -126,14 +126,9 @@ vim go:
 	key(escape)
 	insert(":g/")
 
-vim replace from <user.number> to <user.number>:
+vim sub:
 	key(escape)
-	insert(":")
-	key(user.number_1)
-	key(",")
-	key(user.number_2)
-	insert("s/")
-
+	insert(":%s/")
 
 undo:
 	key(escape)
@@ -143,21 +138,27 @@ redo:
 	key(escape)
 	key(ctrl-r)
 
-^tmux down$:
+^(move|tmux) down$:
 	key(ctrl-a)
 	insert("j")
 
-^tmux up$:
+^(move|tmux) up$:
 	key(ctrl-a)
 	insert("k")
 
-^tmux left$:
+^(move|tmux) left$:
 	key(ctrl-a)
 	insert("h")
 
-^tmux right$:
+^(move|tmux) right$:
 	key(ctrl-a)
 	insert("l")
+
+^[move|tmux] diagonal$:
+	key(ctrl-a)
+	insert("l")
+	key(ctrl-a)
+	insert("j")
 
 tmux fullsize:
 	key(ctrl-a)
@@ -180,11 +181,14 @@ repl four:
 CD:
 	insert("cd ")
 
+make dir:
+	insert("mkdir -p ")
+
 go home:
 	insert("cd")
 	key(enter)
 
-list latest:
+(lister | list latest):
 	insert("ls -ltr")
 	key(enter)
 
