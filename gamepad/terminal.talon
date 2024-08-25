@@ -5,28 +5,28 @@ and not mode: user.meeting
 -
 
 gamepad(dpad_left:down):
-    key(escape)
-    key(b:down)
+	key(escape)
+	key(b:down)
 gamepad(dpad_left:up):
-    key(b:up)
+	key(b:up)
 
 gamepad(dpad_right:down):
-    key(escape)
-    key(w:down)
+	key(escape)
+	key(w:down)
 gamepad(dpad_right:up):
-    key(w:up)
+	key(w:up)
 
 gamepad(dpad_down:down):
-    key(escape)
-    key(j:down)
+	key(escape)
+	key(j:down)
 gamepad(dpad_down:up):
-    key(j:up)
+	key(j:up)
 
 gamepad(dpad_up:down):
-    key(escape)
-    key(k:down)
+	key(escape)
+	key(k:down)
 gamepad(dpad_up:up):
-    key(k:up)
+	key(k:up)
 
 gamepad(north): key(space)
 gamepad(south): key(enter)

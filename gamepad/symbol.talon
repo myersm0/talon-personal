@@ -1,7 +1,7 @@
 mode: user.symbol
 -
 
-gamepad(dpad_left:down): key(?)
+gamepad(dpad_left:down): key(")
 gamepad(dpad_right:down): key(,)
 gamepad(dpad_down:down): key(;)
 gamepad(dpad_up:down): key(:)
