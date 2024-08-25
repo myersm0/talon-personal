@@ -3,6 +3,15 @@
     mode.enable("user.meeting")
     speech.disable()
 
+^symbol mode$:
+    mode.enable("user.symbol")
+
+done with symbols:
+    mode.disable("user.symbol")
+
+done with mouse:
+    mode.disable("user.mouse")
+
 select everything:
 	key(cmd-a)
 
@@ -48,7 +57,5 @@ surround <user.letter>:
 	key(" ")
 	key(letter)
 	key(" ")
-
-
 
 

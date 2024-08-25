@@ -1,4 +1,3 @@
-app: /terminal/i
 mode: user.seek
 -
 

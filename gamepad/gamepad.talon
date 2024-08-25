@@ -5,6 +5,8 @@ app: xviewer
 app: celluloid
 app: pavucontrol
 not mode: user.seek
+and not mode: user.symbol
+and not mode: user.meeting
 -
 
 gamepad(dpad_left:down): key(left:down)
