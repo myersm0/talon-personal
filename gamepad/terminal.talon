@@ -41,7 +41,7 @@ gamepad(r1):
 	key(tab)
 
 gamepad(select):
-	insert("..")
+	insert("cd ..")
 	key(enter)
 
 gamepad(r2):

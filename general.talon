@@ -6,6 +6,9 @@
 ^symbol mode$:
     mode.enable("user.symbol")
 
+done with seeking:
+	 key(q)
+
 done with symbols:
     mode.disable("user.symbol")
 
@@ -57,5 +60,18 @@ surround <user.letter>:
 	key(" ")
 	key(letter)
 	key(" ")
+
+double <user.symbol_key>:
+	key(symbol_key)
+	key(symbol_key)
+
+quote:
+	key(")
+
+Komma:
+	key(,)
+
+
+
 
 

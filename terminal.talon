@@ -178,7 +178,7 @@ repl four:
 	insert("repl4")
 	key(enter)
 
-CD:
+go to:
 	insert("cd ")
 
 make dir:
@@ -190,6 +190,10 @@ go home:
 
 (lister | list latest):
 	insert("ls -ltr")
+	key(enter)
+
+listra:
+	insert("ls -ltra")
 	key(enter)
 
 list:
