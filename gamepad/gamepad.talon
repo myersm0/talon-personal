@@ -2,7 +2,6 @@ app: firefox
 app: gedit
 app: xed
 app: xviewer
-app: celluloid
 app: pavucontrol
 not mode: user.seek
 and not mode: user.symbol

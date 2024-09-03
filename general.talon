@@ -68,8 +68,29 @@ double <user.symbol_key>:
 quote:
 	key(")
 
+quotes:
+	key(")
+
 Komma:
 	key(,)
+
+networking on:
+	user.networking_on()
+
+networking off:
+	user.networking_off()
+
+^complete$:
+	key(tab)
+
+^return$:
+	key(enter)
+
+
+
+
+
+
 
 
 

@@ -221,6 +221,15 @@ bash read lines:
 send selection:
 	key(f3)
 
+spaces to tabs:
+	key(escape)
+	insert(":%s/	/\t/g")
+	key(enter)
+
+tabs to spaces:
+	key(escape)
+	insert(":%s/\t/	/g")
+	key(enter)
 
 
 
