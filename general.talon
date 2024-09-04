@@ -86,6 +86,9 @@ networking off:
 ^return$:
 	key(enter)
 
+^carriage$:
+	key(enter)
+
 
 
 

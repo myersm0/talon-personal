@@ -178,8 +178,12 @@ repl four:
 	insert("repl4")
 	key(enter)
 
-go to:
+^go to$:
 	insert("cd ")
+
+go to {user.pathname}:
+	insert("cd ")
+	insert(pathname)
 
 make dir:
 	insert("mkdir -p ")

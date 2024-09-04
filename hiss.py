@@ -1,28 +1,20 @@
 from talon import Module, actions, ctrl, noise, cron, Context, ui, settings
 import time
 
-
 mod = Module()
 ctx = Context()
 
-
 start = 0
-noise_length = 0.32
-
-
-# global last_activity_at
-
+noise_length = 0.36
 
 hiss_start_time = 0
 hiss_end_time   = 0
 
-
 # short: Single Click
-min_dot_time = 0.32
+min_dot_time = 0.36
 # Medium: Double Click
 max_dot_time = 1.0
 ludicrous_time = 2.0
-
 
 @mod.action_class
 class UserActions:
@@ -55,14 +47,10 @@ class UserActions:
 
         pass
 
-
-
 def hiss_handler(active):
     if active:
         actions.user.noise_hiss_start()
     else:
         actions.user.noise_hiss_stop()
 
-
-# function
 noise.register("hiss", hiss_handler)
