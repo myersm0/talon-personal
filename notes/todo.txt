@@ -8,6 +8,8 @@ x figure out what's going on with my mouse and how it likes to reorient the curs
 x make keyboard shortcuts for switching   workspace
 x Figure out why I can't press backspace
 o set up a shortcut to take them PWD from one tmux pain and navigate to that path in a different  pain
+o changed the go to command to accept a destination argument and the possible locations available will be matched dynamically to the user's input
+o the slash characters and space commands are not consistently recognized
 
 
 
