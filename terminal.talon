@@ -235,7 +235,11 @@ tabs to spaces:
 	insert(":%s/\t/	/g")
 	key(enter)
 
+search history:
+	insert("history | grep -e ")
 
+line count:
+	insert("wc -l")
 
 
 
