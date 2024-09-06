@@ -20,3 +20,23 @@ class Actions:
         except subprocess.CalledProcessError as e:
             # Handle error (optional)
             print(f"Command failed with error: {e}")
+
+    def volume_down():
+        """lower volume by five percent"""
+        try:
+            subprocess.run("pactl set-sink-volume @DEFAULT_SINK@ -5%", shell=True, check=True)
+        except subprocess.CalledProcessError as e:
+            # Handle error (optional)
+            print(f"Command failed with error: {e}")
+
+    def volume_up():
+        """increase volume by five percent"""
+        try:
+            subprocess.run("pactl set-sink-volume @DEFAULT_SINK@ +5%", shell=True, check=True)
+        except subprocess.CalledProcessError as e:
+            # Handle error (optional)
+            print(f"Command failed with error: {e}")
+
+
+
+

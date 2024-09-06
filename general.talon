@@ -89,10 +89,20 @@ networking off:
 ^carriage$:
 	key(enter)
 
+(funk eleven|full screen):
+	key(f11)
 
+maximize:
+	key(alt-f10)
 
+zu:
+	user.tab_close_wrapper()
 
+chase:
+	key(space)
 
+element:
+	key(/)
 
 
 
