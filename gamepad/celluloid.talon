@@ -15,7 +15,7 @@ gamepad(dpad_up:up): key(*:up)
 
 gamepad(north:down): key(space)
 gamepad(south:down): key(space)
-gamepad(west:down): key(q)
+gamepad(west:down): key(l)
 gamepad(east:down): key(m)
 
 gamepad(l1):	key(<)
