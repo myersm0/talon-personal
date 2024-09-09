@@ -95,17 +95,25 @@ networking off:
 maximize:
 	key(alt-f10)
 
-zu:
+tab zu:
 	user.tab_close_wrapper()
 
 chase:
 	key(space)
 
-element:
+divide:
 	key(/)
 
+conda activate$:
+	insert("conda activate ")
 
+conda deactivate$:
+	insert("conda deactivate")
+	key(enter)
 
+^fim prefix$: insert("<|fim_prefix|>")
+^fim middle$: insert("<|fim_middle|>")
+^fim suffix$: insert("<|fim_suffix|>")
 
 
 
