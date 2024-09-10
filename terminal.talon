@@ -178,19 +178,8 @@ repl four:
 	insert("repl4")
 	key(enter)
 
-^go to$:
-	insert("cd ")
-
-go to {user.pathname}:
-	insert("cd ")
-	insert(pathname)
-
 make dir:
 	insert("mkdir -p ")
-
-go home:
-	insert("cd")
-	key(enter)
 
 (lister | list latest):
 	insert("ls -ltr")
@@ -240,6 +229,61 @@ search history:
 
 line count:
 	insert("wc -l")
+
+go back$:
+	insert("cd ..")
+	key(enter)
+
+go home:
+	insert("cd")
+	key(enter)
+
+^go to$:
+	insert("cd ")
+
+go to {user.pathname}:
+	insert("cd ")
+	insert(pathname)
+
+go ahead <digits>:
+	insert("goahead -d ")
+	insert(digits)
+	key(enter)
+
+go ahead <digits> (but|then) wait:
+	insert("goahead -d ")
+	insert(digits)
+	key(space)
+
+go recent$:
+	insert("cdr")
+	key(enter)
+
+go frequent$:
+	insert("cdf")
+	key(enter)
+
+go recent (but|then) wait$:
+	insert("cdr 100 ")
+
+go frequent (but|then) wait$:
+	insert("cdf 100 ")
+
+grep:
+	insert("grep -E ")
+
+find:
+	insert("find ")
+
+find <digits>:
+	insert("find -maxdepth ")
+	insert(digits)
+	key(space)
+
+
+
+
+
 
 
 

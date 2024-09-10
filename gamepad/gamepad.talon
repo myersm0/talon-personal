@@ -1,9 +1,11 @@
 app: firefox
-app: /libreoffice/
+app: /libreoffice/i
+app: /soffice/i
 app: gedit
 app: Xed
 app: xviewer
 app: pavucontrol
+app: /nemo/i
 not mode: user.seek
 and not mode: user.symbol
 #and not mode: user.meeting
