@@ -74,10 +74,10 @@ quotes:
 Komma:
 	key(,)
 
-networking on:
+networking (on|enable):
 	user.networking_on()
 
-networking off:
+networking (off|disable):
 	user.networking_off()
 
 ^complete$:
@@ -110,10 +110,6 @@ conda activate$:
 conda deactivate$:
 	insert("conda deactivate")
 	key(enter)
-
-^fim prefix$: insert("<|fim_prefix|>")
-^fim middle$: insert("<|fim_middle|>")
-^fim suffix$: insert("<|fim_suffix|>")
 
 
 

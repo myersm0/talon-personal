@@ -178,9 +178,6 @@ repl four:
 	insert("repl4")
 	key(enter)
 
-make dir:
-	insert("mkdir -p ")
-
 (lister | list latest):
 	insert("ls -ltr")
 	key(enter)
@@ -280,8 +277,19 @@ find <digits>:
 	insert(digits)
 	key(space)
 
+copy:
+	insert("cp ")
 
+make dir:
+	insert("mkdir -p ")
 
+array:
+	key(")
+	key($)
+	key({)
+	insert("[@]}")
+	key(")
+	key(left:5)
 
 
 
