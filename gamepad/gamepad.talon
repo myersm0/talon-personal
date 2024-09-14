@@ -1,4 +1,5 @@
 app: firefox
+app: /workbench/i
 app: /libreoffice/i
 app: /soffice/i
 app: gedit

@@ -242,6 +242,10 @@ go to {user.pathname}:
 	insert("cd ")
 	insert(pathname)
 
+go ahead:
+	insert("goahead -d 1")
+	key(enter)
+
 go ahead <digits>:
 	insert("goahead -d ")
 	insert(digits)
@@ -261,13 +265,16 @@ go frequent$:
 	key(enter)
 
 go recent (but|then) wait$:
-	insert("cdr 100 ")
+	insert("cdr ")
 
 go frequent (but|then) wait$:
-	insert("cdf 100 ")
+	insert("cdf ")
 
 grep:
 	insert("grep -E ")
+
+grep (caseless|insensitive):
+	insert("grep -Ei ")
 
 find:
 	insert("find ")
@@ -291,8 +298,12 @@ array:
 	key(")
 	key(left:5)
 
+squeue:
+	insert("squeue")
 
-
+page that:
+	insert(" | less")
+	key(enter)
 
 
 

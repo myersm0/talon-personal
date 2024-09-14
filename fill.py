@@ -20,7 +20,7 @@ ctx_default.lists["user.pathname"] = {
 	"CBA processing":	"/ceph/intradb/archive/CCF_CBA_PRC/arc001/",
 	"CBA staging":	"/ceph/intradb/archive/CCF_CBA_STG/arc001/",
 	"supercomputer logs": "/ceph/scratch/intradb/build/chpc/build/nrg-svc-hcpi/",
-	"IntraDb logs": "/data/intradb/logs/pipeline/",
+	"IntraDb logs": "/ceph/intradb/logs/pipeline/",
 }
 
 

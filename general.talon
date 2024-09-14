@@ -71,8 +71,9 @@ quote:
 quotes:
 	key(")
 
-Komma:
+(comma|Komma|item):
 	key(,)
+	key(space)
 
 networking (on|enable):
 	user.networking_on()
