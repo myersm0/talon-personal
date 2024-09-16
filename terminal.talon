@@ -301,6 +301,9 @@ array:
 squeue:
 	insert("squeue")
 
+install:
+	insert("sudo apt-get install ")
+
 page that:
 	insert(" | less")
 	key(enter)
