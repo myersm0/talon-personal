@@ -213,19 +213,22 @@ send selection:
 
 spaces to tabs:
 	key(escape)
-	insert(":%s/	/\t/g")
+	insert(":%s/    /\t/g")
 	key(enter)
 
 tabs to spaces:
 	key(escape)
-	insert(":%s/\t/	/g")
+	insert(":%s/\t/    /g")
 	key(enter)
 
 search history:
-	insert("history | grep -e ")
+	insert("history | grep -E ")
 
-line count:
+(line count|count lines):
 	insert("wc -l")
+
+count those lines:
+	insert(" | wc -l")
 
 go back$:
 	insert("cd ..")
@@ -273,8 +276,14 @@ go frequent (but|then) wait$:
 grep:
 	insert("grep -E ")
 
+grep that:
+	insert(" | grep -E ")
+
 grep (caseless|insensitive):
 	insert("grep -Ei ")
+
+grep recursive:
+	insert("grep -Er ")
 
 find:
 	insert("find ")
