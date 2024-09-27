@@ -1,0 +1,17 @@
+list: user.repo
+-
+HCP notes:							https://github.com/humanconnectome/hcp-notes
+HCP pipelines:						https://github.com/Washington-University/HCPpipelines
+PCP components:					https://bitbucket.org/hcp/pcp-components-plugin/src/master/
+QuNex library:						https://gitlab.qunex.yale.edu/qunex/library
+QuNex:								https://gitlab.qunex.yale.edu/qunex/qunex
+QuNex container:					https://gitlab.qunex.yale.edu/qunex/qunexcontainer
+workbench:							https://github.com/Washington-University/workbench
+Cortical Surfaces:				https://github.com/myersm0/CorticalSurfaces.jl
+Cortical Parcels:					https://github.com/myersm0/CorticalParcels.jl
+Observable Cortex:				https://github.com/myersm0/ObservableCortex.jl
+Watershed Parcellation:			https://github.com/myersm0/WatershedParcellation.jl
+CIFTI dot JL:						https://github.com/myersm0/CIFTI.jl
+4DFP dot JL:						https://github.com/myersm0/Fourdfp.jl
+Cifti Lib:							https://github.com/Washington-University/CiftiLib
+Word Frequency Distributions:	https://github.com/myersm0/WordFrequencyDistributions.jl
