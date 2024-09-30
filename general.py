@@ -37,6 +37,14 @@ class Actions:
             # Handle error (optional)
             print(f"Command failed with error: {e}")
 
+    def take_screenshot():
+        """take a screenshot"""
+        try:
+            subprocess.run("screenshot", shell=True, check=True)
+        except subprocess.CalledProcessError as e:
+            # Handle error (optional)
+            print(f"Command failed with error: {e}")
+
 
 
 

@@ -46,7 +46,7 @@ take context:
     key(f8)
 
 take screenshot:
-    key(f9)
+    user.take_screenshot()
 
 (take note | note to self):
     key(f10)
