@@ -46,7 +46,7 @@ take context:
     key(f8)
 
 take screenshot:
-    user.take_screenshot()
+    key(f9)
 
 (take note | note to self):
     key(f10)
@@ -111,5 +111,8 @@ conda activate$:
 conda deactivate$:
 	insert("conda deactivate")
 	key(enter)
+
+^clip this$:
+	user.save_selected_text_to_file()
 
 
