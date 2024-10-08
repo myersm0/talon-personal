@@ -317,15 +317,19 @@ page that:
 	insert(" | less")
 	key(enter)
 
-meta find:
-	insert("meda find --base_dir=./ --query=")
+clew (insert|create):
+	insert("clew insert --base_dir=~/contents/ --purpose=")
 	key(":2)
 	key(left)
 
-meta create:
-	insert("meda create --base_dir=./ --purpose=")
+clew (find|search)$:
+	insert("clew search --data=")
 	key(":2)
 	key(left)
+
+clew (find|search) from current$:
+	insert("clew search --data=.")
+	key(enter)
 
 
 
