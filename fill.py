@@ -24,6 +24,7 @@ ctx_default.lists["user.pathname"] = {
 	"CBA staging":	"/ceph/intradb/archive/CCF_CBA_STG/arc001/",
 	"supercomputer logs": "/ceph/scratch/intradb/build/chpc/build/nrg-svc-hcpi/",
 	"IntraDb logs": "/ceph/intradb/logs/pipeline/",
+	"CinaB":	"/ceph/intradb/archive/CinaB/",
 }
 
 

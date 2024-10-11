@@ -318,7 +318,7 @@ page that:
 	key(enter)
 
 clew (insert|create):
-	insert("clew insert --base_dir=~/contents/ --purpose=")
+	insert("clew insert ")
 	key(":2)
 	key(left)
 
