@@ -37,6 +37,22 @@ class Actions:
             # Handle error (optional)
             print(f"Command failed with error: {e}")
 
+    def mute():
+        """mute the volume"""
+        try:
+            subprocess.run("pactl set-sink-mute @DEFAULT_SINK@ 1", shell=True, check=True)
+        except subprocess.CalledProcessError as e:
+            # Handle error (optional)
+            print(f"Command failed with error: {e}")
+
+    def unmute():
+        """unmute the volume"""
+        try:
+            subprocess.run("pactl set-sink-mute @DEFAULT_SINK@ 0", shell=True, check=True)
+        except subprocess.CalledProcessError as e:
+            # Handle error (optional)
+            print(f"Command failed with error: {e}")
+
     def take_screenshot():
         """take a screenshot"""
         try:
