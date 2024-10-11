@@ -1,4 +1,5 @@
 mode: user.symbol
+and not mode: user.recording
 -
 
 gamepad(dpad_left:down): key(")

@@ -2,6 +2,7 @@ app: celluloid
 not mode: user.seek
 and not mode: user.symbol
 and not mode: user.meeting
+and not mode: user.recording
 -
 
 gamepad(dpad_left:down): key(left:down)

@@ -1,19 +1,19 @@
 
 ^meeting mode$:
-    mode.enable("user.meeting")
-    speech.disable()
+	mode.enable("user.meeting")
+	speech.disable()
 
 ^symbol mode$:
-    mode.enable("user.symbol")
+	mode.enable("user.symbol")
 
 done with seeking:
 	 key(q)
 
 done with symbols:
-    mode.disable("user.symbol")
+	mode.disable("user.symbol")
 
 done with mouse:
-    mode.disable("user.mouse")
+	mode.disable("user.mouse")
 
 select everything:
 	key(cmd-a)
@@ -42,14 +42,8 @@ key(f6:up):
 key(f7):
 	speech.toggle()
 
-take context:
-    key(f8)
-
 take screenshot:
-    key(f9)
-
-(take note | note to self):
-    key(f10)
+	key(f9)
 
 surround <user.symbol_key>:
 	key(" ")
