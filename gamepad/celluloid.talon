@@ -36,6 +36,20 @@ gamepad(r2:up):
 	key(shift:up)
 	key(right:up)
 
+gamepad(l3:down):
+	key(shift:down)
+	key(left:down)
+gamepad(l3:up):
+	key(shift:up)
+	key(left:up)
+
+gamepad(r3:down):
+	key(shift:down)
+	key(right:down)
+gamepad(r3:up):
+	key(shift:up)
+	key(right:up)
+
 gamepad(select):
 	key(alt--)
 

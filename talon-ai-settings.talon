@@ -6,11 +6,13 @@ settings():
 
     # Works with any API with the same schema as OpenAI's (i.e. Azure, llamafiles, etc.)
 #    user.model_endpoint = "https://api.openai.com/v1/chat/completions"
-    user.model_endpoint = "https://api-test.openai.wustl.edu/base-gpt-4o-128k/v1/chat/completions"
+    user.model_endpoint = "https://api.openai.wustl.edu/base-gpt-4o-128k/v1/chat/completions"
     user.model_system_prompt = "You are an assistant helping a developer in an fMRI research lab to be more productive. Output just the response to the request and no additional content. Do not repeat or paraphrase the request. Do not summarize anything at the end or otherwise output any redundant info. If code is requested, do not generate any comments or markdown formatting such as backticks, unless explicitly requested to do so."
+#	 user.openai_authentication = "API key"
+	 user.openai_authentication = "OAuth credentials"
 
     # Change to 'gpt-4' or the model of your choice
-    user.openai_model = "gpt-4o-128k"
+    user.openai_model = "gpt-4o"
 
 # Only uncomment the line below if you want experimental behavior to parse Talon files
 # tag(): user.gpt_beta
