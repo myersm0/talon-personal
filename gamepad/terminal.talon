@@ -42,6 +42,15 @@ gamepad(l1):
 	key(escape)
 	key(f12)
 
+gamepad(l2):
+	key(escape)
+	key(0)
+	key(v)
+	key($)
+	key(ctrl-c:2)
+	sleep(100ms)
+	key(j)
+
 gamepad(r1):
 	key(tab)
 

@@ -65,6 +65,9 @@ quote:
 quotes:
 	key(")
 
+quotation:
+	key(")
+
 (comma|Komma|item):
 	key(,)
 	key(space)

@@ -130,6 +130,11 @@ vim sub:
 	key(escape)
 	insert(":%s/")
 
+vim command:
+	key(escape)
+	key(:)
+	key(!)
+
 undo:
 	key(escape)
 	key("u")
@@ -330,6 +335,13 @@ clew (find|search)$:
 clew (find|search) from current$:
 	insert("clew search --data=.")
 	key(enter)
+
+^julia one point nine$:
+	insert("julia +1.9.4")
+
+^julia one point ten$:
+	insert("julia +1.10.5")
+
 
 
 
