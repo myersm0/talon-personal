@@ -17,7 +17,7 @@ class Actions:
 
         # Create timestamped filename
         timestamp = time.strftime("%Y%m%d_%H%M%S")
-        folder_path = os.path.expanduser("~/contents/083e4a/")
+        folder_path = os.path.expanduser("~/contents/083e4b/")
         os.makedirs(folder_path, exist_ok=True)  # Ensure the folder exists
         file_path = os.path.join(folder_path, f"{timestamp}.txt")
 
