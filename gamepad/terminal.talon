@@ -8,33 +8,34 @@ and not mode: user.recording
 gamepad(dpad_left:down):
 	key(escape)
 	key(b:down)
+	user.key_hold("b")
 gamepad(dpad_left:up):
-	key(b:up)
+	user.key_release("b")
 
 gamepad(dpad_right:down):
 	key(escape)
-	key(w:down)
+	user.key_hold("w")
 gamepad(dpad_right:up):
-	key(w:up)
+	user.key_release("w")
 
 gamepad(dpad_down:down):
 	key(escape)
-	key(j:down)
+	user.key_hold("j")
 gamepad(dpad_down:up):
-	key(j:up)
+	user.key_release("j")
 
 gamepad(dpad_up:down):
 	key(escape)
-	key(k:down)
+	user.key_hold("k")
 gamepad(dpad_up:up):
-	key(k:up)
+	user.key_release("k")
 
 gamepad(north:down): key(space:down)
 gamepad(north:up): key(space:up)
 gamepad(south:down): key(enter:down)
 gamepad(south:up): key(enter:up)
-gamepad(west:down): key(backspace:down)
-gamepad(west:up): key(backspace:up)
+gamepad(west:down): user.key_hold("backspace")
+gamepad(west:up): user.key_release("backspace")
 gamepad(east:down): key(ctrl-c:down)
 gamepad(east:up): key(ctrl-c:up)
 

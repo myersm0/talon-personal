@@ -4,7 +4,7 @@ app: /workbench/i
 app: /libreoffice/i
 app: /soffice/i
 app: gedit
-app: Xed
+app: TextEdit
 app: xviewer
 app: pavucontrol
 app: /nemo/i
@@ -14,23 +14,39 @@ and not mode: user.recording
 #and not mode: user.meeting
 -
 
-gamepad(dpad_left:down): key(left:down)
-gamepad(dpad_left:up): key(left:up)
-gamepad(dpad_right:down): key(right:down)
-gamepad(dpad_right:up): key(right:up)
-gamepad(dpad_down:down): key(down:down)
-gamepad(dpad_down:up): key(down:up)
-gamepad(dpad_up:down): key(up:down)
-gamepad(dpad_up:up): key(up:up)
+gamepad(dpad_left:down):
+	key(escape)
+	key(b:down)
+	user.key_hold("left")
+gamepad(dpad_left:up):
+	user.key_release("left")
 
-gamepad(north:down): key(space:down)
-gamepad(north:up): key(space:up)
-gamepad(south:down): key(enter:down)
-gamepad(south:up): key(enter:up)
-gamepad(west:down): key(backspace:down)
-gamepad(west:up): key(backspace:up)
-gamepad(east:down): key(.:down)
-gamepad(east:up): key(.:up)
+gamepad(dpad_right:down):
+	key(escape)
+	user.key_hold("right")
+gamepad(dpad_right:up):
+	user.key_release("right")
+
+gamepad(dpad_down:down):
+	key(escape)
+	user.key_hold("down")
+gamepad(dpad_down:up):
+	user.key_release("down")
+
+gamepad(dpad_up:down):
+	key(escape)
+	user.key_hold("up")
+gamepad(dpad_up:up):
+	user.key_release("up")
+
+gamepad(north:down): user.key_hold("space")
+gamepad(north:up): user.key_release("space")
+gamepad(south:down): user.key_hold("enter")
+gamepad(south:up): user.key_release("enter")
+gamepad(west:down): user.key_hold("backspace")
+gamepad(west:up): user.key_release("backspace")
+gamepad(east:down): user.key_hold(".")
+gamepad(east:up): user.key_release(".")
 
 gamepad(l1):	key(ctrl-pageup)
 gamepad(r1):	key(ctrl-pagedown)
@@ -44,5 +60,4 @@ gamepad(r3:down):
 	key(ctrl:down)
 gamepad(r3:up):
 	key(ctrl:up)
-
 
