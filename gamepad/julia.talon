@@ -29,14 +29,14 @@ gamepad(r2:up):
 	key(.:up)
 
 gamepad(l3:down):
-	key(c:down)
+	key(0:down)
 gamepad(l3:up):
-	key(c:up)
+	key(0:up)
 
 gamepad(r3:down):
-	key(d:down)
+	key($:down)
 gamepad(r3:up):
-	key(d:up)
+	key($:up)
 
 gamepad(select): key(e)
 gamepad(start): key(a)
