@@ -28,10 +28,13 @@ backspace:
 	key(bksp)
 
 workspace (right|next):
-	key(ctrl-alt-right)
+	key(ctrl-right)
 	
 workspace (left|previous):
-	key(ctrl-alt-left)
+	key(ctrl-left)
+
+window next:
+	key(cmd-`)
 
 key(f6:down):
 	speech.disable()
