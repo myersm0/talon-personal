@@ -183,6 +183,10 @@ repl four:
 	insert("repl4")
 	key(enter)
 
+four across:
+	insert("four_across")
+	key(enter)
+
 (lister | list latest):
 	insert("ls -ltr")
 	key(enter)
@@ -249,6 +253,7 @@ go home:
 go to {user.pathname}:
 	insert("cd ")
 	insert(pathname)
+	key(enter)
 
 go ahead:
 	insert("goahead -d 1")
@@ -342,6 +347,27 @@ clew (find|search) from current$:
 ^julia one point ten$:
 	insert("julia +1.10.5")
 
+log read journal:
+	insert("log read journal")
+	key(enter)
 
+log read note:
+	insert("log read note")
+	key(enter)
 
+log read dream:
+	insert("log read dream")
+	key(enter)
+
+log journal:
+	insert("log journal")
+	key(enter)
+
+log note:
+	insert("log note")
+	key(enter)
+
+log dream:
+	insert("log dream")
+	key(enter)
 

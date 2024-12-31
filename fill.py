@@ -1,27 +1,26 @@
 from talon import Module, Context
 
 mod = Module()
-mod.list("pathname", desc = "commonly use paths")
+mod.list("pathname", desc = "commonly used paths")
 
 ctx_default = Context()
 ctx_default.lists["user.pathname"] = {
-	"desdemona":			"/Volumes/desdemona/contents/",
-	"daphne":				"/Volumes/daphne/contents/",
-	"diomedes":				"/Volumes/diomedes/contents/",
+	"previous":				"-",
 	"edmund":				"/Volumes/edmund/contents/",
 	"electra":				"/Volumes/electra/contents/",
 	"falstaff":				"/Volumes/falstaff/contents/",
 	"guinevere":			"/Volumes/guinevere/contents/",
 	"gesualdo":				"/Volumes/gesualdo/contents/",
 	"contents":				"~/contents/",
-    "downloads":			"~/Downloads/",
-    "documents":			"~/Documents/",
-    "resources":            "~/resources/",
+	"downloads":			"~/Downloads/",
+	"documents":			"~/Documents/",
+	"pictures":			    "~/Pictures/",
+	"resources":			"~/resources/",
 	"Talon user":			"~/.talon/user/",
 	"my Talon":				"~/.talon/user/m/",
-	"Talon community":      "~/.talon/user/community/",
-	"stact intake":         "/ceph/intradb/inbox/CCF_MANUAL_TRANSFERS/CCF_STACT_ITK/",
-	"ADCP intake":          "/ceph/intradb/archive/CCF_ADCPWI_ITK/arc001/",
+	"Talon community":	    "~/.talon/user/community/",
+	"stact intake":		    "/ceph/intradb/inbox/CCF_MANUAL_TRANSFERS/CCF_STACT_ITK/",
+	"ADCP intake":		    "/ceph/intradb/archive/CCF_ADCPWI_ITK/arc001/",
 	"ADCP processing":      "/ceph/intradb/archive/CCF_ADCPWI_PRC/arc001/",
 	"ADCP staging":         "/ceph/intradb/archive/CinaB/CCF_ADCPWI_STG/bids/",
 	"CBA intake":           "/ceph/intradb/archive/CCF_CBA_ITK/arc001/",
