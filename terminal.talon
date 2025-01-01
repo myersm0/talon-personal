@@ -295,11 +295,14 @@ grep (caseless|insensitive):
 grep recursive:
 	insert("grep -Er ")
 
+grep recursive insensitive:
+	insert("grep -Eri ")
+
 find:
-	insert("find ")
+	insert("find . ")
 
 find <digits>:
-	insert("find -maxdepth ")
+	insert("find . -maxdepth ")
 	insert(digits)
 	key(space)
 
@@ -370,4 +373,8 @@ log note:
 log dream:
 	insert("log dream")
 	key(enter)
+
+julia main:
+	insert("julia main.jl ")
+
 
