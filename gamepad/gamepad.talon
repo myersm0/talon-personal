@@ -16,7 +16,6 @@ and not mode: user.recording
 
 gamepad(dpad_left:down):
 	key(escape)
-	key(b:down)
 	user.key_hold("left")
 gamepad(dpad_left:up):
 	user.key_release("left")
