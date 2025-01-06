@@ -18,15 +18,8 @@ gamepad(dpad_up:up): key(up:up)
 gamepad(l1):	key(ctrl-pagedown)
 gamepad(r1):	key(ctrl-pageup)
 
-gamepad(l2:down):
-	key(,:down)
-gamepad(l2:up):
-	key(,:up)
-
-gamepad(r2:down):
-	key(.:down)
-gamepad(r2:up):
-	key(.:up)
+gamepad(l2): key(,)
+gamepad(r2): key(.)
 
 gamepad(l3:down):
 	key(0:down)
