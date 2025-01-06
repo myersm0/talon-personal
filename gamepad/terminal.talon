@@ -1,4 +1,5 @@
 app: /terminal/i
+app: /term/i
 not mode: user.seek
 and not mode: user.symbol
 and not mode: user.recording

@@ -1,5 +1,6 @@
 
 app:	/terminal/i
+app:	/term/i
 -
 
 ^fim prefix$: insert("<|fim_prefix|>")

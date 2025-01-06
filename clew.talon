@@ -1,4 +1,5 @@
 app: /terminal/i
+app: /term/i
 -
 
 clew (find|search)$:

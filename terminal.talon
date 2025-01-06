@@ -1,4 +1,5 @@
 app: /terminal/i
+app: /term/i
 -
 
 tiny down:
@@ -376,5 +377,12 @@ log dream:
 
 julia main:
 	insert("julia main.jl ")
+
+cmus:
+	insert("cmus")
+
+cmus remote:
+	insert("cmus-remote ")
+
 
 
