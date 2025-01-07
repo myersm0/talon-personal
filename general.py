@@ -61,4 +61,12 @@ class Actions:
             # Handle error (optional)
             print(f"Command failed with error: {e}")
 
+    def set_default_mic():
+        """set the default microphone, with a fallback"""
+        try:
+            subprocess.run('/Users/michael.myers/bin/select_mic "Samson Q9U" "MacBook Pro Microphone"', shell=True, check=True)
+        except subprocess.CalledProcessError as e:
+            # Handle error (optional)
+            print(f"Command failed with error: {e}")
+
 

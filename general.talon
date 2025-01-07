@@ -115,4 +115,6 @@ conda deactivate$:
 ^clip this$:
 	user.save_selected_text_to_file()
 
+set default mic:
+	user.set_default_mic()
 
