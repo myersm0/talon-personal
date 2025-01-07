@@ -47,7 +47,7 @@ key(f7):
 	speech.toggle()
 
 take screenshot:
-	key(f9)
+	user.take_screenshot()
 
 surround <user.symbol_key>:
 	key(" ")
@@ -116,3 +116,5 @@ conda deactivate$:
 set default mic:
 	user.set_default_mic()
 
+microphones:
+	user.set_default_mic()
