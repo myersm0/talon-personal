@@ -10,7 +10,7 @@ class Actions:
 	def run_external_command(program: str):
 		"""run an external command"""
 		command = f"gnome-terminal --geometry=40x5+100+100 -- bash -c '{program}'"
-		process = subprocess.Popen(command, shell=True)
+		process = subprocess.Popen(f"/Users/michael.myers/bin/{command}", shell=True)
 		process.wait()
 
 

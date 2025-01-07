@@ -56,7 +56,7 @@ class Actions:
     def take_screenshot():
         """take a screenshot"""
         try:
-            subprocess.run("screenshot", shell=True, check=True)
+            subprocess.run("/Users/michael.myers/bin/screenshot", shell=True, check=True)
         except subprocess.CalledProcessError as e:
             # Handle error (optional)
             print(f"Command failed with error: {e}")

@@ -3,7 +3,6 @@ app: /term/i
 not mode: user.seek
 and not mode: user.symbol
 and not mode: user.recording
-#and not mode: user.meeting
 -
 
 gamepad(dpad_left:down):
@@ -53,27 +52,18 @@ gamepad(l2):
 	sleep(100ms)
 	key(j)
 
-gamepad(r1):
-	key(tab)
+gamepad(r1): key(tab)
 
-gamepad(select):
-	insert("cd ..")
+gamepad(r2): 
+	key(escape)
+	key(shift-A)
+
+gamepad(l3): key(/)
+gamepad(r3): key(")
+
+gamepad(select): 
+	insert("exit")
 	key(enter)
 
-gamepad(r2):
-	key(escape)
-   key(shift-A)
-
-gamepad(start):
-	insert("cd ")
-
-gamepad(l3:down):
-	key(shift:down)
-gamepad(l3:up):
-	key(shift:up)
-
-gamepad(r3:down):
-	key(ctrl:down)
-gamepad(r3:up):
-	key(ctrl:up)
+gamepad(start): key(cmd-t)
 

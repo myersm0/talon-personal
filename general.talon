@@ -1,6 +1,7 @@
 
 ^meeting mode$:
 	mode.enable("user.meeting")
+	user.set_default_mic()
 	speech.disable()
 
 ^symbol mode$:
@@ -95,9 +96,6 @@ networking (off|disable):
 
 maximize:
 	key(alt-f10)
-
-tab zu:
-	user.tab_close_wrapper()
 
 chase:
 	key(space)
