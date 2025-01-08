@@ -58,9 +58,6 @@ gamepad(r2):
 	key(escape)
 	key(shift-A)
 
-gamepad(l3): key(/)
-gamepad(r3): key(")
-
 gamepad(select): 
 	insert("exit")
 	key(enter)

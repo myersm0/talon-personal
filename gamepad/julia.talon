@@ -21,15 +21,8 @@ gamepad(r1):	key(ctrl-pageup)
 gamepad(l2): key(,)
 gamepad(r2): key(.)
 
-gamepad(l3:down):
-	key(0:down)
-gamepad(l3:up):
-	key(0:up)
-
-gamepad(r3:down):
-	key($:down)
-gamepad(r3:up):
-	key($:up)
+gamepad(l3): key(0)
+gamepad(r3): key($)
 
 gamepad(select): key(e)
 gamepad(start): key(a)

@@ -1,8 +1,8 @@
 not app: /terminal/i
-not app: /term/i
-not app: /julia/i
-not app: /safari/i
-not app: /zoom/i
+and not app: /term/i
+and not app: /julia/i
+and not app: /safari/i
+and not app: /zoom/i
 not mode: user.seek
 and not mode: user.symbol
 and not mode: user.recording
