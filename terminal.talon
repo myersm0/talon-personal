@@ -384,5 +384,3 @@ cmus:
 cmus remote:
 	insert("cmus-remote ")
 
-
-
