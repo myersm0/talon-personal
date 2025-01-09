@@ -2,8 +2,8 @@ from talon import Module, Context, actions, ui, ctrl
 from talon.screen import Screen
 import time
 
-HOLD_TIMEOUT1 = 0.35
-HOLD_TIMEOUT2 = 1.0
+HOLD_TIMEOUT1 = 0.3
+HOLD_TIMEOUT2 = 0.8
 
 screen: Screen = ui.main_screen()
 mod = Module()
@@ -678,6 +678,12 @@ class ZoomActions:
     def gamepad_release_right_stick(held):
         if held >= 1:
             actions.key("cmd-shift-a")
+
+    def gamepad_press_select():
+        actions.skip()
+    def gamepad_release_select(held):
+        if held >= 1:
+            actions.key("cmd-q")
 
 
 ctx_recording1 = Context()

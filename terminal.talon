@@ -131,6 +131,11 @@ vim sub:
 	key(escape)
 	insert(":%s/")
 
+vim next:
+	key(escape)
+	insert(":n")
+	key(enter)
+
 vim command:
 	key(escape)
 	key(:)
