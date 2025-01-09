@@ -3,7 +3,7 @@ from talon.screen import Screen
 import time
 
 HOLD_TIMEOUT1 = 0.35
-HOLD_TIMEOUT2 = 1.2
+HOLD_TIMEOUT2 = 1.0
 
 screen: Screen = ui.main_screen()
 mod = Module()
@@ -497,8 +497,10 @@ class GeneralActions:
     def gamepad_release_east(held):
         if held == 0:
             actions.key("ctrl-c")
-        elif held >= 1:
+        elif held == 1:
             actions.insert("c$")
+        elif held == 2:
+            actions.insert("cc")
 
     def gamepad_press_left_shoulder():
         actions.skip()
