@@ -1,41 +1,46 @@
-not app: /terminal/i
-and not app: /term/i
-and not app: /julia/i
-and not app: /safari/i
-and not app: /zoom/i
-not mode: user.seek
-and not mode: user.symbol
-and not mode: user.recording
--
 
-gamepad(dpad_left:down): user.key_hold("left")
-gamepad(dpad_left:up): user.key_release("left")
-gamepad(dpad_right:down): user.key_hold("right")
-gamepad(dpad_right:up): user.key_release("right")
-gamepad(dpad_down:down): user.key_hold("down")
-gamepad(dpad_down:up): user.key_release("down")
-gamepad(dpad_up:down): user.key_hold("up")
-gamepad(dpad_up:up): user.key_release("up")
+# DPAD buttons
+gamepad(dpad_left:down):    user.gamepad_button_down("dpad_left")
+gamepad(dpad_left:up):      user.gamepad_button_up("dpad_left")
+gamepad(dpad_up:down):      user.gamepad_button_down("dpad_up")
+gamepad(dpad_up:up):        user.gamepad_button_up("dpad_up")
+gamepad(dpad_right:down):   user.gamepad_button_down("dpad_right")
+gamepad(dpad_right:up):     user.gamepad_button_up("dpad_right")
+gamepad(dpad_down:down):    user.gamepad_button_down("dpad_down")
+gamepad(dpad_down:up):      user.gamepad_button_up("dpad_down")
 
-gamepad(north:down): user.key_hold("space")
-gamepad(north:up): user.key_release("space")
-gamepad(south:down): user.key_hold("enter")
-gamepad(south:up): user.key_release("enter")
-gamepad(west:down): user.key_hold("backspace")
-gamepad(west:up): user.key_release("backspace")
-gamepad(east:down): user.key_hold(".")
-gamepad(east:up): user.key_release(".")
+# Compass / ABXY buttons
+gamepad(west:down):         user.gamepad_button_down("west")
+gamepad(west:up):           user.gamepad_button_up("west")
+gamepad(north:down):        user.gamepad_button_down("north")
+gamepad(north:up):          user.gamepad_button_up("north")
+gamepad(east:down):         user.gamepad_button_down("east")
+gamepad(east:up):           user.gamepad_button_up("east")
+gamepad(south:down):        user.gamepad_button_down("south")
+gamepad(south:up):          user.gamepad_button_up("south")
 
-gamepad(l1): key(ctrl-pageup)
-gamepad(r1): key(ctrl-pagedown)
+# Select / Start buttons
+gamepad(select:down):       user.gamepad_button_down("select")
+gamepad(select:up):         user.gamepad_button_up("select")
+gamepad(start:down):        user.gamepad_button_down("start")
+gamepad(start:up):          user.gamepad_button_up("start")
 
-gamepad(l3:down): key(shift:down)
-gamepad(l3:up): key(shift:up)
+# Shoulder buttons
+gamepad(l1:down):           user.gamepad_button_down("left_shoulder")
+gamepad(l1:up):             user.gamepad_button_up("left_shoulder")
+gamepad(r1:down):           user.gamepad_button_down("right_shoulder")
+gamepad(r1:up):             user.gamepad_button_up("right_shoulder")
 
-gamepad(r3:down): key(ctrl:down)
-gamepad(r3:up): key(ctrl:up)
+# Stick buttons
+gamepad(l3:down):           user.gamepad_button_down("left_stick")
+gamepad(l3:up):             user.gamepad_button_up("left_stick")
+gamepad(r3:down):           user.gamepad_button_down("right_stick")
+gamepad(r3:up):             user.gamepad_button_up("right_stick")
 
-gamepad(select): key(cmd-w)
-gamepad(start): key(cmd-t)
+# Analog triggers
+gamepad(l2:repeat):         user.gamepad_trigger_left(value)
+gamepad(r2:repeat):         user.gamepad_trigger_right(value)
 
-
+# Analog thumb sticks
+gamepad(left_xy:repeat):    user.gamepad_stick_right(x * 0.4, y * -0.4)
+gamepad(right_xy:repeat):   user.gamepad_stick_right(x * 1.2, y * -1.2)
