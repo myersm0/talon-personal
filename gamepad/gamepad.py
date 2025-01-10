@@ -581,13 +581,15 @@ class GeneralActions:
             move = "down"
         elif axis == "y":
             move = "up"
-        movement_threshold = 8 if max(abs(x), abs(y)) < 1.0 else 1
+        magnitude = max(abs(x), abs(y))
+        movement_threshold = 8 if magnitude < 1.0 else 1
+        if magnitude >= 1.0:
+            move = f"{move}:8"
         stick_move_counter += 1
         if stick_move_counter >= movement_threshold:
             actions.key(move)
             stick_move_counter = 0
 
-    # Scaffolding actions used by the Talon file
 
 ctx_julia = Context()
 ctx_julia.matches = """
