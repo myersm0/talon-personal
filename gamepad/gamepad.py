@@ -5,6 +5,9 @@ import time
 HOLD_TIMEOUT1 = 0.3
 HOLD_TIMEOUT2 = 0.8
 
+# workaround for the fact that the analogue sticks seem to generate 4 presses at a time
+stick_move_counter = 0
+
 screen: Screen = ui.main_screen()
 mod = Module()
 slow_scroll = False
@@ -564,6 +567,27 @@ class GeneralActions:
         elif held >= 1:
             actions.key("cmd-n")
 
+    def gamepad_stick_right(x: float, y: float):
+        """Gamepad right stick movement"""
+        global stick_move_counter
+        ratio = x / y
+        axis = "x" if abs(ratio) > 1 else "y"
+        positive_direction = x > 0 if axis == "x" else y > 0
+        if axis == "x" and positive_direction:
+            move = "right"
+        elif axis == "x":
+            move = "left"
+        elif axis == "y" and positive_direction:
+            move = "down"
+        elif axis == "y":
+            move = "up"
+        movement_threshold = 8 if max(abs(x), abs(y)) < 1.0 else 1
+        stick_move_counter += 1
+        if stick_move_counter >= movement_threshold:
+            actions.key(move)
+            stick_move_counter = 0
+
+    # Scaffolding actions used by the Talon file
 
 ctx_julia = Context()
 ctx_julia.matches = """
