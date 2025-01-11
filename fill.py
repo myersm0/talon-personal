@@ -1,7 +1,7 @@
 from talon import Module, Context
 
 mod = Module()
-mod.list("pathname", desc = "commonly used paths")
+mod.list("pathname", desc = "My commonly used paths")
 
 ctx_default = Context()
 ctx_default.lists["user.pathname"] = {
