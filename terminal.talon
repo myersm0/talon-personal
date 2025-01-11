@@ -2,69 +2,14 @@ app: /terminal/i
 app: /term/i
 -
 
-tiny down:
-	key(escape)
-	key("j:5")
 
-little down:
-	key(escape)
-	key("j:10")
+## vim
 
-big down:
+vim (no|disable) colors:
 	key(escape)
-	key("j:30")
-
-huge down:
-	key(escape)
-	key("j:100")
-
-tiny up:
-	key(escape)
-	key("k:5")
-
-little up:
-	key(escape)
-	key("k:10")
-
-big up:
-	key(escape)
-	key("k:30")
-
-huge up:
-	key(escape)
-	key("k:100")
-
-tiny left:
-	key(escape)
-	key("h:5")
-
-little left:
-	key(escape)
-	key("h:10")
-
-big left:
-	key(escape)
-	key("h:30")
-
-huge left:
-	key(escape)
-	key("h:100")
-
-tiny right:
-	key(escape)
-	key("l:5")
-
-little right:
-	key(escape)
-	key("l:10")
-
-big right:
-	key(escape)
-	key("l:30")
-
-huge right:
-	key(escape)
-	key("l:100")
+	key(":")
+	insert("set t_Co=0")
+	key(enter)
 
 select to end:
 	key(escape)
@@ -81,20 +26,14 @@ change word:
 	key("c")
 	key("w")
 
-vim (no|disable) colors:
-	key(escape)
-	key(":")
-	insert("set t_Co=0")
-	key(enter)
-
 vim put:
 	key(escape)
 	key("p")
 
-vim yank <user.number>:
+vim yank <digits>:
 	key(escape)
-	n = user.number or 1
-	key(n)
+	n = digits or 1
+	insert(n)
 	key("y")
 	key("y")
 
@@ -149,6 +88,19 @@ redo:
 	key(escape)
 	key(ctrl-r)
 
+spaces to tabs:
+	key(escape)
+	insert(":%s/    /\t/g")
+	key(enter)
+
+tabs to spaces:
+	key(escape)
+	insert(":%s/\t/    /g")
+	key(enter)
+
+
+## tmux
+
 ^(move|tmux) down$:
 	key(ctrl-a)
 	insert("j")
@@ -193,7 +145,14 @@ four across:
 	insert("four_across")
 	key(enter)
 
-(lister | list latest):
+
+## bash 
+
+list:
+	insert("ls -l")
+	key(enter)
+
+(lister|list latest):
 	insert("ls -ltr")
 	key(enter)
 
@@ -201,12 +160,12 @@ listra:
 	insert("ls -ltra")
 	key(enter)
 
-list:
-	insert("ls -l")
+list by size:
+	insert("ls -lS")
 	key(enter)
 
-CDM:
-	insert("cdm")
+list by size reversed:
+	insert("ls -lSr")
 	key(enter)
 
 git commit:
@@ -220,30 +179,24 @@ set minus oh VI:
 bash read lines:
 	insert("while IFS= read -r line; do")
 
-#bash loop (over|through) files:
-#	insert("for file in \"${filelist[@]}\\"; do")
-
-send selection:
-	key(f3)
-
-spaces to tabs:
-	key(escape)
-	insert(":%s/    /\t/g")
-	key(enter)
-
-tabs to spaces:
-	key(escape)
-	insert(":%s/\t/    /g")
-	key(enter)
+bash loop (over|through) (files|filelist):
+	insert("for file in ")
+	key(")
+	key($)
+	key({)
+	insert("filelist")
+	insert("[@]}")
+	key(")
+	insert("; do")
 
 search history:
-	insert("history | grep -E ")
+	insert("history | grep -Ei ")
 
 (line count|count lines):
-	insert("wc -l")
+	insert("wc -l ")
 
 count those lines:
-	insert(" | wc -l")
+	insert(" | wc -l ")
 
 go back$:
 	insert("cd ..")
@@ -255,6 +208,81 @@ go home:
 
 ^go to$:
 	insert("cd ")
+
+grep:
+	insert("grep -E ")
+
+grep that:
+	insert(" | grep -E ")
+
+# todo: make a dictionary of grep options to use as captures
+grep (caseless|insensitive):
+	insert("grep -Ei ")
+
+grep recursive:
+	insert("grep -Er ")
+
+grep recursive insensitive:
+	insert("grep -Eri ")
+
+find:
+	insert("find . ")
+
+find <digits>:
+	insert("find . -maxdepth ")
+	insert(digits)
+	key(space)
+
+copy:
+	insert("cp ")
+
+make (folder|dir):
+	insert("mkdir -p ")
+
+array:
+	key(")
+	key($)
+	key({)
+	insert("[@]}")
+	key(")
+	key(left:5)
+
+squeue:
+	insert("squeue")
+
+install:
+	insert("sudo apt-get install ")
+
+page that:
+	insert(" | less")
+	key(enter)
+
+julia main:
+	insert("julia main.jl ")
+
+cmus:
+	insert("cmus")
+
+cmus remote:
+	insert("cmus-remote ")
+
+CDM:
+	insert("cdm")
+	key(enter)
+
+clew (insert|create):
+	insert("clew insert ")
+	key(":2)
+	key(left)
+
+clew (find|search)$:
+	insert("clew search --data=")
+	key(":2)
+	key(left)
+
+clew (find|search) from current$:
+	insert("clew search --data=.")
+	key(enter)
 
 go to {user.pathname}:
 	insert("cd ")
@@ -289,103 +317,13 @@ go recent (but|then) wait$:
 go frequent (but|then) wait$:
 	insert("cdf ")
 
-grep:
-	insert("grep -E ")
-
-grep that:
-	insert(" | grep -E ")
-
-grep (caseless|insensitive):
-	insert("grep -Ei ")
-
-grep recursive:
-	insert("grep -Er ")
-
-grep recursive insensitive:
-	insert("grep -Eri ")
-
-find:
-	insert("find . ")
-
-find <digits>:
-	insert("find . -maxdepth ")
-	insert(digits)
-	key(space)
-
-copy:
-	insert("cp ")
-
-make dir:
-	insert("mkdir -p ")
-
-array:
-	key(")
-	key($)
-	key({)
-	insert("[@]}")
-	key(")
-	key(left:5)
-
-squeue:
-	insert("squeue")
-
-install:
-	insert("sudo apt-get install ")
-
-page that:
-	insert(" | less")
+log read <phrase>:
+	insert("log read ")
+	insert(phrase)
 	key(enter)
 
-clew (insert|create):
-	insert("clew insert ")
-	key(":2)
-	key(left)
-
-clew (find|search)$:
-	insert("clew search --data=")
-	key(":2)
-	key(left)
-
-clew (find|search) from current$:
-	insert("clew search --data=.")
+log write <phrase>:
+	insert("log ")
+	insert(phrase)
 	key(enter)
-
-^julia one point nine$:
-	insert("julia +1.9.4")
-
-^julia one point ten$:
-	insert("julia +1.10.5")
-
-log read journal:
-	insert("log read journal")
-	key(enter)
-
-log read note:
-	insert("log read note")
-	key(enter)
-
-log read dream:
-	insert("log read dream")
-	key(enter)
-
-log journal:
-	insert("log journal")
-	key(enter)
-
-log note:
-	insert("log note")
-	key(enter)
-
-log dream:
-	insert("log dream")
-	key(enter)
-
-julia main:
-	insert("julia main.jl ")
-
-cmus:
-	insert("cmus")
-
-cmus remote:
-	insert("cmus-remote ")
 
