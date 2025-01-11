@@ -179,12 +179,28 @@ set minus oh VI:
 bash read lines:
 	insert("while IFS= read -r line; do")
 
-bash loop (over|through) (files|filelist):
-	insert("for file in ")
+for <phrase> in {user.array_names}:
+	insert("for ")
+	insert(phrase)
+	insert(" in ")
 	key(")
 	key($)
 	key({)
-	insert("filelist")
+	insert(array_names)
+	insert("[@]}")
+	key(")
+	insert("; do")
+
+search history:
+
+bash loop (over|through) {user.array_names}:
+	insert("for ")
+	insert(array_names)
+	insert(" in ")
+	key(")
+	key($)
+	key({)
+	insert(array_names)
 	insert("[@]}")
 	key(")
 	insert("; do")
