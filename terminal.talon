@@ -101,19 +101,19 @@ tabs to spaces:
 
 ## tmux
 
-^(move|tmux) down$:
+^[move|tmux] down$:
 	key(ctrl-a)
 	insert("j")
 
-^(move|tmux) up$:
+^[move|tmux] up$:
 	key(ctrl-a)
 	insert("k")
 
-^(move|tmux) left$:
+^[move|tmux] left$:
 	key(ctrl-a)
 	insert("h")
 
-^(move|tmux) right$:
+^[move|tmux] right$:
 	key(ctrl-a)
 	insert("l")
 
@@ -148,7 +148,7 @@ four across:
 
 ## bash 
 
-list:
+list$:
 	insert("ls -l")
 	key(enter)
 
@@ -176,26 +176,15 @@ set minus oh VI:
 	insert("set -o vi")
 	key(enter)
 
-bash read lines:
-	insert("while IFS= read -r line; do")
+read lines [(as|into) <phrase>]:
+	var = phrase or "line"
+	insert("while IFS= read -r ")
+	insert(var)
+	insert("; do")
 
 for <phrase> in {user.array_names}:
 	insert("for ")
 	insert(phrase)
-	insert(" in ")
-	key(")
-	key($)
-	key({)
-	insert(array_names)
-	insert("[@]}")
-	key(")
-	insert("; do")
-
-search history:
-
-bash loop (over|through) {user.array_names}:
-	insert("for ")
-	insert(array_names)
 	insert(" in ")
 	key(")
 	key($)
@@ -241,7 +230,7 @@ grep recursive:
 grep recursive insensitive:
 	insert("grep -Eri ")
 
-find:
+find$:
 	insert("find . ")
 
 find <digits>:
@@ -266,9 +255,6 @@ array:
 squeue:
 	insert("squeue")
 
-install:
-	insert("sudo apt-get install ")
-
 page that:
 	insert(" | less")
 	key(enter)
@@ -282,9 +268,8 @@ cmus:
 cmus remote:
 	insert("cmus-remote ")
 
-CDM:
-	insert("cdm")
-	key(enter)
+
+## navigation helpers (for use with my `Clew.jl` and `bash-productivity` repos)
 
 clew (insert|create):
 	insert("clew insert ")
@@ -305,11 +290,11 @@ go to {user.pathname}:
 	insert(pathname)
 	key(enter)
 
-go ahead:
+go ahead$:
 	insert("goahead -d 1")
 	key(enter)
 
-go ahead <digits>:
+go ahead <digits>$:
 	insert("goahead -d ")
 	insert(digits)
 	key(enter)
@@ -327,11 +312,14 @@ go frequent$:
 	insert("cdf")
 	key(enter)
 
-go recent (but|then) wait$:
+go recent (but|then) wait:
 	insert("cdr ")
 
-go frequent (but|then) wait$:
+go frequent (but|then) wait:
 	insert("cdf ")
+
+
+## for use with my personal note taker
 
 log read <phrase>:
 	insert("log read ")

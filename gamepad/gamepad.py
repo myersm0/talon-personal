@@ -312,17 +312,6 @@ def gamepad_mouse_jump(direction: str):
         case "right":
             x = rect.right - (rect.right - x) / 2
 
-    # # Move one fourth of screen width/height
-    # match direction:
-    #     case "up":
-    #         y -= rect.height / 4
-    #     case "down":
-    #         y += rect.height / 4
-    #     case "left":
-    #         x -= rect.width / 4
-    #     case "right":
-    #         x += rect.width / 4
-
     actions.mouse_move(x, y)
 
 
