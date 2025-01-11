@@ -514,6 +514,11 @@ class GeneralActions:
         elif held == 1:
             actions.key("escape")
             actions.key("0")
+            actions.key("v")
+            actions.key("$")
+            actions.key("ctrl-c:2")
+            actions.sleep("100ms")
+            actions.key("j")
         elif held == 2:
             actions.key("escape")
             actions.insert("gg")
