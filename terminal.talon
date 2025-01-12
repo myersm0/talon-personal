@@ -302,9 +302,9 @@ clew (find|search) from current$:
 	insert("clew search --data=.")
 	key(enter)
 
-go to {user.pathname}:
+go to {user.pathnames}:
 	insert("cd ")
-	insert(pathname)
+	insert(pathnames)
 	key(enter)
 
 go ahead$:
