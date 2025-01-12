@@ -1,4 +1,5 @@
 import subprocess
+import os
 from talon import Module
 
 mod = Module()
@@ -56,7 +57,17 @@ class Actions:
     def take_screenshot():
         """take a screenshot"""
         try:
-            subprocess.run("screenshot", shell=True, check=True)
+            username = subprocess.run("whoami", shell=True, check=True, capture_output=True, text=True).stdout.strip()
+            subprocess.run(f"/Users/{username}/bin/screenshot", shell=True, check=True)
+        except subprocess.CalledProcessError as e:
+            # Handle error (optional)
+            print(f"Command failed with error: {e}")
+
+    def set_default_mic():
+        """set the default microphone, with a fallback"""
+        try:
+            username = subprocess.run("whoami", shell=True, check=True, capture_output=True, text=True).stdout.strip()
+            subprocess.run(f'/Users/{username}/bin/select_mic "Samson Q9U" "MacBook Pro Microphone"', shell=True, check=True)
         except subprocess.CalledProcessError as e:
             # Handle error (optional)
             print(f"Command failed with error: {e}")

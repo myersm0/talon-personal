@@ -1,84 +1,18 @@
 app: /terminal/i
+app: /term/i
 -
 
-tiny down:
-	key(escape)
-	key("j:5")
+unicode {user.unicode}:
+	insert(unicode)
 
-little down:
-	key(escape)
-	key("j:10")
+[litte] (Greek|unicode) {user.lower_greek}:
+	insert(lower_greek)
 
-big down:
-	key(escape)
-	key("j:30")
+big (Greek|unicode) {user.upper_greek}:
+	insert(upper_greek)
 
-huge down:
-	key(escape)
-	key("j:100")
 
-tiny up:
-	key(escape)
-	key("k:5")
-
-little up:
-	key(escape)
-	key("k:10")
-
-big up:
-	key(escape)
-	key("k:30")
-
-huge up:
-	key(escape)
-	key("k:100")
-
-tiny left:
-	key(escape)
-	key("h:5")
-
-little left:
-	key(escape)
-	key("h:10")
-
-big left:
-	key(escape)
-	key("h:30")
-
-huge left:
-	key(escape)
-	key("h:100")
-
-tiny right:
-	key(escape)
-	key("l:5")
-
-little right:
-	key(escape)
-	key("l:10")
-
-big right:
-	key(escape)
-	key("l:30")
-
-huge right:
-	key(escape)
-	key("l:100")
-
-select to end:
-	key(escape)
-	key("v")
-	key("$")
-
-change to end:
-	key(escape)
-	key("c")
-	key("$")
-
-change word:
-	key(escape)
-	key("c")
-	key("w")
+## vim
 
 vim (no|disable) colors:
 	key(escape)
@@ -86,36 +20,56 @@ vim (no|disable) colors:
 	insert("set t_Co=0")
 	key(enter)
 
-vim put:
+{user.vim_actions} word:
+	key(escape)
+	insert(vim_actions)
+	key("w")
+
+{user.vim_actions} <digits> words:
+	key(escape)
+	insert(digits)
+	insert(vim_actions)
+	key("w")
+
+{user.vim_actions} to end:
+	key(escape)
+	insert(digits)
+	key("$")
+
+{user.vim_actions} line:
+	key(escape)
+	insert(vim_actions)
+	insert(vim_actions)
+
+{user.vim_actions} <digits> lines:
+	key(escape)
+	insert(digits)
+	insert(vim_actions)
+	insert(vim_actions)
+
+[vim] put:
 	key(escape)
 	key("p")
 
-vim yank <user.number>:
-	key(escape)
-	n = user.number or 1
-	key(n)
-	key("y")
-	key("y")
-
-vim save:
+[vim] save:
 	key(escape)
 	key(":")
 	key("w")
 	key(enter)
 
-vim save quit:
+[vim] save quit:
 	key(escape)
 	key(":")
 	insert("wq")
 	key(enter)
 
-vim quit:
+[vim] quit:
 	key(escape)
 	key(":")
 	key("q")
 	key(enter)
 
-vim force quit:
+[vim] force quit:
 	key(escape)
 	key(":")
 	key("q")
@@ -130,6 +84,11 @@ vim sub:
 	key(escape)
 	insert(":%s/")
 
+vim next:
+	key(escape)
+	insert(":n")
+	key(enter)
+
 vim command:
 	key(escape)
 	key(:)
@@ -143,19 +102,32 @@ redo:
 	key(escape)
 	key(ctrl-r)
 
-^(move|tmux) down$:
+spaces to tabs:
+	key(escape)
+	insert(":%s/    /\t/g")
+	key(enter)
+
+tabs to spaces:
+	key(escape)
+	insert(":%s/\t/    /g")
+	key(enter)
+
+
+## tmux
+
+^[move|tmux] down$:
 	key(ctrl-a)
 	insert("j")
 
-^(move|tmux) up$:
+^[move|tmux] up$:
 	key(ctrl-a)
 	insert("k")
 
-^(move|tmux) left$:
+^[move|tmux] left$:
 	key(ctrl-a)
 	insert("h")
 
-^(move|tmux) right$:
+^[move|tmux] right$:
 	key(ctrl-a)
 	insert("l")
 
@@ -183,7 +155,21 @@ repl four:
 	insert("repl4")
 	key(enter)
 
-(lister | list latest):
+four across:
+	insert("four_across")
+	key(enter)
+
+
+## bash 
+
+PB paste:
+	insert("$(pbpaste)")
+
+list$:
+	insert("ls -l")
+	key(enter)
+
+(lister|list latest):
 	insert("ls -ltr")
 	key(enter)
 
@@ -191,12 +177,12 @@ listra:
 	insert("ls -ltra")
 	key(enter)
 
-list:
-	insert("ls -l")
+list by size:
+	insert("ls -lS")
 	key(enter)
 
-CDM:
-	insert("cdm")
+list by size reversed:
+	insert("ls -lSr")
 	key(enter)
 
 git commit:
@@ -207,33 +193,32 @@ set minus oh VI:
 	insert("set -o vi")
 	key(enter)
 
-bash read lines:
-	insert("while IFS= read -r line; do")
+read lines [(as|into) <phrase>]:
+	var = phrase or "line"
+	insert("while IFS= read -r ")
+	insert(var)
+	insert("; do")
 
-#bash loop (over|through) files:
-#	insert("for file in \"${filelist[@]}\\"; do")
-
-send selection:
-	key(f3)
-
-spaces to tabs:
-	key(escape)
-	insert(":%s/    /\t/g")
-	key(enter)
-
-tabs to spaces:
-	key(escape)
-	insert(":%s/\t/    /g")
-	key(enter)
+for <phrase> in {user.array_names}:
+	insert("for ")
+	insert(phrase)
+	insert(" in ")
+	key(")
+	key($)
+	key({)
+	insert(array_names)
+	insert("[@]}")
+	key(")
+	insert("; do")
 
 search history:
-	insert("history | grep -E ")
+	insert("history | grep -Ei ")
 
 (line count|count lines):
-	insert("wc -l")
+	insert("wc -l ")
 
 count those lines:
-	insert(" | wc -l")
+	insert(" | wc -l ")
 
 go back$:
 	insert("cd ..")
@@ -246,15 +231,87 @@ go home:
 ^go to$:
 	insert("cd ")
 
-go to {user.pathname}:
-	insert("cd ")
-	insert(pathname)
+grep:
+	insert("grep -E ")
 
-go ahead:
+grep that:
+	insert(" | grep -E ")
+
+# todo: make a dictionary of grep options to use as captures
+grep (caseless|insensitive):
+	insert("grep -Ei ")
+
+grep recursive:
+	insert("grep -Er ")
+
+grep recursive insensitive:
+	insert("grep -Eri ")
+
+find$:
+	insert("find . ")
+
+find <digits>:
+	insert("find . -maxdepth ")
+	insert(digits)
+	key(space)
+
+copy:
+	insert("cp ")
+
+make (folder|dir):
+	insert("mkdir -p ")
+
+array:
+	key(")
+	key($)
+	key({)
+	insert("[@]}")
+	key(")
+	key(left:5)
+
+squeue:
+	insert("squeue")
+
+page that:
+	insert(" | less")
+	key(enter)
+
+julia main:
+	insert("julia main.jl ")
+
+cmus:
+	insert("cmus")
+
+cmus remote:
+	insert("cmus-remote ")
+
+
+## navigation helpers (for use with my `Clew.jl` and `bash-productivity` repos)
+
+clew (insert|create):
+	insert("clew insert ")
+	key(":2)
+	key(left)
+
+clew (find|search)$:
+	insert("clew search --data=")
+	key(":2)
+	key(left)
+
+clew (find|search) from current$:
+	insert("clew search --data=.")
+	key(enter)
+
+go to {user.pathnames}:
+	insert("cd ")
+	insert(pathnames)
+	key(enter)
+
+go ahead$:
 	insert("goahead -d 1")
 	key(enter)
 
-go ahead <digits>:
+go ahead <digits>$:
 	insert("goahead -d ")
 	insert(digits)
 	key(enter)
@@ -272,76 +329,36 @@ go frequent$:
 	insert("cdf")
 	key(enter)
 
-go recent (but|then) wait$:
+go recent (but|then) wait:
 	insert("cdr ")
 
-go frequent (but|then) wait$:
+go frequent (but|then) wait:
 	insert("cdf ")
 
-grep:
-	insert("grep -E ")
+grab$:
+	insert("grab")
+	key(enter)
 
-grep that:
-	insert(" | grep -E ")
+grab <digits>$:
+	insert("grab -d ")
+	insert(digits)
+	key(enter)
 
-grep (caseless|insensitive):
-	insert("grep -Ei ")
-
-grep recursive:
-	insert("grep -Er ")
-
-find:
-	insert("find ")
-
-find <digits>:
-	insert("find -maxdepth ")
+grab <digits> (but|then) wait:
+	insert("grab -d ")
 	insert(digits)
 	key(space)
 
-copy:
-	insert("cp ")
 
-make dir:
-	insert("mkdir -p ")
+## for use with my personal note taker
 
-array:
-	key(")
-	key($)
-	key({)
-	insert("[@]}")
-	key(")
-	key(left:5)
-
-squeue:
-	insert("squeue")
-
-install:
-	insert("sudo apt-get install ")
-
-page that:
-	insert(" | less")
+log read <phrase>:
+	insert("log read ")
+	insert(phrase)
 	key(enter)
 
-clew (insert|create):
-	insert("clew insert ")
-	key(":2)
-	key(left)
-
-clew (find|search)$:
-	insert("clew search --data=")
-	key(":2)
-	key(left)
-
-clew (find|search) from current$:
-	insert("clew search --data=.")
+log write <phrase>:
+	insert("log ")
+	insert(phrase)
 	key(enter)
-
-^julia one point nine$:
-	insert("julia +1.9.4")
-
-^julia one point ten$:
-	insert("julia +1.10.5")
-
-
-
 

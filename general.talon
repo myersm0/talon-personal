@@ -1,6 +1,7 @@
 
 ^meeting mode$:
 	mode.enable("user.meeting")
+	user.set_default_mic()
 	speech.disable()
 
 ^symbol mode$:
@@ -28,10 +29,13 @@ backspace:
 	key(bksp)
 
 workspace (right|next):
-	key(ctrl-alt-right)
+	key(ctrl-right)
 	
 workspace (left|previous):
-	key(ctrl-alt-left)
+	key(ctrl-left)
+
+window next:
+	key(cmd-`)
 
 key(f6:down):
 	speech.disable()
@@ -43,7 +47,7 @@ key(f7):
 	speech.toggle()
 
 take screenshot:
-	key(f9)
+	user.take_screenshot()
 
 surround <user.symbol_key>:
 	key(" ")
@@ -93,9 +97,6 @@ networking (off|disable):
 maximize:
 	key(alt-f10)
 
-tab zu:
-	user.tab_close_wrapper()
-
 chase:
 	key(space)
 
@@ -109,7 +110,9 @@ conda deactivate$:
 	insert("conda deactivate")
 	key(enter)
 
-^clip this$:
+^(selection clip|clip this)$:
 	user.save_selected_text_to_file()
 
+(microphone|microphones|set default mic):
+	user.set_default_mic()
 

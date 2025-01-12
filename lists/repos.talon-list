@@ -1,4 +1,4 @@
-list: user.repo
+list: user.repos
 -
 HCP notes:							https://github.com/humanconnectome/hcp-notes
 HCP pipelines:						https://github.com/Washington-University/HCPpipelines
