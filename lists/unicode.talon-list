@@ -1,0 +1,13 @@
+list: user.unicode
+-
+flat: ♭  
+sharp: ♯  
+natural: ♮  
+double flat: 𝄫  
+double sharp: 𝄪  
+multiplication: ×  
+division: ÷
+infinity: ∞  
+is approx: ≈
+is in: ∈
+element of: ∈

@@ -2,7 +2,10 @@ app: /terminal/i
 app: /term/i
 -
 
-litte Greek {user.lower_greek}:
+unicode {user.unicode}:
+	insert(unicode)
+
+[litte] (Greek|unicode) {user.lower_greek}:
 	insert(lower_greek)
 
 big Greek {user.upper_greek}:
