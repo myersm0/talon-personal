@@ -153,6 +153,9 @@ four across:
 
 ## bash 
 
+PB paste:
+	insert("$(pbpaste)")
+
 list$:
 	insert("ls -l")
 	key(enter)
