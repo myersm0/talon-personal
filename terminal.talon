@@ -2,6 +2,12 @@ app: /terminal/i
 app: /term/i
 -
 
+litte Greek {user.lower_greek}:
+	insert(lower_greek)
+
+big Greek {user.upper_greek}:
+	insert(upper_greek)
+
 
 ## vim
 
