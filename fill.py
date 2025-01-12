@@ -12,6 +12,7 @@ ctx_default.lists["user.pathname"] = {
 	"guinevere":			"/Volumes/guinevere/contents/",
 	"gesualdo":				"/Volumes/gesualdo/contents/",
 	"contents":				"~/contents/",
+	"resources":			"~/resources/",
 	"downloads":			"~/Downloads/",
 	"documents":			"~/Documents/",
 	"pictures":			    "~/Pictures/",

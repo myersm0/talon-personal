@@ -11,51 +11,56 @@ vim (no|disable) colors:
 	insert("set t_Co=0")
 	key(enter)
 
-select to end:
+{user.vim_actions} word:
 	key(escape)
-	key("v")
-	key("$")
-
-change to end:
-	key(escape)
-	key("c")
-	key("$")
-
-change word:
-	key(escape)
-	key("c")
+	insert(vim_actions)
 	key("w")
 
-vim put:
+{user.vim_actions} <digits> words:
+	key(escape)
+	insert(digits)
+	insert(vim_actions)
+	key("w")
+
+{user.vim_actions} to end:
+	key(escape)
+	insert(digits)
+	key("$")
+
+{user.vim_actions} line:
+	key(escape)
+	insert(vim_actions)
+	insert(vim_actions)
+
+{user.vim_actions} <digits> lines:
+	key(escape)
+	insert(digits)
+	insert(vim_actions)
+	insert(vim_actions)
+
+[vim] put:
 	key(escape)
 	key("p")
 
-vim yank <digits>:
-	key(escape)
-	n = digits or 1
-	insert(n)
-	key("y")
-	key("y")
-
-vim save:
+[vim] save:
 	key(escape)
 	key(":")
 	key("w")
 	key(enter)
 
-vim save quit:
+[vim] save quit:
 	key(escape)
 	key(":")
 	insert("wq")
 	key(enter)
 
-vim quit:
+[vim] quit:
 	key(escape)
 	key(":")
 	key("q")
 	key(enter)
 
-vim force quit:
+[vim] force quit:
 	key(escape)
 	key(":")
 	key("q")
@@ -317,6 +322,12 @@ go recent (but|then) wait:
 
 go frequent (but|then) wait:
 	insert("cdf ")
+
+grab <digits>$:
+	insert("goahead -d ")
+	insert(digits)
+	key(enter)
+
 
 
 ## for use with my personal note taker
