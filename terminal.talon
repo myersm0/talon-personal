@@ -323,11 +323,19 @@ go recent (but|then) wait:
 go frequent (but|then) wait:
 	insert("cdf ")
 
+grab$:
+	insert("grab")
+	key(enter)
+
 grab <digits>$:
-	insert("goahead -d ")
+	insert("grab -d ")
 	insert(digits)
 	key(enter)
 
+grab <digits> (but|then) wait:
+	insert("grab -d ")
+	insert(digits)
+	key(space)
 
 
 ## for use with my personal note taker
