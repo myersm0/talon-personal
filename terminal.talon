@@ -115,38 +115,38 @@ tabs to spaces:
 
 ## tmux
 
-^[move|tmux] down$:
+^[go|move|tmux] down$:
 	key(ctrl-a)
 	insert("j")
 
-^[move|tmux] up$:
+^[go|move|tmux] up$:
 	key(ctrl-a)
 	insert("k")
 
-^[move|tmux] left$:
+^[go|move|tmux] left$:
 	key(ctrl-a)
 	insert("h")
 
-^[move|tmux] right$:
+^[go|move|tmux] right$:
 	key(ctrl-a)
 	insert("l")
 
-^[move|tmux] diagonal$:
+^[go|move|tmux] diagonal$:
 	key(ctrl-a)
 	insert("l")
 	key(ctrl-a)
 	insert("j")
 
-tmux fullsize:
+[tmux] fullsize:
 	key(ctrl-a)
 	insert("z")
 
-tmux seek:
+[tmux] seek:
 	mode.enable("user.seek")
 	key(ctrl-a)
 	insert("[")
 
-tmux put|paste:
+[tmux] put|paste:
 	mode.disable("user.seek")
 	key(ctrl-a)
 	insert("]")
