@@ -63,12 +63,6 @@ double <user.symbol_key>:
 	key(symbol_key)
 	key(symbol_key)
 
-quote:
-	key(")
-
-quotes:
-	key(")
-
 quotation:
 	key(")
 
