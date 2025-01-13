@@ -362,3 +362,12 @@ log write <phrase>:
 	insert(phrase)
 	key(enter)
 
+
+## Google Gemma
+
+^fim prefix$: insert("<|fim_prefix|>")
+^fim middle$: insert("<|fim_middle|>")
+^fim suffix$: insert("<|fim_suffix|>")
+
+
+
