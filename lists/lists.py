@@ -9,4 +9,5 @@ mod.list("upper_greek", desc="Unicode symbols for upper-case Greek alphabet")
 mod.list("unicode", desc="Unicode symbols that could be useful in programming")
 mod.list("pathnames", desc="My commonly used directory paths")
 mod.list("grep_options", desc="Common options to use for grep")
+mod.list("unix_tools", desc="unix programs that are commonly on the right side of a pipe")
 

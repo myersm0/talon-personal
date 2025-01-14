@@ -1,0 +1,14 @@
+list: user.unix_tools
+-
+grep: "grep -E"
+sed: "sed -E"
+translate: "tr "
+cut: "cut "
+perl: "perl -pie "
+xargs: "xargs -I {} "
+octal dump: "od "
+word count: "wc "
+BC: "bc "
+
+
+

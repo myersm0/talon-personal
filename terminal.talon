@@ -177,6 +177,12 @@ four across:
 
 ## bash 
 
+rsync$:
+	insert("rsync -avz ")
+
+rsync from shadow:
+	insert("rsync -avz $hpref:")
+
 PB paste:
 	insert("$(pbpaste)")
 
@@ -255,7 +261,17 @@ grep that:
 grep {user.grep_options}+:
 	insert("grep -E")
 	insert(user.concatenate(grep_options_list))
-#	insert(grep_options)
+	insert(" ")
+
+sed:
+	insert("sed -E ")
+
+sed that:
+	insert(" | sed -E ")
+
+[pipe|pass] that to {user.unix_tools}:
+	insert(" | ")
+	insert(unix_tools)
 
 find$:
 	insert("find . ")
@@ -267,6 +283,9 @@ find <digits>:
 
 copy:
 	insert("cp ")
+
+copy recusrive:
+	insert("cp -r ")
 
 make (folder|dir):
 	insert("mkdir -p ")
