@@ -14,7 +14,7 @@ big (Greek|unicode) {user.upper_greek}:
 
 ## vim
 
-vim (no|disable) colors:
+[vim] (no|disable) colors:
 	key(escape)
 	key(":")
 	insert("set t_Co=0")
@@ -76,15 +76,15 @@ vim (no|disable) colors:
 	key("!")
 	key(enter)
 
-vim go:
+[vim] go$:
 	key(escape)
 	insert(":g/")
 
-vim sub$:
+[vim] sub$:
 	key(escape)
 	insert(":%s/")
 
-vim sub from <digits> to <digits>:
+[vim] sub from <digits> to <digits>:
 	key(escape)
 	key(:)
 	insert(digits_1)
@@ -92,19 +92,19 @@ vim sub from <digits> to <digits>:
 	insert(digits_2)
 	insert("s/")
 
-vim sub from <digits>[ to end]:
+[vim] sub from <digits>[ to end]:
 	key(escape)
 	key(:)
 	insert(digits_1)
 	key(,)
 	insert("$s/")
 
-vim next:
+[vim] next$:
 	key(escape)
 	insert(":n")
 	key(enter)
 
-vim command:
+[vim] command$:
 	key(escape)
 	key(:)
 	key(!)
