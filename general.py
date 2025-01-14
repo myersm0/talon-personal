@@ -1,11 +1,16 @@
 import subprocess
 import os
 from talon import Module
+from typing import List
 
 mod = Module()
 
 @mod.action_class
 class Actions:
+    def concatenate(strings: List[str]):
+        """concatenate a list of strings into a single string"""
+        return ''.join(strings)
+
     def networking_on():
         """turn networking on"""
         try:

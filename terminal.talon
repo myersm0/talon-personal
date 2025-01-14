@@ -252,15 +252,10 @@ grep:
 grep that:
 	insert(" | grep -E ")
 
-# todo: make a dictionary of grep options to use as captures
-grep (caseless|insensitive):
-	insert("grep -Ei ")
-
-grep recursive:
-	insert("grep -Er ")
-
-grep recursive insensitive:
-	insert("grep -Eri ")
+grep {user.grep_options}+:
+	insert("grep -E")
+	insert(user.concatenate(grep_options_list))
+#	insert(grep_options)
 
 find$:
 	insert("find . ")

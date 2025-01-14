@@ -1,0 +1,5 @@
+list: user.grep_options
+-
+recursive: r
+insensitive: i
+inverted: v
