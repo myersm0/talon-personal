@@ -80,9 +80,24 @@ vim go:
 	key(escape)
 	insert(":g/")
 
-vim sub:
+vim sub$:
 	key(escape)
 	insert(":%s/")
+
+vim sub from <digits> to <digits>:
+	key(escape)
+	key(:)
+	insert(digits_1)
+	key(,)
+	insert(digits_2)
+	insert("s/")
+
+vim sub from <digits>[ to end]:
+	key(escape)
+	key(:)
+	insert(digits_1)
+	key(,)
+	insert("$s/")
 
 vim next:
 	key(escape)
