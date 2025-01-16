@@ -76,7 +76,7 @@ big (Greek|unicode) {user.upper_greek}:
 	key("!")
 	key(enter)
 
-[vim] go$:
+vim go$:
 	key(escape)
 	insert(":g/")
 

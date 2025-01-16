@@ -1,0 +1,31 @@
+list: user.letter
+os: mac
+-
+# for common alternative spoken forms for letters, visit
+# https://talon.wiki/quickstart/improving_recognition_accuracy/#collected-alternatives-to-the-default-alphabet
+alpha: a
+bravo: b
+Charlie: c
+delta: d
+echo: e
+foxtrot: f
+golf: g
+hotel: h
+India: i
+juliet: j
+kilo: k
+lima: l
+mike: m
+November: n
+oscar: o
+papa: p
+Quebec: q
+romeo: r
+sienna: s
+tango: t
+uniform: u
+victor: v
+whisky: w
+xray: x
+yankee: y
+Zulu: z

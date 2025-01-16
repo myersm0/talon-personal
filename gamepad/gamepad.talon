@@ -1,3 +1,5 @@
+os: mac
+-
 
 # DPAD buttons
 gamepad(dpad_left:down):    user.gamepad_button_down("dpad_left")
