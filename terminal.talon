@@ -269,8 +269,11 @@ sed:
 sed that:
 	insert(" | sed -E ")
 
-[pipe|pass] that to {user.unix_tools}:
-	insert(" | ")
+# pipe, redirect, or append
+{user.unix_operators} that [to {user.unix_tools}]:
+	key(space)
+	insert(unix_operators)
+	key(space)
 	insert(unix_tools)
 
 find$:

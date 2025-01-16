@@ -1,0 +1,7 @@
+list: user.unix_operators
+-
+pipe: "|"
+redirect: ">"
+append: ">>"
+
+

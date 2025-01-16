@@ -9,6 +9,8 @@ xargs: "xargs -I {} "
 octal dump: "od "
 word count: "wc "
 BC: "bc "
+sort: "sort "
+clip: "clip -h "
 
 
 
