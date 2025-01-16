@@ -13,8 +13,8 @@ documents:           ~/Documents/
 pictures:            ~/Pictures/
 resources:           ~/resources/
 Talon user:          ~/.talon/user/
-my Talon:            ~/.talon/user/m/
-Talon communituy:    ~/.talon/user/community/
+my Talon:            ~/.talon/user/talon-personal/
+Talon community:     ~/.talon/user/talon-community/
 stact intake:        /ceph/intradb/inbox/CCF_MANUAL_TRANSFERS/CCF_STACT_ITK/
 ADCP intake:         /ceph/intradb/archive/CCF_ADCPWI_ITK/arc001/
 ADCP processing:     /ceph/intradb/archive/CCF_ADCPWI_PRC/arc001/
