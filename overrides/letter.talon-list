@@ -1,5 +1,5 @@
 list: user.letter
-os: mac
+tag: user.my_overrides
 -
 # for common alternative spoken forms for letters, visit
 # https://talon.wiki/quickstart/improving_recognition_accuracy/#collected-alternatives-to-the-default-alphabet

@@ -1,4 +1,4 @@
-os: mac
+tag: user.my_overrides
 -
 
 # DPAD buttons
