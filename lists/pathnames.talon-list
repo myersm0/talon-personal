@@ -14,7 +14,10 @@ pictures:            ~/Pictures/
 resources:           ~/resources/
 Talon user:          ~/.talon/user/
 my Talon:            ~/.talon/user/talon-personal/
+Talon personal:      ~/.talon/user/talon-personal/
 Talon community:     ~/.talon/user/talon-community/
+Talon settings:      ~/.talon/user/talon-settings/
+Talon AI tools:      ~/.talon/user/talon-ai-tools/
 stact intake:        /ceph/intradb/inbox/CCF_MANUAL_TRANSFERS/CCF_STACT_ITK/
 ADCP intake:         /ceph/intradb/archive/CCF_ADCPWI_ITK/arc001/
 ADCP processing:     /ceph/intradb/archive/CCF_ADCPWI_PRC/arc001/
