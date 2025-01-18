@@ -11,4 +11,5 @@ mod.list("pathnames", desc="My commonly used directory paths")
 mod.list("grep_options", desc="Common options to use for grep")
 mod.list("unix_tools", desc="unix programs that are commonly on the right side of a pipe")
 mod.list("unix_operators", desc="unix operators pipe, redirect, append")
+mod.list("dont_go", desc="optional phrases to defer pressing enter to complete a terminal commands")
 

@@ -186,25 +186,30 @@ rsync from shadow:
 PB paste:
 	insert("$(pbpaste)")
 
-list$:
+list [{user.dont_go}]$:
 	insert("ls -l")
-	key(enter)
+	go = dont_go or "go"
+	user.optional_enter(go)
 
-(lister|list latest):
+(lister|list latest) [{user.dont_go}]:
 	insert("ls -ltr")
-	key(enter)
+	go = dont_go or "go"
+	user.optional_enter(go)
 
-listra:
+listra [{user.dont_go}]:
 	insert("ls -ltra")
-	key(enter)
+	go = dont_go or "go"
+	user.optional_enter(go)
 
-list by size:
+list by size [{user.dont_go}]:
 	insert("ls -lS")
-	key(enter)
+	go = dont_go or "go"
+	user.optional_enter(go)
 
-list by size reversed:
+list by size reversed [{user.dont_go}]:
 	insert("ls -lSr")
-	key(enter)
+	go = dont_go or "go"
+	user.optional_enter(go)
 
 git commit:
 	insert("git commit -a -m \"\"")
@@ -238,8 +243,10 @@ search history:
 (line count|count lines):
 	insert("wc -l ")
 
-count those lines:
+count those lines [{user.dont_go}]:
 	insert(" | wc -l ")
+	go = dont_go or "go"
+	user.optional_enter(go)
 
 go back$:
 	insert("cd ..")
@@ -276,13 +283,16 @@ sed that:
 	key(space)
 	insert(unix_tools)
 
-find$:
-	insert("find . ")
+find [{user.dont_go}]$:
+	insert("find .")
+	go = dont_go or "go"
+	user.optional_enter(go)
 
-find <digits>:
+find <digits> [{user.dont_go}]:
 	insert("find . -maxdepth ")
 	insert(digits)
-	key(space)
+	go = dont_go or "go"
+	user.optional_enter(go)
 
 copy:
 	insert("cp ")
@@ -304,12 +314,15 @@ array:
 squeue:
 	insert("squeue")
 
-page that:
+page that [{user.dont_go}]:
 	insert(" | less")
-	key(enter)
+	go = dont_go or "go"
+	user.optional_enter(go)
 
-julia main:
-	insert("julia main.jl ")
+julia main [{user.dont_go}]:
+	insert("julia main.jl")
+	go = dont_go or "go"
+	user.optional_enter(go)
 
 cmus:
 	insert("cmus")
@@ -343,51 +356,40 @@ go ahead$:
 	insert("goahead -d 1")
 	key(enter)
 
-go ahead <digits>$:
+go ahead <digits> [{user.dont_go}]$:
 	insert("goahead -d ")
 	insert(digits)
-	key(enter)
+	go = dont_go or "go"
+	user.optional_enter(go)
 
-go ahead <digits> (but|then) wait:
-	insert("goahead -d ")
-	insert(digits)
-	key(space)
-
-go recent$:
+go recent [{user.dont_go}]$:
 	insert("cdr")
-	key(enter)
+	go = dont_go or "go"
+	user.optional_enter(go)
 
-go frequent$:
+go frequent [{user.dont_go}]$:
 	insert("cdf")
-	key(enter)
-
-go recent (but|then) wait:
-	insert("cdr ")
-
-go frequent (but|then) wait:
-	insert("cdf ")
+	go = dont_go or "go"
+	user.optional_enter(go)
 
 grab$:
 	insert("grab")
 	key(enter)
 
-grab <digits>$:
+grab <digits>$ [{user.dont_go}]:
 	insert("grab -d ")
 	insert(digits)
-	key(enter)
-
-grab <digits> (but|then) wait:
-	insert("grab -d ")
-	insert(digits)
-	key(space)
+	go = dont_go or "go"
+	user.optional_enter(go)
 
 
 ## for use with my personal note taker
 
-log read <phrase>:
+log read <phrase> [{user.dont_go}]:
 	insert("log read ")
 	insert(phrase)
-	key(enter)
+	go = dont_go or "go"
+	user.optional_enter(go)
 
 log write <phrase>:
 	insert("log ")

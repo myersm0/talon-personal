@@ -1,6 +1,6 @@
 import subprocess
 import os
-from talon import Module
+from talon import Module, actions
 from typing import List
 
 mod = Module()
@@ -10,6 +10,13 @@ class Actions:
     def concatenate(strings: List[str]):
         """concatenate a list of strings into a single string"""
         return ''.join(strings)
+
+    def optional_enter(cmd: str):
+        """optionally insert an `enter` keypress"""
+        if cmd == "go":
+            actions.key("enter")
+        else:
+            actions.key("space")
 
     def networking_on():
         """turn networking on"""
