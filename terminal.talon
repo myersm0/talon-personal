@@ -386,7 +386,7 @@ grab <digits>$ [{user.dont_go}]:
 ## for use with my personal note taker
 
 log read <phrase> [{user.dont_go}]:
-	insert("log read ")
+	insert("~/contents/101804/read.sh -c ")
 	insert(phrase)
 	go = dont_go or "go"
 	user.optional_enter(go)
