@@ -50,12 +50,12 @@ class JuliaActions:
         actions.key("q")
 
     def gamepad_press_left_shoulder():
-        actions.key("ctrl-pageup")
+        actions.key("ctrl-pagedown")
     def gamepad_release_left_shoulder(held):
         actions.skip()
 
     def gamepad_press_right_shoulder():
-        actions.key("ctrl-pagedown")
+        actions.key("ctrl-pageup")
     def gamepad_release_right_shoulder(held):
         actions.skip()
 

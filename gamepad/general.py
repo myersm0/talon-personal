@@ -57,12 +57,12 @@ class GeneralActions:
         actions.user.key_release(".")
 
     def gamepad_press_left_shoulder():
-        actions.key("ctrl-pagedown")
+        actions.key("ctrl-shift-tab")
     def gamepad_release_left_shoulder(held):
         actions.skip()
 
     def gamepad_press_right_shoulder():
-        actions.key("ctrl-pageup")
+        actions.key("ctrl-tab")
     def gamepad_release_right_shoulder(held):
         actions.skip()
 
