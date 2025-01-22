@@ -33,7 +33,7 @@ big (Greek|unicode) {user.upper_greek}:
 
 {user.vim_actions} to end:
 	key(escape)
-	insert(digits)
+	insert(vim_actions)
 	key("$")
 
 {user.vim_actions} line:
