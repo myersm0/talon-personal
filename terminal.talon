@@ -186,27 +186,27 @@ rsync from shadow:
 PB paste:
 	insert("$(pbpaste)")
 
-list [{user.dont_go}]$:
+^list [{user.dont_go}]$:
 	insert("ls -l")
 	go = dont_go or "go"
 	user.optional_enter(go)
 
-(lister|list latest) [{user.dont_go}]:
+^(lister|list latest) [{user.dont_go}]:
 	insert("ls -ltr")
 	go = dont_go or "go"
 	user.optional_enter(go)
 
-listra [{user.dont_go}]:
+^listra [{user.dont_go}]:
 	insert("ls -ltra")
 	go = dont_go or "go"
 	user.optional_enter(go)
 
-list by size [{user.dont_go}]:
+^list by size [{user.dont_go}]:
 	insert("ls -lS")
 	go = dont_go or "go"
 	user.optional_enter(go)
 
-list by size reversed [{user.dont_go}]:
+^list by size reversed [{user.dont_go}]:
 	insert("ls -lSr")
 	go = dont_go or "go"
 	user.optional_enter(go)
