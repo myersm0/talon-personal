@@ -2,34 +2,48 @@ from talon import Module, actions, cron
 
 mod = Module()
 repeated_key_jobs = {}
+repeated_key_counts = {}
 
 @mod.action_class
 class Actions:
-    def key_hold(key: str, repeat_rate: str = "16ms", repeat_delay: str = "256ms"):
-        """Simulate holding a key with repeated key presses"""
+    def key_hold(key: str, max_presses: int = 256, repeat_rate: str = "16ms", repeat_delay: str = "256ms"):
+        """
+        Simulate holding a key by automatically repeating key presses up to a specified maximum.
+        """
         if key in repeated_key_jobs:
-            # If already holding the key, do nothing
             return
+        repeated_key_counts[key] = 1
         actions.key(key)
 
-        def add_interval():
-            repeated_key_jobs[key] = cron.interval(
-                repeat_rate,
-                lambda: actions.key(key),
-            )
+        def repeated_press():
+            repeated_key_counts[key] += 1
+            actions.key(key)
+            if repeated_key_counts[key] >= max_presses:
+                actions.user.key_release(key)
 
-        # Schedule the initial delay followed by repeated presses
+        def add_interval():
+            repeated_key_jobs[key] = cron.interval(repeat_rate, repeated_press)
+
         repeated_key_jobs[key] = cron.after(repeat_delay, add_interval)
 
     def key_release(key: str):
-        """Stop repeating key"""
+        """
+        Stop repeating presses for the specified key.
+        """
         if key in repeated_key_jobs:
             job = repeated_key_jobs.pop(key, None)
             if job is not None:
                 cron.cancel(job)
+        if key in repeated_key_counts:
+            repeated_key_counts.pop(key)
 
     def release_all_keys():
-        """Stop all repeating keys"""
-        for key in list(repeated_key_jobs.keys()):
-            self.key_release(key)
+        """
+        Stop repeating presses for all keys currently being repeated.
+        """
+        for k in list(repeated_key_jobs.keys()):
+            actions.user.key_release(k)
+
+
+
 
