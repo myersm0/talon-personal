@@ -1,4 +1,7 @@
 
+^stop$:
+	user.release_all_keys()
+
 ^meeting mode$:
 	mode.enable("user.meeting")
 	user.set_default_mic()
