@@ -1,6 +1,10 @@
 list: user.vim_actions
 -
-change:	c
-delete:	d
-yank:		y
-select:	v
+change:  c
+delete:  d
+yank:    y
+select:  v
+down:    j
+up:      k
+left:    h
+right:   l

@@ -14,6 +14,26 @@ big (Greek|unicode) {user.upper_greek}:
 
 ## vim
 
+^look down$:
+	key(escape)
+	user.key_hold("j", 40, "8ms", "0ms")
+	sleep(500ms)
+	user.key_hold("k", 40, "8ms", "0ms")
+
+^look up$:
+	key(escape)
+	user.key_hold("k", 40, "8ms", "0ms")
+	sleep(500ms)
+	user.key_hold("j", 40, "8ms", "0ms")
+
+scroll up:
+	key(escape)
+	user.key_hold("up", 100, "8ms", "0ms")
+
+scroll down:
+	key(escape)
+	user.key_hold("down", 100, "8ms", "0ms")
+
 [vim] (no|disable) colors:
 	key(escape)
 	key(":")

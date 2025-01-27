@@ -1,0 +1,6 @@
+list: user.vim_directions
+-
+down:    j
+up:      k
+left:    h
+right:   l
