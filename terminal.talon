@@ -11,6 +11,12 @@ unicode {user.unicode}:
 big (Greek|unicode) {user.upper_greek}:
 	insert(upper_greek)
 
+empty args:
+	insert("()")
+
+empty brackets:
+	insert("[]")
+
 
 ## vim
 
