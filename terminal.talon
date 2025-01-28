@@ -198,6 +198,19 @@ four across:
 	insert("four_across")
 	key(enter)
 
+execute block:
+	key(escape)
+	key(f12)
+
+execute line:
+	key(escape)
+	key(0)
+	key(v)
+	key($)
+	key(ctrl-c:2)
+	sleep("250ms")
+	key(j)
+
 
 ## bash 
 
