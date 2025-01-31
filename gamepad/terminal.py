@@ -161,8 +161,8 @@ class GeneralActions:
         elif axis == "y":
             move = "up"
         magnitude = max(abs(x), abs(y))
-        movement_threshold = 8 if magnitude < 1.0 else 1
-        if magnitude >= 1.0:
+        movement_threshold = 8 if magnitude < 0.9 else 1
+        if magnitude >= 0.9:
             move = f"{move}:8"
         stick_move_counter += 1
         if stick_move_counter >= movement_threshold:
