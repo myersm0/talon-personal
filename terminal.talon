@@ -123,9 +123,14 @@ vim go$:
 	key(,)
 	insert("$s/")
 
-[vim] next$:
+^[vim] next$:
 	key(escape)
 	insert(":n")
+	key(enter)
+
+^[vim] previous$:
+	key(escape)
+	insert(":N")
 	key(enter)
 
 [vim] command$:
