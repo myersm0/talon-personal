@@ -6,7 +6,7 @@ ctx_seek = Context()
 ctx_seek.matches = """
 app: /terminal/
 app: /term/
-and mode: user.seek
+mode: user.seek
 and not mode: user.recording
 """
 
