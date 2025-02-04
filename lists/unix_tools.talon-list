@@ -1,7 +1,7 @@
 list: user.unix_tools
 -
 grep: "grep -E"
-sed: "sed -E"
+streaming editor: "sed -E"
 translate: "tr "
 cut: "cut "
 perl: "perl -pie "

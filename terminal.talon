@@ -312,11 +312,8 @@ grep {user.grep_options}+:
 	insert(user.concatenate(grep_options_list))
 	insert(" ")
 
-sed:
+streaming editor:
 	insert("sed -E ")
-
-sed that:
-	insert(" | sed -E ")
 
 # pipe, redirect, or append
 {user.unix_operators} that [to {user.unix_tools}]:
