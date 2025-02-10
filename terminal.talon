@@ -213,8 +213,6 @@ execute line:
 	key(v)
 	key($)
 	key(ctrl-c:2)
-	sleep("250ms")
-	key(j)
 
 
 ## bash 
