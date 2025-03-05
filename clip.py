@@ -16,7 +16,7 @@ class Actions:
             actions.app.notify("No text selected")
             return
 
-        timestamp = time.strftime("%Y%m%d_%H%M%S")
+        timestamp = time.strftime("%Y%m%d_%H-%M-%S")
         folder_path = os.environ["CLIPS_DIR"]
         os.makedirs(folder_path, exist_ok=True)  # Ensure the folder exists
         file_path = os.path.join(folder_path, f"{timestamp}.txt")

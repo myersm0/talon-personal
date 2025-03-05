@@ -21,3 +21,8 @@ class ZoomActions:
         if held >= 1:
             actions.key("cmd-q")
 
+    def gamepad_press_start():
+        actions.skip()
+    def gamepad_release_start(held):
+        actions.user.take_screenshot()
+
