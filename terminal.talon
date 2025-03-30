@@ -419,6 +419,10 @@ grab <digits>$ [{user.dont_go}]:
 	go = dont_go or "go"
 	user.optional_enter(go)
 
+^<digits> snap$:
+	insert(digits)
+	key(enter)
+
 
 ## for use with my personal note taker
 

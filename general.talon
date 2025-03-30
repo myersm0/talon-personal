@@ -97,7 +97,7 @@ maximize:
 chase:
 	key(space)
 
-^crunch$:
+^crunch|chuck$:
 	key(ctrl-c)
 
 divide:
