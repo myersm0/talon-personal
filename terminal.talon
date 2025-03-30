@@ -419,8 +419,12 @@ grab <digits>$ [{user.dont_go}]:
 	go = dont_go or "go"
 	user.optional_enter(go)
 
-^<digits> snap$:
-	insert(digits)
+^<number> snap$:
+	insert(number)
+	key(enter)
+
+^snap <number>$:
+	insert(number)
 	key(enter)
 
 
