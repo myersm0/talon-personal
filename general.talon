@@ -10,6 +10,12 @@
 ^symbol mode$:
 	mode.enable("user.symbol")
 
+^long mode$:
+	mode.enable("user.long")
+
+^done with long mode$:
+	mode.disable("user.long")
+
 ^done with seeking$:
 	 key(q)
 

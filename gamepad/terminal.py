@@ -121,16 +121,6 @@ class GeneralActions:
             actions.key("escape")
             actions.key("ctrl-r")
 
-    def gamepad_press_left_stick():
-        actions.skip()
-    def gamepad_release_left_stick(held):
-        actions.key("/")
-
-    def gamepad_press_right_stick():
-        actions.skip()
-    def gamepad_release_right_stick(held):
-        actions.key('"')
-
     def gamepad_press_select():
         actions.skip()
     def gamepad_release_select(held):

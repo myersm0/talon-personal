@@ -124,19 +124,19 @@ class Actions:
 
     def gamepad_press_left_stick():
         """Gamepad press button left thumb stick"""
-        gamepad_scroll_slow_toggle()
+        actions.mimic("long mode")
 
     def gamepad_release_left_stick(held: int):
         """Gamepad release button left thumb stick"""
-        actions.skip()
+        actions.mimic("done with long mode")
 
     def gamepad_press_right_stick():
         """Gamepad press button right thumb stick"""
-        gamepad_mouse_move_slow_toggle()
+        actions.mimic("dictation mode")
 
     def gamepad_release_right_stick(held: int):
         """Gamepad release button right thumb stick"""
-        actions.skip()
+        actions.mimic("command mode")
 
     # Analog triggers
 
