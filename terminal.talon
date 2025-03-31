@@ -203,11 +203,11 @@ four across:
 	insert("four_across")
 	key(enter)
 
-execute block:
+^(shock | execute block)$:
 	key(escape)
 	key(f12)
 
-execute line:
+^(shine | execute line)$:
 	key(escape)
 	key(0)
 	key(v)
@@ -425,6 +425,9 @@ grab <digits>$ [{user.dont_go}]:
 
 ^snap <digits>$:
 	insert(digits)
+	key(enter)
+
+^snap$:
 	key(enter)
 
 
