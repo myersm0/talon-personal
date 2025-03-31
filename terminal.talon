@@ -38,77 +38,77 @@ empty brackets:
 	key(escape)
 	user.key_hold("down", 256, "8ms", "0ms")
 
-[vim] (no|disable) colors:
+^[vim] (no|disable) colors$:
 	key(escape)
 	key(":")
 	insert("set t_Co=0")
 	key(enter)
 
-{user.vim_actions} word:
+^{user.vim_actions} word$:
 	key(escape)
 	insert(vim_actions)
 	key("w")
 
-{user.vim_actions} <digits> words:
+^{user.vim_actions} <digits> words$:
 	key(escape)
 	insert(digits)
 	insert(vim_actions)
 	key("w")
 
-{user.vim_actions} to end:
+^{user.vim_actions} to end$:
 	key(escape)
 	insert(vim_actions)
 	key("$")
 
-{user.vim_actions} line:
+^{user.vim_actions} line$:
 	key(escape)
 	insert(vim_actions)
 	insert(vim_actions)
 
-{user.vim_actions} <digits> lines:
+^{user.vim_actions} <digits> lines$:
 	key(escape)
 	insert(digits)
 	insert(vim_actions)
 	insert(vim_actions)
 
-[vim] put:
+^[vim] put$:
 	key(escape)
 	key("p")
 
-[vim] save:
+^[vim] save$:
 	key(escape)
 	key(":")
 	key("w")
 	key(enter)
 
-[vim] save quit:
+^[vim] save quit$:
 	key(escape)
 	key(":")
 	insert("wq")
 	key(enter)
 
-[vim] quit:
+^[vim] quit$:
 	key(escape)
 	key(":")
 	key("q")
 	key(enter)
 
-[vim] force quit:
+^[vim] force quit$:
 	key(escape)
 	key(":")
 	key("q")
 	key("!")
 	key(enter)
 
-vim go$:
+^vim go$:
 	key(escape)
 	insert(":g/")
 
-[vim] sub$:
+^[vim] sub$:
 	key(escape)
 	insert(":%s/")
 
-[vim] sub from <digits> to <digits>:
+^[vim] sub from <digits> to <digits>$:
 	key(escape)
 	key(:)
 	insert(digits_1)
@@ -116,7 +116,7 @@ vim go$:
 	insert(digits_2)
 	insert("s/")
 
-[vim] sub from <digits>[ to end]:
+^[vim] sub from <digits> [to end]$:
 	key(escape)
 	key(:)
 	insert(digits_1)
@@ -133,25 +133,25 @@ vim go$:
 	insert(":N")
 	key(enter)
 
-[vim] command$:
+^vim command$:
 	key(escape)
 	key(:)
 	key(!)
 
-undo:
+^undo$:
 	key(escape)
 	key("u")
 
-redo:
+^redo$:
 	key(escape)
 	key(ctrl-r)
 
-spaces to tabs:
+^spaces to tabs$:
 	key(escape)
 	insert(":%s/    /\t/g")
 	key(enter)
 
-tabs to spaces:
+^tabs to spaces$:
 	key(escape)
 	insert(":%s/\t/    /g")
 	key(enter)
@@ -181,25 +181,25 @@ tabs to spaces:
 	key(ctrl-a)
 	insert("j")
 
-[tmux] fullsize:
+^[tmux] fullsize$:
 	key(ctrl-a)
 	insert("z")
 
-[tmux] seek:
+^[tmux] seek$:
 	mode.enable("user.seek")
 	key(ctrl-a)
 	insert("[")
 
-[tmux] put|paste:
+^[tmux] put|paste$:
 	mode.disable("user.seek")
 	key(ctrl-a)
 	insert("]")
 
-repl four:
+^repl four$:
 	insert("repl4")
 	key(enter)
 
-four across:
+^four across$:
 	insert("four_across")
 	key(enter)
 

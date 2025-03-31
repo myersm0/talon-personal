@@ -10,13 +10,13 @@
 ^symbol mode$:
 	mode.enable("user.symbol")
 
-done with seeking:
+^done with seeking$:
 	 key(q)
 
-done with symbols:
+^done with symbols$:
 	mode.disable("user.symbol")
 
-done with mouse:
+^done with mouse$:
 	mode.disable("user.mouse")
 
 select everything:
@@ -103,16 +103,16 @@ chase:
 divide:
 	key(/)
 
-conda activate$:
+^conda activate$:
 	insert("conda activate ")
 
-conda deactivate$:
+^conda deactivate$:
 	insert("conda deactivate")
 	key(enter)
 
 ^(selection clip|clip this)$:
 	user.save_selected_text_to_file()
 
-(microphone|microphones|set default mic):
+^(microphone|microphones|set default mic)$:
 	user.set_default_mic()
 
