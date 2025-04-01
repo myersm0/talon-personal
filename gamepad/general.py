@@ -66,16 +66,6 @@ class GeneralActions:
     def gamepad_release_right_shoulder(held):
         actions.skip()
 
-    def gamepad_press_left_stick():
-        actions.key("shift:down")
-    def gamepad_release_left_stick(held):
-        actions.key("shift:up")
-
-    def gamepad_press_right_stick():
-        actions.key("cmd:down")
-    def gamepad_release_right_stick(held):
-        actions.key("cmd:up")
-
     def gamepad_press_select():
         actions.skip()
     def gamepad_release_select(held):
