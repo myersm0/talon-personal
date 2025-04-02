@@ -79,6 +79,21 @@ class GeneralActions:
         elif held == 2:
             actions.insert("cc")
 
+    def gamepad_press_select():
+        actions.skip()
+    def gamepad_release_select(held):
+        if held >= 1:
+            actions.insert("exit")
+            actions.key("enter")
+
+    def gamepad_press_start():
+        actions.skip()
+    def gamepad_release_start(held):
+        if held == 0:
+            actions.key("cmd-t")
+        elif held >= 1:
+            actions.key("cmd-n")
+
     def gamepad_press_left_shoulder():
         actions.skip()
     def gamepad_release_left_shoulder(held):
@@ -120,21 +135,6 @@ class GeneralActions:
         if value > 0.8:
             actions.key("escape")
             actions.key("ctrl-r")
-
-    def gamepad_press_select():
-        actions.skip()
-    def gamepad_release_select(held):
-        if held >= 1:
-            actions.insert("exit")
-            actions.key("enter")
-
-    def gamepad_press_start():
-        actions.skip()
-    def gamepad_release_start(held):
-        if held == 0:
-            actions.key("cmd-t")
-        elif held >= 1:
-            actions.key("cmd-n")
 
     def gamepad_stick_right(x: float, y: float):
         """Gamepad right stick movement"""

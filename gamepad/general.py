@@ -56,16 +56,6 @@ class GeneralActions:
     def gamepad_release_east(held):
         actions.user.key_release(".")
 
-    def gamepad_press_left_shoulder():
-        actions.key("ctrl-shift-tab")
-    def gamepad_release_left_shoulder(held):
-        actions.skip()
-
-    def gamepad_press_right_shoulder():
-        actions.key("ctrl-tab")
-    def gamepad_release_right_shoulder(held):
-        actions.skip()
-
     def gamepad_press_select():
         actions.skip()
     def gamepad_release_select(held):
@@ -84,4 +74,13 @@ class GeneralActions:
         elif held == 2:
             actions.key("cmd-shift-n")
 
+    def gamepad_press_left_shoulder():
+        actions.key("ctrl-shift-tab")
+    def gamepad_release_left_shoulder(held):
+        actions.skip()
+
+    def gamepad_press_right_shoulder():
+        actions.key("ctrl-tab")
+    def gamepad_release_right_shoulder(held):
+        actions.skip()
 
