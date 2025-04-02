@@ -1,4 +1,3 @@
-
 mode: user.meeting
 -
 ^(command mode|end of meeting)$:

@@ -1,6 +1,6 @@
 import subprocess
 import os
-from talon import Module, actions
+from talon import Module, Context, actions
 from typing import List
 
 mod = Module()
@@ -83,5 +83,17 @@ class Actions:
         except subprocess.CalledProcessError as e:
             # Handle error (optional)
             print(f"Command failed with error: {e}")
+
+    def run_external_command(program: str):
+        """run an external command in a small Terminal.app window that closes when done"""
+        script = f"""
+        tell application "Terminal"
+            activate
+            do script "{program}; exit"
+            set bounds of front window to {100, 100, 400, 200} -- left, top, right, bottom
+        end tell
+        """
+        subprocess.run(["osascript", "-e", script], check=True)
+
 
 
