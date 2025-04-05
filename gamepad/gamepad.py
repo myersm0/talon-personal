@@ -95,12 +95,11 @@ class Actions:
 
     def gamepad_press_start():
         """Gamepad press button start"""
-        actions.user.command_dictation_mode_toggle()
+        actions.skip()
 
     def gamepad_release_start(held: int):
         """Gamepad release button start"""
-        if held:
-            actions.user.command_dictation_mode_toggle()
+        actions.skip()
 
     # Shoulder buttons
 
