@@ -103,7 +103,7 @@ maximize:
 chase:
 	key(space)
 
-^crunch|chuck$:
+^crunch$:
 	key(ctrl-c)
 
 divide:
