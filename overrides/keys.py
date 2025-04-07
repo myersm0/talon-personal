@@ -89,7 +89,6 @@ symbol_key_words = {
     "hash": "#",
     "percent": "%",
     "caret sign": "^",
-    "amper": "&",
     "pipe": "|",
     "single quote": "'",
     # Currencies
