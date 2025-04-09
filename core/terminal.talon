@@ -409,6 +409,9 @@ python go [{user.dont_go}]:
 	insert("conda deactivate")
 	key(enter)
 
+^module load$:
+	insert("module load ")
+
 ## navigation helpers (for use with my `Clew.jl` and `bash-productivity` repos)
 
 clew (insert|create):
