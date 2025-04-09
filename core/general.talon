@@ -109,13 +109,6 @@ chase:
 divide:
 	key(/)
 
-^conda activate$:
-	insert("conda activate ")
-
-^conda deactivate$:
-	insert("conda deactivate")
-	key(enter)
-
 ^(selection clip|clip this)$:
 	user.save_selected_text_to_file()
 

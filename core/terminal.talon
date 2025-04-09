@@ -402,6 +402,13 @@ python go [{user.dont_go}]:
 	go = dont_go or "go"
 	user.optional_enter(go)
 
+^conda activate$:
+	insert("conda activate ")
+
+^conda deactivate$:
+	insert("conda deactivate")
+	key(enter)
+
 ## navigation helpers (for use with my `Clew.jl` and `bash-productivity` repos)
 
 clew (insert|create):
