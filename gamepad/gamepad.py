@@ -141,11 +141,11 @@ class Actions:
 
     def gamepad_trigger_left(value: float):
         """Gamepad trigger left movement"""
-        gamepad_scroll(0, value * -1)
+        gamepad_scroll(0, value * -1.2)
 
     def gamepad_trigger_right(value: float):
         """Gamepad trigger right movement"""
-        gamepad_scroll(0, value)
+        gamepad_scroll(0, value * 1.2)
 
     # Analog thumb sticks
 
