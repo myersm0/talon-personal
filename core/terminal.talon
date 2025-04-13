@@ -412,6 +412,7 @@ python go [{user.dont_go}]:
 ^module load$:
 	insert("module load ")
 
+
 ## navigation helpers (for use with my `Clew.jl` and `bash-productivity` repos)
 
 clew (insert|create):
@@ -469,9 +470,6 @@ grab <digits>$ [{user.dont_go}]:
 
 ^snap <digits>$:
 	insert(digits)
-	key(enter)
-
-^snap$:
 	key(enter)
 
 

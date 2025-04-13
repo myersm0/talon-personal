@@ -1,4 +1,7 @@
 
+^snap$:
+	key(enter)
+
 ^stop$:
 	user.release_all_keys()
 
