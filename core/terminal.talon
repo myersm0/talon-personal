@@ -195,7 +195,7 @@ empty brackets:
 	key(ctrl-a)
 	insert("l")
 
-^[go|move|tmux] diagonal$:
+^[go|move|tmux] (diagonal|oblique|cross)$:
 	key(ctrl-a)
 	insert("l")
 	key(ctrl-a)
