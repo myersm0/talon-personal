@@ -141,11 +141,11 @@ class Actions:
 
     def gamepad_trigger_left(value: float):
         """Gamepad trigger left movement"""
-        gamepad_scroll(0, value * -1.2)
+        actions.mimic("set builtin Mike")
 
     def gamepad_trigger_right(value: float):
         """Gamepad trigger right movement"""
-        gamepad_scroll(0, value * 1.2)
+        actions.mimic("set default Mike")
 
     # Analog thumb sticks
 

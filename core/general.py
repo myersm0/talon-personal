@@ -84,6 +84,15 @@ class Actions:
             # Handle error (optional)
             print(f"Command failed with error: {e}")
 
+    def set_builtin_mic():
+        """set the microphone to my MacBook's built-in"""
+        try:
+            username = subprocess.run("whoami", shell=True, check=True, capture_output=True, text=True).stdout.strip()
+            subprocess.run(f'/Users/{username}/bin/select_mic "MacBook Pro Microphone"', shell=True, check=True)
+        except subprocess.CalledProcessError as e:
+            # Handle error (optional)
+            print(f"Command failed with error: {e}")
+
     def run_external_command(program: str):
         """run an external command in a small Terminal.app window that closes when done"""
         script = f"""

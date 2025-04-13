@@ -124,18 +124,6 @@ class GeneralActions:
             actions.key("escape")
             actions.key("G")
 
-    def gamepad_trigger_left(value: float):
-        """Gamepad trigger left movement"""
-        if value > 0.8:
-            actions.key("escape")
-            actions.key("u")
-
-    def gamepad_trigger_right(value: float):
-        """Gamepad trigger right movement"""
-        if value > 0.8:
-            actions.key("escape")
-            actions.key("ctrl-r")
-
     def gamepad_stick_right(x: float, y: float):
         """Gamepad right stick movement"""
         global stick_move_counter
