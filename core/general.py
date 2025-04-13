@@ -79,7 +79,7 @@ class Actions:
         """set the default microphone, with a fallback"""
         try:
             username = subprocess.run("whoami", shell=True, check=True, capture_output=True, text=True).stdout.strip()
-            subprocess.run(f'/Users/{username}/bin/select_mic "Wireless PRO RX" "MacBook Pro Microphone"', shell=True, check=True)
+            subprocess.run(f'/Users/{username}/bin/select_mic "Shure MVX2U" "Samson Q9U" "Wireless PRO RX" "MacBook Pro Microphone"', shell=True, check=True)
         except subprocess.CalledProcessError as e:
             # Handle error (optional)
             print(f"Command failed with error: {e}")
