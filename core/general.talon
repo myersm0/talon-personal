@@ -115,10 +115,10 @@ divide:
 ^(selection clip|clip this)$:
 	user.save_selected_text_to_file()
 
-^(microphone|microphones|set default Mike)$:
+^(microphone|microphones|set (default|normal|favorite|preferred) Mike)$:
 	user.set_default_mic()
 
-^[set] builtin Mike$:
+^[set] (builtin|dummy) Mike$:
 	user.set_builtin_mic()
 
 
