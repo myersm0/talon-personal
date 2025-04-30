@@ -18,7 +18,6 @@ punctuation_words = {
     "comma": ",",
     # Workaround for issue with conformer b-series; see #946
     "coma": ",",
-    "period sign": ".",
     "full stop": ".",
     "semicolon": ";",
     "colon": ":",
@@ -43,8 +42,7 @@ punctuation_words = {
     "right paren": ")",
 }
 symbol_key_words = {
-    "dot": ".",
-    "point": ".",
+    "full stop": ".",
     "quotation": '"',
     "question": "?",
     "apostrophe": "'",
@@ -87,7 +85,7 @@ symbol_key_words = {
     "greater than": ">",
     "star": "*",
     "hash": "#",
-    "percent": "%",
+    "percent sign": "%",
     "caret sign": "^",
     "pipe": "|",
     "single quote": "'",
