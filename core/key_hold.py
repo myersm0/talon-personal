@@ -1,5 +1,7 @@
 from talon import Module, actions, cron
 
+# adapted from https://github.com/AndreasArvidsson/andreas-talon
+
 mod = Module()
 repeated_key_jobs = {}
 repeated_key_counts = {}
