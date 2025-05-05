@@ -444,6 +444,10 @@ go ahead <digits> [{user.dont_go}]$:
 	go = dont_go or "go"
 	user.optional_enter(go)
 
+go behind$:
+	insert("gobehind")
+	key(enter)
+
 go recent [{user.dont_go}]$:
 	insert("cdr")
 	go = dont_go or "go"
