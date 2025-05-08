@@ -243,6 +243,9 @@ victor chase:
 rsync$:
 	insert("rsync -avz ")
 
+rsync from chpc$:
+	insert("rsync -avz $cpref:")
+
 rsync from shadow:
 	insert("rsync -avz $hpref:")
 

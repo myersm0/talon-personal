@@ -1,7 +1,4 @@
 
-^snap$:
-	key(enter)
-
 ^stop$:
 	user.release_all_keys()
 
@@ -75,9 +72,6 @@ double <user.symbol_key>:
 	key(symbol_key)
 	key(symbol_key)
 
-quotation:
-	key(")
-
 (comma|Komma|item):
 	key(,)
 	key(space)
@@ -88,23 +82,11 @@ networking (on|enable):
 networking (off|disable):
 	user.networking_off()
 
-^complete$:
-	key(tab)
-
-^return$:
-	key(enter)
-
-^carriage$:
-	key(enter)
-
 (funk eleven|full screen):
 	key(f11)
 
 maximize:
 	key(alt-f10)
-
-chase:
-	key(space)
 
 ^crunch$:
 	key(ctrl-c)

@@ -1,15 +1,19 @@
 list: user.special_key
-os: mac
 tag: user.my_overrides
 -
 
+end: end
 minus: minus
+return: return
 enter: keypad_enter
+carriage: keypad_enter
+snap: keypad_enter
 page down: pagedown
 page up: pageup
 escape: escape
 space: space
+chase: space
 tab: tab
+complete: tab
 insert: insert
 delete: backspace
-forward delete: delete
