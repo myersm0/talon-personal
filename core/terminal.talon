@@ -20,6 +20,9 @@ empty brackets:
 
 ## vim
 
+victor chase:
+	insert("vim ")
+
 ^look down$:
 	user.key_hold("down", 40, "8ms", "0ms")
 	sleep(500ms)
