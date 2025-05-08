@@ -2,7 +2,6 @@ list: user.special_key
 tag: user.my_overrides
 -
 
-end: end
 minus: minus
 return: return
 enter: keypad_enter
