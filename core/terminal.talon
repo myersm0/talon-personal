@@ -322,7 +322,7 @@ go home:
 	insert("cd")
 	key(enter)
 
-^go to$:
+go to:
 	insert("cd ")
 
 grep:
