@@ -1,6 +1,8 @@
 from talon import Module, actions, noise
 import time
 
+# an adaptive twist on using the hiss noise
+
 mod = Module()
 
 # define your custom actions
@@ -14,6 +16,9 @@ def long_hiss_action():
 
 # arbitrary-length lists of thresholds to apply to your short and long actions
 # (lists should be of matched length)
+# Warning: I'm using a pretty extreme variance in hiss duration here,
+# from 0.8s all the way down to 0.15s. To start out, maybe try using a smaller
+# range of values for just a subtle adaptive effect
 thresholds_short  = [0.8, 0.62, 0.45, 0.27, 0.15]
 thresholds_long = [1.3, 1.0 , 1.0 , 1.0 , 1.0 ]
 
