@@ -3,17 +3,26 @@ import time
 
 mod = Module()
 
-# arbitrary-length list of left- and right-click thresholds
+# define your custom actions
+def short_hiss_action():
+    print("[hiss] left click")
+    actions.mouse_click(0)
+
+def long_hiss_action():
+    print("[hiss] right click")
+    actions.mouse_click(1)
+
+# arbitrary-length lists of thresholds to apply to actions 1 and 2
 # (should be of matched length)
-thresholds_left  = [0.8, 0.62, 0.45, 0.27, 0.15]
-thresholds_right = [1.3, 1.0 , 1.0 , 1.0 , 1.0 ]
+thresholds_short  = [0.8, 0.62, 0.45, 0.27, 0.15]
+thresholds_long = [1.3, 1.0 , 1.0 , 1.0 , 1.0 ]
 
 # decay times for dropping from stage i to stage i-1 (seconds)
 # (expected to match length of threshold arrays above)
 # (index 0 unused, so put a dummy 0.0 at start)
 decay_times = [0.0, 300.0, 30.0, 10.0, 3.0]
 
-# global state
+# state
 hiss_stage = 0
 last_action_time = 0.0
 hiss_start_time = 0.0
@@ -44,26 +53,24 @@ class Actions:
               f"since_last={since:.3f}, stage={hiss_stage}")
 
         # decrement logic: if in stage i and since > decay_times[i], drop to i-1
-        for i in range(len(thresholds_left) - 1, 0, -1):
+        for i in range(len(thresholds_short) - 1, 0, -1):
             if hiss_stage == i and since > decay_times[i]:
                 hiss_stage = i - 1
                 print(f"[hiss] decrement to stage {hiss_stage}")
                 break
 
-        threshold: float = thresholds_left[hiss_stage]
-        right_threshold: float = thresholds_right[hiss_stage]
-        print(f"[hiss] threshold={threshold:.3f}, right_threshold={right_threshold:.3f}")
+        threshold1 = thresholds_short[hiss_stage]
+        threshold2 = thresholds_long[hiss_stage]
+        print(f"[hiss] threshold_short = {threshold1:.3f}, theshold_long = {threshold2:.3f}")
 
-        if hiss_length >= right_threshold:
-            print("[hiss] right click")
-            actions.mouse_click(1)
-            hiss_stage = len(thresholds_left) - 1
+        if hiss_length >= threshold2:
+            long_hiss_action()
+            hiss_stage = len(thresholds_long) - 1
             print(f"[hiss] reset stage to {hiss_stage}")
             last_action_time = now
-        elif hiss_length >= threshold:
-            print("[hiss] left click")
-            actions.mouse_click(0)
-            hiss_stage = min(hiss_stage + 1, len(thresholds_left) - 1)
+        elif hiss_length >= threshold1:
+            short_hiss_action()
+            hiss_stage = min(hiss_stage + 1, len(thresholds_short) - 1)
             print(f"[hiss] advance stage to {hiss_stage}")
             last_action_time = now
         else:
