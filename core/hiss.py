@@ -12,14 +12,14 @@ def long_hiss_action():
     print("[hiss] right click")
     actions.mouse_click(1)
 
-# arbitrary-length lists of thresholds to apply to actions 1 and 2
-# (should be of matched length)
+# arbitrary-length lists of thresholds to apply to your short and long actions
+# (lists should be of matched length)
 thresholds_short  = [0.8, 0.62, 0.45, 0.27, 0.15]
 thresholds_long = [1.3, 1.0 , 1.0 , 1.0 , 1.0 ]
 
-# decay times for dropping from stage i to stage i-1 (seconds)
-# (expected to match length of threshold arrays above)
-# (index 0 unused, so put a dummy 0.0 at start)
+# decay times, in seconds, for dropping from level i to level i-1
+# (expected to match length of threshold lists above)
+# (index 0 will be unused, so put a dummy 0.0 at start)
 decay_times = [0.0, 300.0, 30.0, 10.0, 3.0]
 
 # state
