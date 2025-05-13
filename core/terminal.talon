@@ -408,10 +408,10 @@ python go [{user.dont_go}]:
 	go = dont_go or "go"
 	user.optional_enter(go)
 
-^conda activate$:
+conda activate:
 	insert("conda activate ")
 
-^conda deactivate$:
+conda deactivate:
 	insert("conda deactivate")
 	key(enter)
 
