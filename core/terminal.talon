@@ -2,6 +2,10 @@ app: /terminal/i
 app: /term/i
 -
 
+## slurm
+cue stat: insert("qstat ")
+cue stat HCP: insert("qstat | grep HCP")
+
 unicode {user.unicode}:
 	insert(unicode)
 
