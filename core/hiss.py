@@ -6,24 +6,15 @@ import time
 mod = Module()
 
 # define your custom actions
-def short_hiss_action():
+def hiss_action():
     print("[hiss] left click")
     actions.mouse_click(0)
 
-def long_hiss_action():
-    print("[hiss] right click")
-    actions.mouse_click(1)
-
-# arbitrary-length lists of thresholds to apply to your short and long actions
-# (lists should be of matched length)
-# Warning: I'm using a pretty extreme variance in hiss duration here,
-# from 0.8s all the way down to 0.15s. To start out, maybe try using a smaller
-# range of values for just a subtle adaptive effect
-thresholds_short  = [0.8, 0.62, 0.45, 0.27, 0.15]
-thresholds_long = [1.3, 1.0 , 1.0 , 1.0 , 1.0 ]
+# arbitrary-length lists of thresholds to apply to your hiss action
+thresholds  = [0.8, 0.62, 0.45, 0.27, 0.15]
 
 # decay times, in seconds, for dropping from level i to level i-1
-# (expected to match length of threshold lists above)
+# (expected to match length of threshold list above)
 # (index 0 will be unused, so put a dummy 0.0 at start)
 decay_times = [0.0, 300.0, 30.0, 10.0, 3.0]
 
@@ -58,24 +49,18 @@ class Actions:
               f"since_last={since:.3f}, stage={hiss_stage}")
 
         # decrement logic: if in stage i and since > decay_times[i], drop to i-1
-        for i in range(len(thresholds_short) - 1, 0, -1):
+        for i in range(len(thresholds) - 1, 0, -1):
             if hiss_stage == i and since > decay_times[i]:
                 hiss_stage = i - 1
                 print(f"[hiss] decrement to stage {hiss_stage}")
                 break
 
-        threshold1 = thresholds_short[hiss_stage]
-        threshold2 = thresholds_long[hiss_stage]
-        print(f"[hiss] threshold_short = {threshold1:.3f}, theshold_long = {threshold2:.3f}")
+        threshold = thresholds[hiss_stage]
+        print(f"[hiss] threshold = {threshold:.3f}")
 
-        if hiss_length >= threshold2:
-            long_hiss_action()
-            hiss_stage = len(thresholds_long) - 1
-            print(f"[hiss] reset stage to {hiss_stage}")
-            last_action_time = now
-        elif hiss_length >= threshold1:
-            short_hiss_action()
-            hiss_stage = min(hiss_stage + 1, len(thresholds_short) - 1)
+        if hiss_length >= threshold:
+            hiss_action()
+            hiss_stage = min(hiss_stage + 1, len(thresholds) - 1)
             print(f"[hiss] advance stage to {hiss_stage}")
             last_action_time = now
         else:
