@@ -11,7 +11,7 @@ def hiss_action():
     actions.mouse_click(0)
 
 # arbitrary-length lists of thresholds to apply to your hiss action
-thresholds  = [0.8, 0.62, 0.45, 0.27, 0.15]
+thresholds  = [0.62, 0.45, 0.27, 0.15]
 
 max_hiss_dur = 1.5
 
@@ -20,7 +20,7 @@ require_mouse_move = True # you can set this to False depending on your use case
 # decay times, in seconds, for dropping from level i to level i-1
 # (expected to match length of threshold list above)
 # (index 0 will be unused)
-decay_times = [None, 300.0, 30.0, 10.0, 3.0]
+decay_times = [None, 60, 30, 15]
 
 # state
 hiss_stage = 0
