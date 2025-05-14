@@ -15,17 +15,18 @@ thresholds  = [0.8, 0.62, 0.45, 0.27, 0.15]
 
 max_hiss_dur = 1.5
 
+require_mouse_move = True # you can set this to False depending on your use case
+
 # decay times, in seconds, for dropping from level i to level i-1
 # (expected to match length of threshold list above)
 # (index 0 will be unused)
 decay_times = [None, 300.0, 30.0, 10.0, 3.0]
 
-last_mouse_pos = ctrl.mouse_pos()
-
 # state
 hiss_stage = 0
 last_action_time = 0.0
 hiss_start_time = 0.0
+last_mouse_pos = ctrl.mouse_pos()
 
 @mod.action_class
 class Actions:
@@ -66,7 +67,7 @@ class Actions:
             print(f"[hiss] action rejected (hiss was too long)")
         elif hiss_length > threshold:
             current_mouse_pos = ctrl.mouse_pos()
-            if current_mouse_pos == last_mouse_pos:
+            if require_mouse_move and current_mouse_pos == last_mouse_pos:
                 print(f"[hiss] action rejected (the mouse has not moved)")
                 return
             hiss_action()
