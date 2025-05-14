@@ -30,6 +30,19 @@ last_action_time = 0.0
 hiss_start_time = 0.0
 last_mouse_pos = ctrl.mouse_pos()
 
+# sanity checks
+if not isinstance(thresholds, list) or not thresholds:
+    raise ValueError("`thresholds` must be a non-empty list of positive numbers")
+if not all(isinstance(t, (int, float)) and t > 0 for t in thresholds):
+    raise ValueError("all entries in `thresholds` must be positive numbers")
+if not isinstance(max_hiss_dur, (int, float)) or max_hiss_dur <= max(thresholds):
+    raise ValueError("`max_hiss_dur` must be a number greater than the largest threshold")
+if not isinstance(require_mouse_move, bool):
+    raise ValueError("`decay_times` must be a list the same length as `thresholds`")
+for i, dt in enumerate(decay_times[1:], start=1):
+    if not isinstance(dt, (int, float)) or dt <= 0:
+        raise ValueError(f"`decay_times[{i}]` must be a positive number")
+
 @mod.action_class
 class Actions:
     def noise_hiss_start() -> None:
