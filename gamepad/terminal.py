@@ -53,9 +53,9 @@ class GeneralActions:
     def gamepad_press_south():
         actions.skip()
     def gamepad_release_south(held):
-        if held == 0:
+        if held < 2:
             actions.key("enter")
-        elif held >= 1:
+        else:
             actions.key("escape")
             actions.insert("p")
 
@@ -82,25 +82,25 @@ class GeneralActions:
     def gamepad_press_select():
         actions.skip()
     def gamepad_release_select(held):
-        if held >= 1:
+        if held == 2:
             actions.insert("exit")
             actions.key("enter")
 
     def gamepad_press_start():
         actions.skip()
     def gamepad_release_start(held):
-        if held == 0:
+        if held < 2:
             actions.key("cmd-t")
-        elif held >= 1:
+        else:
             actions.key("cmd-n")
 
     def gamepad_press_left_shoulder():
         actions.skip()
     def gamepad_release_left_shoulder(held):
-        if held == 0:
+        if held < 2:
             actions.key("escape")
             actions.key("f12")
-        elif held == 2:
+        else:
             actions.key("escape")
             actions.insert("gg")
 
