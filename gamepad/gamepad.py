@@ -1,4 +1,4 @@
-from talon import Module, Context, actions, ui, ctrl
+from talon import Module, Context, actions, ui, ctrl, cron
 from talon.screen import Screen
 import time
 
@@ -10,6 +10,7 @@ mod = Module()
 slow_scroll = False
 slow_mouse_move = False
 timestamps = {}
+scheduled_actions = {}
 
 
 @mod.action_class
@@ -159,12 +160,49 @@ class Actions:
 
 	# Scaffolding actions used by the Talon file
 
+	def gamepad_action_dispatch(button: str, held: int):
+		"""temp"""
+		match button:
+			case "dpad_left":
+				actions.user.gamepad_release_dpad_left(held)
+			case "dpad_up":
+				actions.user.gamepad_release_dpad_up(held)
+			case "dpad_right":
+				actions.user.gamepad_release_dpad_right(held)
+			case "dpad_down":
+				actions.user.gamepad_release_dpad_down(held)
+			case "west":
+				actions.user.gamepad_release_west(held)
+			case "north":
+				actions.user.gamepad_release_north(held)
+			case "east":
+				actions.user.gamepad_release_east(held)
+			case "south":
+				actions.user.gamepad_release_south(held)
+			case "select":
+				actions.user.gamepad_release_select(held)
+			case "start":
+				actions.user.gamepad_release_start(held)
+			case "left_shoulder":
+				actions.user.gamepad_release_left_shoulder(held)
+			case "right_shoulder":
+				actions.user.gamepad_release_right_shoulder(held)
+			case "left_stick":
+				actions.user.gamepad_release_left_stick(held)
+			case "right_stick":
+				actions.user.gamepad_release_right_stick(held)
+			case _:
+				raise ValueError(f"Unknown button: {button}")
+
 	def gamepad_button_down(button: str):
 		"""Gamepad press button <button>"""
 		timestamps[button] = time.perf_counter()
-
+		if not button.startswith("dpad"):
+			scheduled_actions[button] = cron.after(
+				"800ms", 
+				lambda: actions.user.gamepad_action_dispatch(button, 2)
+			)
 		match button:
-			# DPAD buttons
 			case "dpad_left":
 				actions.user.gamepad_press_dpad_left()
 			case "dpad_up":
@@ -173,8 +211,6 @@ class Actions:
 				actions.user.gamepad_press_dpad_right()
 			case "dpad_down":
 				actions.user.gamepad_press_dpad_down()
-
-			# Compass / ABXY buttons
 			case "west":
 				actions.user.gamepad_press_west()
 			case "north":
@@ -183,25 +219,18 @@ class Actions:
 				actions.user.gamepad_press_east()
 			case "south":
 				actions.user.gamepad_press_south()
-
-			# Select / Start buttons
 			case "select":
 				actions.user.gamepad_press_select()
 			case "start":
 				actions.user.gamepad_press_start()
-
-			# Shoulder buttons
 			case "left_shoulder":
 				actions.user.gamepad_press_left_shoulder()
 			case "right_shoulder":
 				actions.user.gamepad_press_right_shoulder()
-
-			# Stick buttons
 			case "left_stick":
 				actions.user.gamepad_press_left_stick()
 			case "right_stick":
 				actions.user.gamepad_press_right_stick()
-
 			case _:
 				raise ValueError(f"Unknown button: {button}")
 
@@ -214,49 +243,14 @@ class Actions:
 			held = 1
 		else:
 			held = 0
-
-		match button:
-			# DPAD buttons
-			case "dpad_left":
-				actions.user.gamepad_release_dpad_left(held)
-			case "dpad_up":
-				actions.user.gamepad_release_dpad_up(held)
-			case "dpad_right":
-				actions.user.gamepad_release_dpad_right(held)
-			case "dpad_down":
-				actions.user.gamepad_release_dpad_down(held)
-
-			# Compass / ABXY buttons
-			case "west":
-				actions.user.gamepad_release_west(held)
-			case "north":
-				actions.user.gamepad_release_north(held)
-			case "east":
-				actions.user.gamepad_release_east(held)
-			case "south":
-				actions.user.gamepad_release_south(held)
-
-			# Select / Start buttons
-			case "select":
-				actions.user.gamepad_release_select(held)
-			case "start":
-				actions.user.gamepad_release_start(held)
-
-			# Shoulder buttons
-			case "left_shoulder":
-				actions.user.gamepad_release_left_shoulder(held)
-			case "right_shoulder":
-				actions.user.gamepad_release_right_shoulder(held)
-
-			# Stick buttons
-			case "left_stick":
-				actions.user.gamepad_release_left_stick(held)
-			case "right_stick":
-				actions.user.gamepad_release_right_stick(held)
-
-			case _:
-				raise ValueError(f"Unknown button: {button}")
-
+		if not button.startswith("dpad"):
+			job = scheduled_actions[button]
+			cron.cancel(job)
+			expiration_time = job.expiry
+			now = cron.time.perf_counter()
+			if now >= expiration_time:
+				return
+		actions.user.gamepad_action_dispatch(button, held)
 
 def gamepad_scroll(x: float, y: float):
 	"""Perform gamepad scrolling"""
@@ -316,3 +310,4 @@ def get_screen(x: float, y: float) -> Screen:
 	if not screen.contains(x, y):
 		screen = ui.screen_containing(x, y)
 	return screen
+
