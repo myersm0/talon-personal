@@ -9,7 +9,7 @@ mode: user.meeting
 
 @ctx_meeting.action_class("user")
 class MeetingActions:
-    def gamepad_press_left_stick():
-        actions.speech.enable()
-    def gamepad_release_left_stick(held):
-        actions.speech.disable()
+	def gamepad_press_left_stick():
+		actions.speech.enable()
+	def gamepad_release_left_stick(held):
+		actions.speech.disable()
