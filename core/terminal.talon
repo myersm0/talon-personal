@@ -163,22 +163,20 @@ victor chase:
 	key(,)
 	insert("$s/")
 
-^[vim] comment from <digits> to <digits>$:
+^[vim] {user.vim_actions_long} from <digits> to <digits>$:
 	key(escape)
 	key(:)
 	insert(digits_1)
 	key(,)
 	insert(digits_2)
-	insert("s/^/#/")
+	insert(vim_actions_long)
 	key(enter)
 
-^[vim] uncomment from <digits> to <digits>$:
+^[vim] put at <digits>:
 	key(escape)
 	key(:)
 	insert(digits_1)
-	key(,)
-	insert(digits_2)
-	insert("s/^#//")
+	insert("put")
 	key(enter)
 
 
