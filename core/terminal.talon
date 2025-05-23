@@ -115,41 +115,6 @@ victor chase:
 	key(escape)
 	insert(":%s/")
 
-^[vim] sub from <digits> to <digits>$:
-	key(escape)
-	key(:)
-	insert(digits_1)
-	key(,)
-	insert(digits_2)
-	insert("s/")
-
-^[vim] sub from <digits> [to end]$:
-	key(escape)
-	key(:)
-	insert(digits_1)
-	key(,)
-	insert("$s/")
-
-^[vim] comment from <digits> to <digits>$:
-	key(escape)
-	key(:)
-	insert(digits_1)
-	key(,)
-	insert(digits_2)
-	insert("s/^/#/")
-	key(enter)
-
-^[vim] uncomment from <digits> to <digits>$:
-	key(escape)
-	key(:)
-	insert(digits_1)
-	key(,)
-	insert(digits_2)
-	insert("s/^#//")
-	key(enter)
-
-^[vim] sub from <digits> [to end]$:
-
 ^[vim] next$:
 	key(escape)
 	insert(":n")
@@ -181,6 +146,39 @@ victor chase:
 ^tabs to spaces$:
 	key(escape)
 	insert(":%s/\t/    /g")
+	key(enter)
+
+^[vim] sub from <digits> to <digits>$:
+	key(escape)
+	key(:)
+	insert(digits_1)
+	key(,)
+	insert(digits_2)
+	insert("s/")
+
+^[vim] sub from <digits> [to end]$:
+	key(escape)
+	key(:)
+	insert(digits_1)
+	key(,)
+	insert("$s/")
+
+^[vim] comment from <digits> to <digits>$:
+	key(escape)
+	key(:)
+	insert(digits_1)
+	key(,)
+	insert(digits_2)
+	insert("s/^/#/")
+	key(enter)
+
+^[vim] uncomment from <digits> to <digits>$:
+	key(escape)
+	key(:)
+	insert(digits_1)
+	key(,)
+	insert(digits_2)
+	insert("s/^#//")
 	key(enter)
 
 
