@@ -12,6 +12,11 @@ slow_mouse_move = False
 timestamps = {}
 scheduled_actions = {}
 
+buttons_with_autorelease = (
+	"north", "south", "west", "east",
+	"start", "select",
+	"left_shoulder", "right_shoulder"
+)
 
 @mod.action_class
 class Actions:
@@ -197,7 +202,7 @@ class Actions:
 	def gamepad_button_down(button: str):
 		"""Gamepad press button <button>"""
 		timestamps[button] = time.perf_counter()
-		if not button.startswith("dpad"):
+		if button in buttons_with_autorelease:
 			scheduled_actions[button] = cron.after(
 				"800ms", 
 				lambda: actions.user.gamepad_action_dispatch(button, 2)
@@ -243,7 +248,7 @@ class Actions:
 			held = 1
 		else:
 			held = 0
-		if not button.startswith("dpad"):
+		if button in buttons_with_autorelease:
 			job = scheduled_actions[button]
 			cron.cancel(job)
 			expiration_time = job.expiry
