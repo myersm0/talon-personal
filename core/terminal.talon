@@ -172,6 +172,22 @@ victor chase:
 	insert(vim_actions_long)
 	key(enter)
 
+^[vim] {user.vim_actions_long} from <digits> [to end]$:
+	key(escape)
+	key(:)
+	insert(digits_1)
+	key(,)
+	key($)
+	insert(vim_actions_long)
+	key(enter)
+
+^[vim] {user.vim_actions_long} <digits>$:
+	key(escape)
+	key(:)
+	insert(digits)
+	insert(vim_actions_long)
+	key(enter)
+
 ^[vim] put at <digits>:
 	key(escape)
 	key(:)
