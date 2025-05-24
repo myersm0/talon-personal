@@ -5,6 +5,7 @@ import time
 ctx_julia = Context()
 ctx_julia.matches = """
 app: /julia/i
+and not mode: user.long
 """
 
 @ctx_julia.action_class("user")
@@ -62,22 +63,12 @@ class JuliaActions:
 	def gamepad_trigger_left(value: float):
 		"""Gamepad trigger left movement"""
 		if value > 0.8:
-			actions.key(",")
+			actions.key("0")
 
 	def gamepad_trigger_right(value: float):
 		"""Gamepad trigger right movement"""
 		if value > 0.8:
-			actions.key(".")
-
-	def gamepad_press_left_stick():
-		actions.skip()
-	def gamepad_release_left_stick(held):
-		actions.key("0")
-
-	def gamepad_press_right_stick():
-		actions.skip()
-	def gamepad_release_right_stick(held):
-		actions.key('$')
+			actions.key("$")
 
 	def gamepad_press_select():
 		actions.skip()

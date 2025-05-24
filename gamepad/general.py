@@ -12,6 +12,7 @@ and not app: /safari/i
 not mode: user.seek
 and not mode: user.symbol
 and not mode: user.recording
+and not mode: user.long
 """
 
 @ctx_general.action_class("user")

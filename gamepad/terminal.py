@@ -12,6 +12,7 @@ app: /term/i
 not mode: user.seek
 and not mode: user.symbol
 and not mode: user.recording
+and not mode: user.long
 """
 
 @ctx_terminal.action_class("user")

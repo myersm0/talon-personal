@@ -6,6 +6,7 @@ ctx_recording1 = Context()
 ctx_recording1.matches = """
 mode: user.recording
 and not mode: user.meeting
+and not mode: user.long
 """
 
 @ctx_recording1.action_class("user")
