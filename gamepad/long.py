@@ -10,9 +10,13 @@ and not mode: user.meeting
 
 @ctx_meeting.action_class("user")
 class MeetingActions:
-	def gamepad_press_right_stick():
+	def gamepad_press_select():
 		actions.skip()
-	def gamepad_release_right_stick(held):
+	def gamepad_release_select(held):
+		actions.mimic("set dummy Mike")
+	def gamepad_press_start():
+		actions.skip()
+	def gamepad_release_start(held):
 		actions.mimic("set default Mike")
 	def gamepad_press_dpad_up():
 		actions.skip()
@@ -46,3 +50,11 @@ class MeetingActions:
 		actions.skip()
 	def gamepad_release_east(held):
 		actions.mimic("focus last")
+	def gamepad_press_right_stick():
+		actions.skip()
+	def gamepad_release_right_stick(held):
+		actions.mimic("focus last")
+	def gamepad_trigger_left(value):
+		actions.mimic("undo")
+	def gamepad_trigger_right(value):
+		actions.mimic("redo")
