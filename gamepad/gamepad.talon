@@ -44,5 +44,5 @@ gamepad(l2):         user.gamepad_trigger_left(value)
 gamepad(r2):         user.gamepad_trigger_right(value)
 
 # Analog thumb sticks
-gamepad(left_xy:repeat):    user.gamepad_stick_right(x * 0.6, y * -0.6)
+gamepad(left_xy:repeat):    user.gamepad_stick_left(x * 0.6, y * -0.6)
 gamepad(right_xy:repeat):   user.gamepad_stick_right(x * 1.0, y * -1.0)

@@ -18,28 +18,24 @@ and not mode: user.long
 @ctx_terminal.action_class("user")
 class GeneralActions:
 	def gamepad_press_dpad_left():
-		actions.key("escape")
-		actions.user.key_hold("b")
+		actions.user.key_hold("left")
 	def gamepad_release_dpad_left(held):
-		actions.user.key_release("b")
+		actions.user.key_release("left")
 
 	def gamepad_press_dpad_right():
-		actions.key("escape")
-		actions.user.key_hold("w")
+		actions.user.key_hold("right")
 	def gamepad_release_dpad_right(held):
-		actions.user.key_release("w")
+		actions.user.key_release("right")
 
 	def gamepad_press_dpad_up():
-		actions.key("escape")
-		actions.user.key_hold("k")
+		actions.user.key_hold("up")
 	def gamepad_release_dpad_up(held):
-		actions.user.key_release("k")
+		actions.user.key_release("up")
 
 	def gamepad_press_dpad_down():
-		actions.key("escape")
-		actions.user.key_hold("j")
+		actions.user.key_hold("down")
 	def gamepad_release_dpad_down(held):
-		actions.user.key_release("j")
+		actions.user.key_release("down")
 
 	def gamepad_press_north():
 		actions.skip()
@@ -139,5 +135,29 @@ class GeneralActions:
 			move = f"{move}:8"
 		stick_move_counter += 1
 		if stick_move_counter >= movement_threshold:
+			actions.key(move)
+			stick_move_counter = 0
+
+	def gamepad_stick_left(x: float, y: float):
+		"""Gamepad right stick movement"""
+		global stick_move_counter
+		ratio = x / y
+		axis = "x" if abs(ratio) > 1 else "y"
+		positive_direction = x > 0 if axis == "x" else y > 0
+		if axis == "x" and positive_direction:
+			move = "w"
+		elif axis == "x":
+			move = "b"
+		elif axis == "y" and positive_direction:
+			move = "j"
+		elif axis == "y":
+			move = "k"
+		magnitude = max(abs(x), abs(y))
+		movement_threshold = 8 if magnitude < 0.9 else 1
+		if magnitude >= 0.9:
+			move = f"{move}:8"
+		stick_move_counter += 1
+		if stick_move_counter >= movement_threshold:
+			actions.key("escape")
 			actions.key(move)
 			stick_move_counter = 0
