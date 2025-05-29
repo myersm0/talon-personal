@@ -78,10 +78,10 @@ class Actions:
         threshold = thresholds[hiss_stage]
         print(f"[hiss] threshold = {threshold:.3f}")
 
+        current_mouse_pos = ctrl.mouse_pos()
         if hiss_length > max_hiss_dur:
             print(f"[hiss] action rejected (hiss was too long)")
         elif hiss_length > threshold:
-            current_mouse_pos = ctrl.mouse_pos()
             if require_mouse_move and current_mouse_pos == last_mouse_pos:
                 print(f"[hiss] action rejected (the mouse has not moved)")
                 return
@@ -89,9 +89,9 @@ class Actions:
             hiss_stage = min(hiss_stage + 1, len(thresholds) - 1)
             print(f"[hiss] advance stage to {hiss_stage}")
             last_action_time = now
-            last_mouse_pos = ctrl.mouse_pos()
         else:
             print("[hiss] no click (too short)")
+        last_mouse_pos = ctrl.mouse_pos()
 
 def hiss_handler(active: bool) -> None:
     """
