@@ -18,6 +18,8 @@ buttons_with_autorelease = (
 	"left_shoulder", "right_shoulder"
 )
 
+need_to_go_back_to_sleep = False
+
 @mod.action_class
 class Actions:
 	# DPAD buttons
@@ -129,11 +131,19 @@ class Actions:
 
 	def gamepad_press_left_stick():
 		"""Gamepad press button left thumb stick"""
+		global need_to_go_back_to_sleep
+		if not actions.speech.enabled():
+			actions.speech.enable()
+			need_to_go_back_to_sleep = True
 		actions.mimic("long mode")
 
 	def gamepad_release_left_stick(held: int):
 		"""Gamepad release button left thumb stick"""
+		global need_to_go_back_to_sleep
 		actions.mimic("done with long mode")
+		if need_to_go_back_to_sleep:
+			actions.speech.disable()
+			need_to_go_back_to_sleep = False
 
 	def gamepad_press_right_stick():
 		"""Gamepad press button right thumb stick"""
