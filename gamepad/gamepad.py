@@ -167,11 +167,11 @@ class Actions:
 
 	def gamepad_stick_left(x: float, y: float):
 		"""Gamepad left stick movement"""
-		gamepad_scroll(x, y)
+		gamepad_mouse_move(x, y, 0.1)
 
 	def gamepad_stick_right(x: float, y: float):
 		"""Gamepad right stick movement"""
-		gamepad_mouse_move(x, y)
+		gamepad_mouse_move(x, y, 0.2)
 
 	# Scaffolding actions used by the Talon file
 
@@ -277,9 +277,8 @@ def gamepad_scroll(x: float, y: float):
 		actions.mouse_scroll(x=x, y=y, by_lines=True)
 
 
-def gamepad_mouse_move(dx: float, dy: float):
+def gamepad_mouse_move(dx: float, dy: float, multiplier: float):
 	"""Perform gamepad mouse cursor movement"""
-	multiplier = 0.1 if slow_mouse_move else 0.2
 	x, y = ctrl.mouse_pos()
 	screen = get_screen(x, y)
 	dx = dx**3 * screen.dpi * multiplier
