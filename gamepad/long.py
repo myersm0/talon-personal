@@ -54,7 +54,11 @@ class MeetingActions:
 		actions.skip()
 	def gamepad_release_right_stick(held):
 		actions.mimic("focus last")
-	def gamepad_trigger_left(value):
+	def gamepad_press_left_trigger():
+		actions.skip()
+	def gamepad_release_left_trigger(held):
 		actions.mimic("undo")
-	def gamepad_trigger_right(value):
+	def gamepad_press_right_trigger():
+		actions.skip()
+	def gamepad_release_right_trigger(held):
 		actions.mimic("redo")

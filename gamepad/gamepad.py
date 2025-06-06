@@ -11,11 +11,12 @@ slow_scroll = False
 slow_mouse_move = False
 timestamps = {}
 scheduled_actions = {}
+trigger_jobs = {}
 
 buttons_with_autorelease = (
 	"north", "south", "west", "east",
 	"start", "select",
-	"left_shoulder", "right_shoulder"
+	"left_shoulder", "right_shoulder",
 )
 
 need_to_go_back_to_sleep = False
@@ -127,6 +128,24 @@ class Actions:
 		"""Gamepad release button right shoulder"""
 		actions.skip()
 
+	def gamepad_press_left_trigger():
+		"""Gamepad press button left trigger"""
+		global trigger_jobs
+		trigger_jobs["left"] = cron.interval("128ms", lambda: gamepad_scroll(0, -1.15))
+
+	def gamepad_release_left_trigger(held: int):
+		"""Gamepad release button left trigger"""
+		cron.cancel(trigger_jobs["left"])
+
+	def gamepad_press_right_trigger():
+		"""Gamepad press button right trigger"""
+		global trigger_jobs
+		trigger_jobs["right"] = cron.interval("128ms", lambda: gamepad_scroll(0, 1.15))
+
+	def gamepad_release_right_trigger(held: int):
+		"""Gamepad release button right trigger"""
+		cron.cancel(trigger_jobs["right"])
+		
 	# Stick buttons
 
 	def gamepad_press_left_stick():
@@ -152,16 +171,6 @@ class Actions:
 	def gamepad_release_right_stick(held: int):
 		"""Gamepad release button right thumb stick"""
 		actions.mimic("command mode")
-
-	# Analog triggers
-
-	def gamepad_trigger_left(value: float):
-		"""Gamepad trigger left movement"""
-		gamepad_scroll(0, value * -1.5)
-
-	def gamepad_trigger_right(value: float):
-		"""Gamepad trigger right movement"""
-		gamepad_scroll(0, value * 1.5)
 
 	# Analog thumb sticks
 
@@ -202,6 +211,10 @@ class Actions:
 				actions.user.gamepad_release_left_shoulder(held)
 			case "right_shoulder":
 				actions.user.gamepad_release_right_shoulder(held)
+			case "left_trigger":
+				actions.user.gamepad_release_left_trigger(held)
+			case "right_trigger":
+				actions.user.gamepad_release_right_trigger(held)
 			case "left_stick":
 				actions.user.gamepad_release_left_stick(held)
 			case "right_stick":
@@ -242,6 +255,10 @@ class Actions:
 				actions.user.gamepad_press_left_shoulder()
 			case "right_shoulder":
 				actions.user.gamepad_press_right_shoulder()
+			case "left_trigger":
+				actions.user.gamepad_press_left_trigger()
+			case "right_trigger":
+				actions.user.gamepad_press_right_trigger()
 			case "left_stick":
 				actions.user.gamepad_press_left_stick()
 			case "right_stick":

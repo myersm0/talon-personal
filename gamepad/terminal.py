@@ -106,12 +106,18 @@ class GeneralActions:
 			actions.key("escape")
 			actions.key("shift-A")
 
-	def gamepad_trigger_left(value: float):
+	def gamepad_press_left_trigger():
+		actions.skip()
+
+	def gamepad_release_left_trigger(held):
 		actions.key("escape")
 		actions.key("g")
 		actions.key("g")
 
-	def gamepad_trigger_right(value: float):
+	def gamepad_press_right_trigger():
+		actions.skip()
+
+	def gamepad_release_right_trigger(held):
 		actions.key("escape")
 		actions.key("G")
 
