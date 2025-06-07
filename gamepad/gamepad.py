@@ -21,6 +21,16 @@ buttons_with_autorelease = (
 
 need_to_go_back_to_sleep = False
 
+mouse_mode_expiration = None
+def initiate_mouse_mode(duration: str = "3s"):
+	"""temp"""
+	global mouse_mode_expiration
+	actions.mode.enable("user.mouse")
+	if mouse_mode_expiration is not None:
+		cron.cancel(mouse_mode_expiration)
+	mouse_mode_expiration = cron.after(duration, lambda: actions.mode.disable("user.mouse"))
+
+
 @mod.action_class
 class Actions:
 	# DPAD buttons
@@ -176,10 +186,12 @@ class Actions:
 
 	def gamepad_stick_left(x: float, y: float):
 		"""Gamepad left stick movement"""
+		initiate_mouse_mode()
 		gamepad_mouse_move(x, y, 0.1)
 
 	def gamepad_stick_right(x: float, y: float):
 		"""Gamepad right stick movement"""
+		initiate_mouse_mode()
 		gamepad_mouse_move(x, y, 0.2)
 
 	# Scaffolding actions used by the Talon file

@@ -13,6 +13,7 @@ not mode: user.seek
 and not mode: user.symbol
 and not mode: user.recording
 and not mode: user.long
+and not mode: user.mouse
 """
 
 @ctx_general.action_class("user")

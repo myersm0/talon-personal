@@ -12,3 +12,6 @@ mod_meeting.mode("meeting", desc="Highly reduced mode for Zoom calls")
 
 mod_seek = Module()
 mod_seek.mode("seek", desc="Mode for seeking while in tmux")
+
+mod_mouse = Module()
+mod_mouse.mode("mouse", desc="Mode for mousing")
