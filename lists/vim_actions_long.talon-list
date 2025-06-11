@@ -1,6 +1,6 @@
 list: user.vim_actions_long
 -
-comment: "s/^/#/"
+vim comment: "s/^/#/"
 delete: "delete"
 yank: "yank +"
 sub: "s"
