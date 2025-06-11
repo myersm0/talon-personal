@@ -15,4 +15,6 @@ mod.list("unix_tools", desc="unix programs that are commonly on the right side o
 mod.list("unix_operators", desc="unix operators pipe, redirect, append")
 mod.list("dont_go", desc="optional phrases to defer pressing enter to complete a terminal commands")
 mod.list("servers", desc="server names at work")
+mod.list("project", desc="CCF project names")
+mod.list("project_qualifier", desc="ITK, PRC, STG")
 

@@ -2,6 +2,14 @@ app: /terminal/i
 app: /term/i
 -
 
+## work project names
+CCF {user.project} {user.project_qualifier}:
+	insert("CCF_")
+	insert(project)
+	insert("_")
+	insert(project_qualifier)
+
+
 ## slurm
 cue stat: insert("qstat ")
 cue stat HCP: insert("qstat | grep HCP")

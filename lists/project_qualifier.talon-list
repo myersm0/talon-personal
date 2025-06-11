@@ -1,0 +1,5 @@
+list: user.project_qualifier
+-
+intake: "ITK"
+processing: "PRC"
+staging: "STG"
