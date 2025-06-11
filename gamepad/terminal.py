@@ -13,6 +13,7 @@ not mode: user.seek
 and not mode: user.symbol
 and not mode: user.recording
 and not mode: user.long
+and not mode: user.mouse
 """
 
 @ctx_terminal.action_class("user")
@@ -121,49 +122,3 @@ class GeneralActions:
 		actions.key("escape")
 		actions.key("G")
 
-	def gamepad_stick_right(x: float, y: float):
-		"""Gamepad right stick movement"""
-		global stick_move_counter
-		ratio = x / y
-		axis = "x" if abs(ratio) > 1 else "y"
-		positive_direction = x > 0 if axis == "x" else y > 0
-		if axis == "x" and positive_direction:
-			move = "right"
-		elif axis == "x":
-			move = "left"
-		elif axis == "y" and positive_direction:
-			move = "down"
-		elif axis == "y":
-			move = "up"
-		magnitude = max(abs(x), abs(y))
-		movement_threshold = 8 if magnitude < 0.9 else 1
-		if magnitude >= 0.9:
-			move = f"{move}:8"
-		stick_move_counter += 1
-		if stick_move_counter >= movement_threshold:
-			actions.key(move)
-			stick_move_counter = 0
-
-	def gamepad_stick_left(x: float, y: float):
-		"""Gamepad right stick movement"""
-		global stick_move_counter
-		ratio = x / y
-		axis = "x" if abs(ratio) > 1 else "y"
-		positive_direction = x > 0 if axis == "x" else y > 0
-		if axis == "x" and positive_direction:
-			move = "w"
-		elif axis == "x":
-			move = "b"
-		elif axis == "y" and positive_direction:
-			move = "j"
-		elif axis == "y":
-			move = "k"
-		magnitude = max(abs(x), abs(y))
-		movement_threshold = 8 if magnitude < 0.9 else 1
-		if magnitude >= 0.9:
-			move = f"{move}:8"
-		stick_move_counter += 1
-		if stick_move_counter >= movement_threshold:
-			actions.key("escape")
-			actions.key(move)
-			stick_move_counter = 0
