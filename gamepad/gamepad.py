@@ -186,7 +186,7 @@ class Actions:
 
 	def gamepad_stick_left(x: float, y: float):
 		"""Gamepad left stick movement"""
-		initiate_mouse_mode()
+		initiate_mouse_mode("1s")
 		gamepad_mouse_move(x, y, 0.1)
 
 	def gamepad_stick_right(x: float, y: float):
