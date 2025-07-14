@@ -32,6 +32,16 @@ empty brackets:
 
 ## vim
 
+set number:
+	key(escape)
+	insert(":set number")
+	key(enter)
+
+set no number:
+	key(escape)
+	insert(":set nonumber")
+	key(enter)
+
 victor chase:
 	insert("vim ")
 
