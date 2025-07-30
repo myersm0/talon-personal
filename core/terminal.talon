@@ -32,6 +32,12 @@ empty brackets:
 
 ## vim
 
+# some nonsense to clear the highlighted strings matching my last "go" cmd
+vim clear:
+	key(escape)
+	insert(":g/fetneantefnenao")
+	key(enter)
+
 set number:
 	key(escape)
 	insert(":set number")
