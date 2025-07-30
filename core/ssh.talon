@@ -6,7 +6,7 @@ app: /term/i
 	key(enter)
 
 ^chpc as service user$:
-	insert("ssh -X nrg-svc-hcpi@10.27.136.152")
+	insert("ssh -X nrg-svc-hcpi@10.27.136.151")
 	key(enter)
 
 ^shadow <number>$:
