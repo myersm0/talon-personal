@@ -21,6 +21,9 @@ app: /term/i
 	insert(".nrg.wustl.edu -l nrg-svc-hcpi -X")
 	key(enter)
 
+^brain mappers$:
+	insert("ssh brainmappers@brainmappers-desktop5.wustl.edu")
+	key(enter)
 
 
 
