@@ -11,9 +11,13 @@ CCF {user.project} {user.project_qualifier}:
 
 
 ## slurm
-cue stat: insert("qstat ")
-cue stat HCP: insert("qstat | grep HCP")
+cue stat [{user.dont_go}]: 
+	insert('squeue -u $USER -o "%.18i %.9P %.8j %.8u %.2t %.10M %.6D %R"')
+	go = dont_go or "go"
+	user.optional_enter(go)
 
+
+## misc
 unicode {user.unicode}:
 	insert(unicode)
 
