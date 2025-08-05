@@ -16,6 +16,17 @@ cue stat [{user.dont_go}]:
 	go = dont_go or "go"
 	user.optional_enter(go)
 
+cue stat HCP:
+	insert('squeue -o "%.18i %.9P %.8j %.8u %.2t %.10M %.6D %R" | grep HCP')
+	go = dont_go or "go"
+	user.optional_enter(go)
+
+cue stat ADCP:
+	insert('squeue -o "%.18i %.9P %.8j %.8u %.2t %.10M %.6D %R" | grep ADCP')
+	go = dont_go or "go"
+	user.optional_enter(go)
+
+
 
 ## misc
 unicode {user.unicode}:
@@ -417,9 +428,6 @@ array:
 	insert("[@]}")
 	key(")
 	key(left:5)
-
-squeue:
-	insert("squeue")
 
 page that [{user.dont_go}]:
 	insert(" | less")
