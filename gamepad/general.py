@@ -9,6 +9,7 @@ and not app: /term/i
 and not app: /julia/i
 and not app: /zoom/i
 and not app: /safari/i
+and not app: /steam/i
 not mode: user.seek
 and not mode: user.symbol
 and not mode: user.recording
