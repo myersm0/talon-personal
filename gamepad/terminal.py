@@ -87,10 +87,13 @@ class GeneralActions:
 	def gamepad_press_start():
 		actions.skip()
 	def gamepad_release_start(held):
-		if held < 2:
-			actions.key("cmd-t")
-		else:
-			actions.key("cmd-n")
+		actions.key("escape")
+		actions.key("0")
+		actions.key("v")
+		actions.key("$")
+		actions.key("ctrl-c:2")
+		actions.sleep("100ms")
+		actions.key("j")
 
 	def gamepad_press_left_shoulder():
 		actions.skip()
