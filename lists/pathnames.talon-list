@@ -27,6 +27,7 @@ ADCP CinaB:          /ceph/intradb/archive/CinaB/CCF_ADCPWI_STG/
 CBA intake:          /ceph/intradb/archive/CCF_CBA_ITK/arc001/
 CBA processing:      /ceph/intradb/archive/CCF_CBA_PRC/arc001/
 CBA staging:         /ceph/intradb/archive/CCF_CBA_STG/arc001/
+STACT staging:       /ceph/intradb/archive/CCF_STACT_STG/arc001/
 supercomputer logs:  /ceph/scratch/intradb/build/chpc/build/nrg-svc-hcpi/
 IntraDb logs:        /ceph/intradb/logs/pipeline/
 CinaB:               /ceph/intradb/archive/CinaB/

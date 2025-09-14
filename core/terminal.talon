@@ -496,6 +496,14 @@ go ahead$:
 	insert("goahead -d 1")
 	key(enter)
 
+go to comlogs$:
+	insert("goahead -d 5 -r comlogs")
+	key(enter)
+
+go to runlogs$:
+	insert("goahead -d 5 -r runlogs")
+	key(enter)
+
 go ahead <digits> [{user.dont_go}]$:
 	insert("goahead -d ")
 	insert(digits)
