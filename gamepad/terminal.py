@@ -84,13 +84,6 @@ class GeneralActions:
 	def gamepad_press_select():
 		actions.skip()
 	def gamepad_release_select(held):
-		if held == 2:
-			actions.insert("exit")
-			actions.key("enter")
-
-	def gamepad_press_start():
-		actions.skip()
-	def gamepad_release_start(held):
 		actions.key("escape")
 		actions.key("0")
 		actions.key("v")
@@ -99,20 +92,21 @@ class GeneralActions:
 		actions.sleep("100ms")
 		actions.key("j")
 
+	def gamepad_press_start():
+		actions.skip()
+	def gamepad_release_start(held):
+		actions.key("escape")
+		actions.key("f12")
+
 	def gamepad_press_left_shoulder():
 		actions.skip()
 	def gamepad_release_left_shoulder(held):
-		actions.key("escape")
-		actions.key("f12")
+		actions.key("cmd-left")
 
 	def gamepad_press_right_shoulder():
 		actions.skip()
 	def gamepad_release_right_shoulder(held):
-		if held < 2:
-			actions.key("tab")
-		else:
-			actions.key("escape")
-			actions.key("shift-A")
+		actions.key("cmd-right")
 
 	def gamepad_press_left_trigger():
 		actions.skip()
@@ -150,7 +144,7 @@ class GeneralActions:
 		stick_move_counter += 1
 		if stick_move_counter >= movement_threshold:
 			actions.key(move)
-			stick_move_counter = 0
+			stick_move_counter = 1
 
 	def gamepad_stick_left(x: float, y: float):
 		"""Gamepad right stick movement"""
@@ -159,19 +153,19 @@ class GeneralActions:
 		axis = "x" if abs(ratio) > 1 else "y"
 		positive_direction = x > 0 if axis == "x" else y > 0
 		if axis == "x" and positive_direction:
-			move = "w"
+			move = "right"
 		elif axis == "x":
-			move = "b"
+			move = "left"
 		elif axis == "y" and positive_direction:
-			move = "j"
+			move = "down"
 		elif axis == "y":
-			move = "k"
+			move = "up"
 		magnitude = max(abs(x), abs(y))
-		movement_threshold = 8 if magnitude < 0.9 else 1
+		movement_threshold = 4 if magnitude < 0.9 else 1
 		if magnitude >= 0.9:
 			move = f"{move}:8"
 		stick_move_counter += 1
 		if stick_move_counter >= movement_threshold:
 			actions.key("escape")
 			actions.key(move)
-			stick_move_counter = 0
+			stick_move_counter = 1
