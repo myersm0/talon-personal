@@ -255,9 +255,10 @@ victor chase:
 
 ^[go|move|tmux] (diagonal|oblique|cross)$:
 	key(ctrl-a)
-	insert("l")
+	key(left)
+	sleep(10ms)
 	key(ctrl-a)
-	insert("j")
+	key(up)
 
 ^[tmux] fullsize$:
 	key(ctrl-a)
