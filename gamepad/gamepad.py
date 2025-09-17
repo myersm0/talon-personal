@@ -176,19 +176,11 @@ class Actions:
 
 	def gamepad_press_right_stick():
 		"""Gamepad press button right thumb stick"""
-		global need_to_go_back_to_sleep
-		if not actions.speech.enabled():
-			actions.speech.enable()
-			need_to_go_back_to_sleep = True
-		actions.mimic("dictation mode")
+		actions.user.gamepad_press_left_stick()
 
 	def gamepad_release_right_stick(held: int):
 		"""Gamepad release button right thumb stick"""
-		global need_to_go_back_to_sleep
-		if need_to_go_back_to_sleep:
-			actions.speech.disable()
-		else:
-			actions.mimic("command mode")
+		actions.user.gamepad_release_left_stick(held)
 
 	# Analog thumb sticks
 
