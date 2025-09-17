@@ -17,7 +17,7 @@
 |L2            |builtin mic |            |            |            |
 |R2            |default mic |            |            |            |
 |L3            |            |            |            |long mode   |
-|R3            |            |            |            |dict. mode  |
+|R3            |            |            |            |long mode   |
 
 ## `zoom` mappings
 |Key           |Tap         |Short press |Long press  |
@@ -27,22 +27,36 @@
 ## `terminal` mappings
 |Key           |Tap         |Short press |Long press  |Cont. hold  |
 |--------------|------------|------------|------------|------------|
-|left          |esc-b       |            |            |            |
-|right         |esc-w       |            |            |            |
-|up            |esc-k       |            |            |            |
-|down          |esc-j       |            |            |            |
+|left          |left        |            |            |            |
+|right         |right       |            |            |            |
+|up            |up          |            |            |            |
+|down          |down        |            |            |            |
 |north         |space       |yank to end |yank line   |            |
 |south         |enter       |            |put         |            |
 |west          |backspace   |del to end  |del line    |            |
 |east          |ctrl-c      |chng to end |chng line   |            |
-|select        |            |            |exit        |            |
-|start         |new tab     |new window  |            |            |
-|L1            |exec block  |exec line   |go doc start|            |
-|R1            |tab         |append to ln|go doc end  |            |
-|L2            |builtin mic |            |            |            |
-|R2            |default mic |            |            |            |
+|select        |exec line   |            |            |            |
+|start         |exec block  |            |            |            |
+|L1            |tab prev    |            |            |            |
+|R1            |tab next    |            |            |            |
+|L2            |            |            |go doc start|            |
+|R2            |            |            |go doc end  |            |
 |L3            |            |            |            |long mode   |
-|R3            |            |            |            |dict. mode  |
+|R3            |            |            |            |long mode   |
+
+## `terminal` mappings (long mode)
+|Key           |Tap         |Short press |Long press  |Cont. hold  |
+|--------------|------------|------------|------------|------------|
+|left          |tmux left   |            |            |            |
+|right         |tmux right  |            |            |            |
+|up            |tmux up     |            |            |            |
+|down          |tmux down   |            |            |            |
+|L1            |undo        |            |            |            |
+|R1            |redo        |            |            |            |
+
+
+
+
 
 
 
