@@ -230,12 +230,12 @@ class Actions:
 	def gamepad_stick_left(x: float, y: float):
 		"""Gamepad left stick movement"""
 		initiate_mouse_mode("1s")
-		gamepad_mouse_move(x, y, 0.1)
+		gamepad_mouse_move(x, y, 0.05)
 
 	def gamepad_stick_right(x: float, y: float):
 		"""Gamepad right stick movement"""
 		initiate_mouse_mode()
-		gamepad_mouse_move(x, y, 0.2)
+		gamepad_mouse_move(x, y, 0.3)
 
 	# Scaffolding actions used by the Talon file
 
@@ -349,12 +349,21 @@ def gamepad_scroll(x: float, y: float):
 		actions.mouse_scroll(x=x, y=y, by_lines=True)
 
 
+
 def gamepad_mouse_move(dx: float, dy: float, multiplier: float):
 	"""Perform gamepad mouse cursor movement"""
 	x, y = ctrl.mouse_pos()
 	screen = get_screen(x, y)
-	dx = dx**3 * screen.dpi * multiplier
-	dy = dy**3 * screen.dpi * multiplier
+	# Check if we're near max deflection
+	magnitude = max(abs(dx), abs(dy))
+	if magnitude > 0.98:
+		# Boost speed significantly at near-max deflection
+		dx = dx**3 * screen.dpi * multiplier * 3.0
+		dy = dy**3 * screen.dpi * multiplier * 3.0
+	else:
+		# Normal cubic scaling for precise movement
+		dx = dx**3 * screen.dpi * multiplier
+		dy = dy**3 * screen.dpi * multiplier
 	actions.mouse_move(x + dx, y + dy)
 
 
