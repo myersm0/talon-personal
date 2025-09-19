@@ -83,7 +83,7 @@
 |West|escape||||
 |East|escape||||
 
-## Julia REPL
+## Julia
 |Key|Tap|Short|Long|Hold|
 |---|---|---|---|---|
 |D-pad left/right|arrow keys|||hold|
