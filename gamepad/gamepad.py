@@ -20,6 +20,7 @@ buttons_with_autorelease = (
 )
 
 need_to_go_back_to_sleep = False
+stick_holding = None  # track which stick is currently held: 'left', 'right', or None
 
 mouse_mode_expiration = None
 def initiate_mouse_mode(duration: str = "3s"):
@@ -29,7 +30,6 @@ def initiate_mouse_mode(duration: str = "3s"):
 	if mouse_mode_expiration is not None:
 		cron.cancel(mouse_mode_expiration)
 	mouse_mode_expiration = cron.after(duration, lambda: actions.mode.disable("user.mouse"))
-
 
 @mod.action_class
 class Actions:
@@ -160,27 +160,55 @@ class Actions:
 
 	def gamepad_press_left_stick():
 		"""Gamepad press button left thumb stick"""
-		global need_to_go_back_to_sleep
-		if not actions.speech.enabled():
-			actions.speech.enable()
-			need_to_go_back_to_sleep = True
-		actions.mimic("long mode")
-
+		global need_to_go_back_to_sleep, stick_holding
+		# Check if the right stick is already being held (we're in long mode from right stick)
+		if stick_holding == "right":
+			# We're already in long mode from the other stick, do focus last
+			actions.mimic("focus last")
+		else:
+			# Normal long mode activation
+			stick_holding = "left"
+			if not actions.speech.enabled():
+				actions.speech.enable()
+				need_to_go_back_to_sleep = True
+			actions.mimic("long mode")
+	
 	def gamepad_release_left_stick(held: int):
 		"""Gamepad release button left thumb stick"""
-		global need_to_go_back_to_sleep
-		actions.mimic("done with long mode")
-		if need_to_go_back_to_sleep:
-			actions.speech.disable()
-			need_to_go_back_to_sleep = False
-
+		global need_to_go_back_to_sleep, stick_holding
+		# Only exit long mode if this was the stick that initiated it
+		if stick_holding == "left":
+			stick_holding = None
+			actions.mimic("done with long mode")
+			if need_to_go_back_to_sleep:
+				actions.speech.disable()
+				need_to_go_back_to_sleep = False
+	
 	def gamepad_press_right_stick():
 		"""Gamepad press button right thumb stick"""
-		actions.user.gamepad_press_left_stick()
-
+		global need_to_go_back_to_sleep, stick_holding
+		# Check if the left stick is already being held (we're in long mode from left stick)
+		if stick_holding == "left":
+			# We're already in long mode from the other stick, do focus last
+			actions.mimic("focus last")
+		else:
+			# Normal long mode activation
+			stick_holding = "right"
+			if not actions.speech.enabled():
+				actions.speech.enable()
+				need_to_go_back_to_sleep = True
+			actions.mimic("long mode")
+	
 	def gamepad_release_right_stick(held: int):
 		"""Gamepad release button right thumb stick"""
-		actions.user.gamepad_release_left_stick(held)
+		global need_to_go_back_to_sleep, stick_holding
+		# Only exit long mode if this was the stick that initiated it
+		if stick_holding == "right":
+			stick_holding = None
+			actions.mimic("done with long mode")
+			if need_to_go_back_to_sleep:
+				actions.speech.disable()
+				need_to_go_back_to_sleep = False
 
 	# Analog thumb sticks
 
