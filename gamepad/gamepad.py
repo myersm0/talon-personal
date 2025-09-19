@@ -348,24 +348,22 @@ def gamepad_scroll(x: float, y: float):
 	if x != 0 or y != 0:
 		actions.mouse_scroll(x=x, y=y, by_lines=True)
 
-
-
 def gamepad_mouse_move(dx: float, dy: float, multiplier: float):
 	"""Perform gamepad mouse cursor movement"""
 	x, y = ctrl.mouse_pos()
 	screen = get_screen(x, y)
-	# Check if we're near max deflection
-	magnitude = max(abs(dx), abs(dy))
-	if magnitude > 0.98:
-		# Boost speed significantly at near-max deflection
-		dx = dx**3 * screen.dpi * multiplier * 3.0
-		dy = dy**3 * screen.dpi * multiplier * 3.0
+	# Calculate magnitude before cubic scaling
+	magnitude = (dx**2 + dy**2)**0.5
+	if magnitude > 0.1:  # Avoid division by zero
+		# Apply cubic scaling to magnitude, preserve direction
+		scaled_magnitude = magnitude**3
+		dx = (dx / magnitude) * scaled_magnitude * screen.dpi * multiplier
+		dy = (dy / magnitude) * scaled_magnitude * screen.dpi * multiplier
 	else:
-		# Normal cubic scaling for precise movement
+		# Very small movements - use original cubic scaling
 		dx = dx**3 * screen.dpi * multiplier
 		dy = dy**3 * screen.dpi * multiplier
 	actions.mouse_move(x + dx, y + dy)
-
 
 def gamepad_scroll_slow_toggle():
 	"""Toggle gamepad slow scroll mode"""
