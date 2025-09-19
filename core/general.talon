@@ -1,4 +1,10 @@
 
+hold <user.modifiers>:
+	key("{modifiers}:down")
+
+release <user.modifiers>:
+	key("{modifiers}:up")
+
 ^stop$:
 	user.release_all_keys()
 
