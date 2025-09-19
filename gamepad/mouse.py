@@ -10,9 +10,11 @@ mode: user.mouse
 @ctx_general.action_class("user")
 class GeneralActions:
 	def gamepad_press_south():
-		actions.skip()
+		actions.user.gamepad_disable_autorelease()
+		actions.mouse_drag(0)
 	def gamepad_release_south(held):
-		actions.mouse_click(0)
+		actions.mouse_release(0)
+		actions.user.gamepad_enable_autorelease()
 
 	def gamepad_press_east():
 		actions.skip()

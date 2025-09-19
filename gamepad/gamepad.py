@@ -21,6 +21,7 @@ buttons_with_autorelease = (
 
 need_to_go_back_to_sleep = False
 stick_holding = None  # track which stick is currently held: 'left', 'right', or None
+allow_autorelease = True
 
 mouse_mode_expiration = None
 def initiate_mouse_mode(duration: str = "3s"):
@@ -33,6 +34,20 @@ def initiate_mouse_mode(duration: str = "3s"):
 
 @mod.action_class
 class Actions:
+	def gamepad_disable_autorelease():
+		"""Disable south button autorelease (for mouse dragging)"""
+		global allow_autorelease, scheduled_actions
+		allow_autorelease = False
+	   	# Cancel any existing scheduled autoreleases
+		for button, job in scheduled_actions.items():
+			cron.cancel(job)
+		scheduled_actions.clear()
+
+	def gamepad_enable_autorelease():
+		"""Re-enable south button autorelease"""
+		global allow_autorelease, scheduled_actions
+		allow_autorelease = True
+
 	# DPAD buttons
 
 	def gamepad_press_dpad_left():
@@ -265,7 +280,7 @@ class Actions:
 	def gamepad_button_down(button: str):
 		"""Gamepad press button <button>"""
 		timestamps[button] = time.perf_counter()
-		if button in buttons_with_autorelease:
+		if allow_autorelease and button in buttons_with_autorelease:
 			scheduled_actions[button] = cron.after(
 				"800ms", 
 				lambda: actions.user.gamepad_action_dispatch(button, 2)
@@ -315,7 +330,7 @@ class Actions:
 			held = 1
 		else:
 			held = 0
-		if button in buttons_with_autorelease:
+		if button in buttons_with_autorelease and button in scheduled_actions:
 			job = scheduled_actions[button]
 			cron.cancel(job)
 			expiration_time = job.expiry
