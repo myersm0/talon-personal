@@ -60,18 +60,18 @@ class JuliaActions:
 	def gamepad_release_right_shoulder(held):
 		actions.skip()
 
-	def gamepad_release_left_trigger():
+	def gamepad_press_left_trigger():
 		actions.skip()
-	def gamepad_press_left_trigger(held):
+	def gamepad_release_left_trigger(held):
 		"""Gamepad trigger left movement"""
-		if value > 0.8:
+		if held == 2:
 			actions.key("0")
 
-	def gamepad_release_right_trigger():
+	def gamepad_press_right_trigger():
 		actions.skip()
-	def gamepad_press_right_trigger(held):
+	def gamepad_release_right_trigger(held):
 		"""Gamepad trigger right movement"""
-		if value > 0.8:
+		if held == 2:
 			actions.key("$")
 
 	def gamepad_press_select():
