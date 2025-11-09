@@ -2,6 +2,16 @@ app: /terminal/i
 app: /term/i
 -
 
+## virtual instruments
+serve piano tech:
+	insert("/Applications/Pianoteq\ 9/Pianoteq\ 9.app/Contents/MacOS/Pianoteq\ 9 --serve ")
+	key(enter)
+
+serve organ tech:
+	insert("/Applications/Organteq\ 2/Organteq\ 2.app/Contents/MacOS/Organteq\ 2 --serve ")
+	key(enter)
+
+
 ## work project names
 CCF {user.project} {user.project_qualifier}:
 	insert("CCF_")
