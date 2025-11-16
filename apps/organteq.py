@@ -1,6 +1,6 @@
 import subprocess
 import json
-from talon import Module
+from talon import Module, actions
 
 mod = Module()
 
@@ -50,6 +50,11 @@ class Actions:
 		except (json.JSONDecodeError, KeyError) as e:
 			print(f"Command failed with error: {e}")
 	
+	def organteq_toggle_stops(manual: str, stops: list[int]):
+		"""toggle multiple Organteq stops on or off"""
+		for stop in stops:
+			actions.user.organteq_toggle_stop(manual, stop)
+
 	def organteq_clear_manual(manual: str):
 		"""set all stops on a manual to 0.0"""
 		max_stops = 20 if manual == "3" else 10

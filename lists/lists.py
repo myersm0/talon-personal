@@ -18,4 +18,5 @@ mod.list("servers", desc="server names at work")
 mod.list("project", desc="CCF project names")
 mod.list("project_qualifier", desc="ITK, PRC, STG")
 mod.list("organteq_manual", desc="Organteq manuals from bottom to top, numbers 1 through 4")
+mod.list("organteq_stop_number", desc="Organteq stop numbers from one to twenty")
 
