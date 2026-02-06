@@ -618,7 +618,7 @@ cargo test:
 	insert("cargo test")
 	key(enter)
 
-cargo run binary:
+cargo run:
 	insert("cargo run")
 	key(enter)
 
