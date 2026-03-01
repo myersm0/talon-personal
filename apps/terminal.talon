@@ -538,6 +538,11 @@ go frequent [{user.dont_go}]$:
 	go = dont_go or "go"
 	user.optional_enter(go)
 
+go likely [{user.dont_go}]$:
+	insert("cdp")
+	go = dont_go or "go"
+	user.optional_enter(go)
+
 grab$:
 	insert("grab")
 	key(enter)
@@ -555,6 +560,17 @@ grab <digits>$ [{user.dont_go}]:
 ^snap <digits>$:
 	insert(digits)
 	key(enter)
+
+^recall [{user.dont_go}]$:
+	insert("recall")
+	go = dont_go or "go"
+	user.optional_enter(go)
+
+^recall minus pee [{user.dont_go}]$:
+	insert("recall -p ")
+	go = dont_go or "go"
+	user.optional_enter(go)
+
 
 
 ## for use with my personal note taker
@@ -625,6 +641,11 @@ cargo run:
 cargo run binary:
 	insert("cargo run --bin ")
 
+
+## ollama
+oh lama serve:
+	insert("ollama serve")
+	key(enter)
 
 
 
