@@ -31,6 +31,4 @@ STACT staging:       /ceph/intradb/archive/CCF_STACT_STG/arc001/
 supercomputer logs:  /ceph/scratch/intradb/build/chpc/build/nrg-svc-hcpi/
 IntraDb logs:        /ceph/intradb/logs/pipeline/
 CinaB:               /ceph/intradb/archive/CinaB/
-
-
-
+app support:			~/Library/Application\ Support/
