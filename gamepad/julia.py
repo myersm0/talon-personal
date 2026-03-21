@@ -4,7 +4,7 @@ import time
 
 ctx_julia = Context()
 ctx_julia.matches = """
-app: /julia/i
+app: /kbr/i
 and not mode: user.long
 """
 

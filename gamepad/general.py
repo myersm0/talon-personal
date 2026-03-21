@@ -6,7 +6,7 @@ ctx_general = Context()
 ctx_general.matches = """
 not app: /terminal/i
 and not app: /term/i
-and not app: /julia/i
+and not app: /kbr/i
 and not app: /zoom/i
 and not app: /safari/i
 and not app: /steam/i
