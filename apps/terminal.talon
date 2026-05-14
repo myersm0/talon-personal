@@ -248,63 +248,49 @@ victor chase:
 	key(enter)
 
 
-## tmux
+## zellij
 
-^[go|move|tmux] down$:
-	key(ctrl-a)
-	insert("j")
+^[go|move|tmux] (down|south)$:
+	key(ctrl-j)
 
-^[go|move|tmux] up$:
-	key(ctrl-a)
-	insert("k")
+^[go|move|tmux] (up|north)$:
+	key(ctrl-k)
 
-^[go|move|tmux] left$:
-	key(ctrl-a)
-	insert("h")
+^[go|move|tmux] (left|west)$:
+	key(ctrl-h)
 
-^[go|move|tmux] right$:
-	key(ctrl-a)
-	insert("l")
+^[go|move|tmux] (right|east)$:
+	key(ctrl-l)
 
-^[go|move|tmux] (diagonal|oblique|cross)$:
-	key(ctrl-a)
-	key(left)
-	sleep(10ms)
-	key(ctrl-a)
-	key(up)
+^[go|move|tmux] southeast$:
+	key(ctrl-j)
+	key(ctrl-l)
 
-^[tmux] fullsize$:
-	key(ctrl-a)
-	insert("z")
+^[go|move|tmux] southwest$:
+	key(ctrl-j)
+	key(ctrl-h)
 
-^[tmux] seek$:
-	mode.enable("user.seek")
-	key(ctrl-a)
-	insert("[")
+^[go|move|tmux] northwest$:
+	key(ctrl-k)
+	key(ctrl-h)
 
-^[tmux] put|paste$:
-	mode.disable("user.seek")
-	key(ctrl-a)
-	insert("]")
-
-^repl four$:
-	insert("repl4")
-	key(enter)
-
-^four across$:
-	insert("four_across")
-	key(enter)
+^[go|move|tmux] northeast$:
+	key(ctrl-k)
+	key(ctrl-l)
 
 ^(shock | execute block)$:
 	key(escape)
-	key(f12)
+	insert("gb")
 
 ^(shine | execute line)$:
 	key(escape)
 	key(0)
-	key(v)
-	key($)
-	key(ctrl-c:2)
+	key(V)
+	insert("gs")
+
+^float$:
+	key(ctrl-shift-f)
+
 
 
 ## bash 
