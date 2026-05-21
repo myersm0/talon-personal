@@ -291,6 +291,29 @@ victor chase:
 ^float$:
 	key(ctrl-shift-f)
 
+^new pane$:
+	key(ctrl-p)
+	key(n)
+
+^new pane right$:
+	key(ctrl-p)
+	key(r)
+
+^new pane down$:
+	key(ctrl-p)
+	key(d)
+
+^stack$:
+	key(ctrl-p)
+	key(s)
+
+^eject$:
+	key(ctrl-p)
+	key(e)
+
+^tab rename$:
+	key(ctrl-t)
+	key(r)
 
 
 ## bash 
