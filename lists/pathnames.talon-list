@@ -7,11 +7,9 @@ falstaff:            /Volumes/falstaff/contents/
 guinevere:           /Volumes/guinevere/contents/
 gesualdo:            /Volumes/gesualdo/contents/
 contents:            ~/contents/
-resources:           ~/resources/
 downloads:           ~/Downloads/
 documents:           ~/Documents/
 pictures:            ~/Pictures/
-resources:           ~/resources/
 Talon user:          ~/.talon/user/
 my Talon:            ~/.talon/user/talon-personal/
 Talon personal:      ~/.talon/user/talon-personal/
