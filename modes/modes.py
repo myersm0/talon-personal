@@ -15,3 +15,6 @@ mod_seek.mode("seek", desc="Mode for seeking while in tmux")
 
 mod_mouse = Module()
 mod_mouse.mode("mouse", desc="Mode for mousing")
+
+mod_symbol = Module()
+mod_symbol.mode("symbol", desc="Mode for entering special characters with the gamepad (e.g. punctuation)")

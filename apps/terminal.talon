@@ -45,7 +45,7 @@ cue stat ADCP:
 unicode {user.unicode}:
 	insert(unicode)
 
-[lower|litte] (Greek|unicode) {user.lower_greek}:
+[lower|little] (Greek|unicode) {user.lower_greek}:
 	insert(lower_greek)
 
 (upper|big) (Greek|unicode) {user.upper_greek}:
@@ -438,7 +438,7 @@ find <digits> [{user.dont_go}]:
 copy:
 	insert("cp ")
 
-copy recusrive:
+copy recursive:
 	insert("cp -r ")
 
 make (folder|dir):
@@ -594,13 +594,6 @@ log write <phrase>:
 	insert("log ")
 	insert(phrase)
 	key(enter)
-
-
-## Google Gemma
-
-^fim prefix$: insert("<|fim_prefix|>")
-^fim middle$: insert("<|fim_middle|>")
-^fim suffix$: insert("<|fim_suffix|>")
 
 
 ## ssh

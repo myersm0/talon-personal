@@ -18,22 +18,6 @@ class Actions:
         else:
             actions.key("space")
 
-    def networking_on():
-        """turn networking on"""
-        try:
-            subprocess.run("nmcli networking on", shell=True, check=True)
-        except subprocess.CalledProcessError as e:
-            # Handle error (optional)
-            print(f"Command failed with error: {e}")
-
-    def networking_off():
-        """turn networking off"""
-        try:
-            subprocess.run("nmcli networking off", shell=True, check=True)
-        except subprocess.CalledProcessError as e:
-            # Handle error (optional)
-            print(f"Command failed with error: {e}")
-
     def volume_down():
         """lower volume by five percent"""
         try:
