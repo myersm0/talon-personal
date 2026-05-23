@@ -71,8 +71,6 @@
 |D-pad|tmux pane navigation (ctrl-a + hjkl)||||
 |L1|undo (esc u)||||
 |R1|redo (esc ctrl-r)||||
-|L-stick||||vim movement (hjkl/wb)|
-|R-stick||||arrow movement|
 
 ## Safari
 |Key|Tap|Short|Long|Hold|
@@ -106,3 +104,18 @@
 - **Meeting mode**: L3/R3 enable/disable speech without long mode
 - **Recording mode**: East button exits recording and optionally wakes speech
 - **Seek mode**: Terminal navigation with different key mappings
+
+## Architecture
+
+Voice/Talon → `gamepad.talon` → `user.gamepad_button_down/up(button)` in
+`gamepad.py` → timestamps press, schedules 800ms autorelease for buttons in
+`buttons_with_autorelease`, computes `held ∈ {0,1,2}` on release, dispatches via
+`getattr(actions.user, "gamepad_press_X" / "gamepad_release_X")`.
+
+Per-context behavior lives in the small files (`general.py`, `terminal.py`,
+etc.), each declared as a data table via `bindings.install(ctx, {...})`. The
+`bindings` module supplies the binding helpers (`repeat_key`, `tap_key`,
+`press_key`, `tap_keys`, `tap_call`, `by_hold`, `mimic_phrase`, `hold`). Anything
+a context doesn't bind falls through to the module-level defaults in
+`gamepad.py`, which implement gamepad-as-mouse behavior (drag on west/north,
+right-click on east, etc.).

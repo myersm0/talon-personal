@@ -1,34 +1,44 @@
-from talon import Module, Context, actions, ui, ctrl
-from talon.screen import Screen
-import time
+from talon import Context, actions
 
-ctx_general = Context()
-ctx_general.matches = """
+from . import bindings
+
+context = Context()
+context.matches = """
 mode: user.mouse
 """
 
-@ctx_general.action_class("user")
-class GeneralActions:
-	def gamepad_press_south():
-		actions.user.gamepad_disable_autorelease()
-		actions.mouse_drag(0)
-	def gamepad_release_south(held):
-		actions.mouse_release(0)
-		actions.user.gamepad_enable_autorelease()
 
-	def gamepad_press_east():
-		actions.skip()
-	def gamepad_release_east(held):
-		actions.mouse_click(1)
+def south_press():
+	actions.user.gamepad_disable_autorelease()
+	actions.mouse_drag(0)
 
-	def gamepad_press_north():
-		actions.key("cmd:down")
-	def gamepad_release_north(held):
-		actions.mouse_click(0)
-		actions.key("cmd:up")
 
-	def gamepad_press_west():
-		actions.key("shift:down")
-	def gamepad_release_west(held):
-		actions.mouse_click(0)
-		actions.key("shift:up")
+def south_release():
+	actions.mouse_release(0)
+	actions.user.gamepad_enable_autorelease()
+
+
+def north_press():
+	actions.key("cmd:down")
+
+
+def north_release():
+	actions.mouse_click(0)
+	actions.key("cmd:up")
+
+
+def west_press():
+	actions.key("shift:down")
+
+
+def west_release():
+	actions.mouse_click(0)
+	actions.key("shift:up")
+
+
+bindings.install(context, {
+	"south": bindings.hold(south_press, south_release),
+	"east":  bindings.tap_call(lambda: actions.mouse_click(1)),
+	"north": bindings.hold(north_press, north_release),
+	"west":  bindings.hold(west_press, west_release),
+})

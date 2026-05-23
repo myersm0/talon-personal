@@ -1,15 +1,15 @@
-from talon import Module, Context, actions, ui, ctrl
-from talon.screen import Screen
-import time
+from talon import Context, actions
 
-ctx_meeting = Context()
-ctx_meeting.matches = """
+from . import bindings
+
+context = Context()
+context.matches = """
 mode: user.meeting
+and not mode: user.long
+and not mode: user.mouse
+and not mode: user.recording
 """
 
-@ctx_meeting.action_class("user")
-class MeetingActions:
-	def gamepad_press_left_stick():
-		actions.speech.enable()
-	def gamepad_release_left_stick(held):
-		actions.speech.disable()
+bindings.install(context, {
+	"left_stick": bindings.hold(actions.speech.enable, actions.speech.disable),
+})

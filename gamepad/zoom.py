@@ -1,28 +1,28 @@
-from talon import Module, Context, actions, ui, ctrl
-from talon.screen import Screen
-import time
+from talon import Context, actions
 
-ctx_zoom = Context()
-ctx_zoom.matches = """
+from . import bindings
+
+context = Context()
+context.matches = """
 app: /zoom/i
+not mode: user.long
+and not mode: user.mouse
+and not mode: user.recording
 """
 
-@ctx_zoom.action_class("user")
-class ZoomActions:
-	def gamepad_press_right_stick():
-		actions.skip()
-	def gamepad_release_right_stick(held):
-		if held >= 1:
-			actions.key("cmd-shift-a")
 
-	def gamepad_press_select():
-		actions.skip()
-	def gamepad_release_select(held):
-		if held >= 1:
-			actions.key("cmd-q")
+def right_stick_release(held):
+	if held >= 1:
+		actions.key("cmd-shift-a")
 
-	def gamepad_press_start():
-		actions.skip()
-	def gamepad_release_start(held):
-		actions.user.take_screenshot()
 
+def select_release(held):
+	if held >= 1:
+		actions.key("cmd-q")
+
+
+bindings.install(context, {
+	"right_stick": (bindings.skip_press, right_stick_release),
+	"select":      (bindings.skip_press, select_release),
+	"start":       bindings.tap_call(actions.user.take_screenshot),
+})

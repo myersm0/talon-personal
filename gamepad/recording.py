@@ -1,37 +1,39 @@
-from talon import Module, Context, actions, ui, ctrl
-from talon.screen import Screen
-import time
+from talon import Context, actions
 
-ctx_recording1 = Context()
-ctx_recording1.matches = """
+from . import bindings
+
+
+def east_press():
+	actions.key("ctrl-c")
+
+
+def make_east_release(wake_speech):
+	def release():
+		actions.user.unmute()
+		actions.mode.disable("user.recording")
+		if wake_speech:
+			actions.speech.enable()
+	return release
+
+
+context_recording_no_meeting = Context()
+context_recording_no_meeting.matches = """
 mode: user.recording
 and not mode: user.meeting
 and not mode: user.long
 """
 
-@ctx_recording1.action_class("user")
-class Recording1Actions:
-	def gamepad_press_east():
-		actions.key("ctrl-c")
-	def gamepad_release_east(held):
-		actions.user.unmute()
-		actions.mode.disable("user.recording")
-		actions.speech.enable()
-		print("Waking up.")
+bindings.install(context_recording_no_meeting, {
+	"east": bindings.hold(east_press, make_east_release(wake_speech=True)),
+})
 
 
-ctx_recording2 = Context()
-ctx_recording2.matches = """
+context_recording_in_meeting = Context()
+context_recording_in_meeting.matches = """
 mode: user.recording
 and mode: user.meeting
 """
 
-@ctx_recording2.action_class("user")
-class Recording2Actions:
-	def gamepad_press_east():
-		actions.key("ctrl-c")
-	def gamepad_release_east(held):
-		actions.user.unmute()
-		actions.mode.disable("user.recording")
-		print("Not waking up because we're in a meeting.")
-
+bindings.install(context_recording_in_meeting, {
+	"east": bindings.hold(east_press, make_east_release(wake_speech=False)),
+})

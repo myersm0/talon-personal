@@ -1,51 +1,22 @@
-from talon import Module, Context, actions, ui, ctrl
-from talon.screen import Screen
-import time
+from talon import Context, actions
 
-ctx_safari = Context()
-ctx_safari.matches = """
+from . import bindings
+
+context = Context()
+context.matches = """
 app: /safari/i
+not mode: user.long
+and not mode: user.mouse
+and not mode: user.recording
 """
 
-@ctx_safari.action_class("user")
-class SafariActions:
-	def gamepad_press_dpad_left():
-		actions.skip()
-	def gamepad_release_dpad_left(held):
-		actions.key("left")
-
-	def gamepad_press_dpad_right():
-		actions.skip()
-	def gamepad_release_dpad_right(held):
-		actions.key("right")
-
-	def gamepad_press_dpad_up():
-		actions.skip()
-	def gamepad_release_dpad_up(held):
-		actions.key("up")
-
-	def gamepad_press_dpad_down():
-		actions.skip()
-	def gamepad_release_dpad_down(held):
-		actions.key("down")
-
-	def gamepad_press_north():
-		actions.skip()
-	def gamepad_release_north(held):
-		actions.key("enter")
-
-	def gamepad_press_south():
-		actions.skip()
-	def gamepad_release_south(held):
-		actions.mouse_click(0)
-
-	def gamepad_press_west():
-		actions.skip()
-	def gamepad_release_west(held):
-		actions.key("escape")
-
-	def gamepad_press_east():
-		actions.skip()
-	def gamepad_release_east(held):
-		actions.key("escape")
-
+bindings.install(context, {
+	"dpad_left":  bindings.tap_key("left"),
+	"dpad_right": bindings.tap_key("right"),
+	"dpad_up":    bindings.tap_key("up"),
+	"dpad_down":  bindings.tap_key("down"),
+	"north":      bindings.tap_key("enter"),
+	"south":      bindings.tap_call(lambda: actions.mouse_click(0)),
+	"west":       bindings.tap_key("escape"),
+	"east":       bindings.tap_key("escape"),
+})
