@@ -3,32 +3,48 @@ app: /term*/i
 -
 
 ^[go|move|tmux] (down|south)$:
-	key(ctrl-j)
+	key(ctrl-p)
+	key(down)
+	key(enter)
 
 ^[go|move|tmux] (up|north)$:
-	key(ctrl-k)
+	key(ctrl-p)
+	key(up)
+	key(enter)
 
 ^[go|move|tmux] (left|west)$:
-	key(ctrl-h)
+	key(ctrl-p)
+	key(left)
+	key(enter)
 
 ^[go|move|tmux] (right|east)$:
-	key(ctrl-l)
+	key(ctrl-p)
+	key(right)
+	key(enter)
 
 ^[go|move|tmux] southeast$:
-	key(ctrl-j)
-	key(ctrl-l)
+	key(ctrl-p)
+	key(down)
+	key(right)
+	key(enter)
 
 ^[go|move|tmux] southwest$:
-	key(ctrl-j)
-	key(ctrl-h)
+	key(ctrl-p)
+	key(down)
+	key(left)
+	key(enter)
 
 ^[go|move|tmux] northwest$:
-	key(ctrl-k)
-	key(ctrl-h)
+	key(ctrl-p)
+	key(up)
+	key(left)
+	key(enter)
 
 ^[go|move|tmux] northeast$:
-	key(ctrl-k)
-	key(ctrl-l)
+	key(ctrl-p)
+	key(up)
+	key(right)
+	key(enter)
 
 ^(shock | execute block)$:
 	key(escape)
