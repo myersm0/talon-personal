@@ -2,86 +2,26 @@ from talon import Module, Context, actions, ui, ctrl
 from talon.screen import Screen
 import time
 
-ctx_julia = Context()
-ctx_julia.matches = """
+from . import bindings
+
+context = Context()
+context.matches = """
 app: /kbr/i
 and not mode: user.long
 """
 
-@ctx_julia.action_class("user")
-class JuliaActions:
-	def gamepad_press_dpad_left():
-		actions.user.key_hold("left", "32ms")
-	def gamepad_release_dpad_left(held):
-		actions.user.key_release("left")
+bindings.install(context, {
+	"dpad_left":       bindings.repeat_key("left"),
+	"dpad_right":       bindings.repeat_key("right"),
+	"dpad_up":       bindings.tap_key("up"),
+	"dpad_down":       bindings.tap_key("down"),
+	"north":       bindings.tap_key("space"),
+	"south":       bindings.tap_key("enter"),
+	"east":       bindings.tap_key("q"),
+	"left_shoulder":       bindings.tap_keys("ctrl-pagedown"),
+	"right_shoulder":       bindings.tap_keys("ctrl-pageup"),
+})
 
-	def gamepad_press_dpad_right():
-		actions.user.key_hold("right", "32ms")
-	def gamepad_release_dpad_right(held):
-		actions.user.key_release("right")
 
-	def gamepad_press_dpad_up():
-		actions.skip()
-	def gamepad_release_dpad_up(held):
-		actions.key("up")
-
-	def gamepad_press_dpad_down():
-		actions.skip()
-	def gamepad_release_dpad_down(held):
-		actions.key("down")
-
-	def gamepad_press_north():
-		actions.skip()
-	def gamepad_release_north(held):
-		actions.key("space")
-
-	def gamepad_press_south():
-		actions.skip()
-	def gamepad_release_south(held):
-		actions.key("enter")
-
-	def gamepad_press_west():
-		actions.skip()
-	def gamepad_release_west(held):
-		actions.key("backspace")
-
-	def gamepad_press_east():
-		actions.skip()
-	def gamepad_release_east(held):
-		actions.key("q")
-
-	def gamepad_press_left_shoulder():
-		actions.key("ctrl-pagedown")
-	def gamepad_release_left_shoulder(held):
-		actions.skip()
-
-	def gamepad_press_right_shoulder():
-		actions.key("ctrl-pageup")
-	def gamepad_release_right_shoulder(held):
-		actions.skip()
-
-	def gamepad_press_left_trigger():
-		actions.skip()
-	def gamepad_release_left_trigger(held):
-		"""Gamepad trigger left movement"""
-		if held == 2:
-			actions.key("0")
-
-	def gamepad_press_right_trigger():
-		actions.skip()
-	def gamepad_release_right_trigger(held):
-		"""Gamepad trigger right movement"""
-		if held == 2:
-			actions.key("$")
-
-	def gamepad_press_select():
-		actions.skip()
-	def gamepad_release_select(held):
-		actions.key("e")
-
-	def gamepad_press_start():
-		actions.skip()
-	def gamepad_release_start(held):
-		actions.key("a")
 
 
