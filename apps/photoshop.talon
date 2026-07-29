@@ -40,7 +40,8 @@ merge visible:
 black and white:
 	key(cmd-alt-shift-b)
 
-
+fill:
+	key(shift-f5)
 
 
 
