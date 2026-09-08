@@ -38,7 +38,7 @@ bindings.install(context, {
 	"south":          bindings.by_hold("enter", "enter", south_long_release),
 	"west":           bindings.by_hold("backspace", lambda: actions.insert("d$"), lambda: actions.insert("dd")),
 	"east":           bindings.by_hold("ctrl-c", lambda: actions.insert("c$"), lambda: actions.insert("cc")),
-	"select":         (bindings.skip_press, bindings.tap_keys("escape", "0", "V", "g", "s")),
+	"select":         bindings.tap_keys("escape", "0", "V", "g", "s"),
 	"start":          bindings.tap_keys("escape", "g", "b"),
 	"left_shoulder":  bindings.tap_key("cmd-left"),
 	"right_shoulder": bindings.tap_key("cmd-right"),
