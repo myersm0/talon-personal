@@ -27,8 +27,15 @@ buttons_with_autorelease = (
 	"left_shoulder", "right_shoulder",
 )
 
-need_to_go_back_to_sleep = False
-stick_holding = None
+app_switcher_directions = {
+	"dpad_left": "previous",
+	"dpad_right": "next",
+	"left_shoulder": "previous",
+	"right_shoulder": "next",
+}
+
+app_switcher_open = False
+buttons_pressed_in_app_switcher = set()
 allow_autorelease = True
 mouse_mode_expiration = None
 
@@ -41,28 +48,24 @@ def initiate_mouse_mode(duration: str = "3s"):
 	mouse_mode_expiration = cron.after(duration, lambda: actions.mode.disable("user.mouse"))
 
 
-def long_mode_stick_press(side: str):
-	global need_to_go_back_to_sleep, stick_holding
-	other_side = "right" if side == "left" else "left"
-	if stick_holding == other_side:
-		actions.mimic("focus last")
-		return
-	stick_holding = side
-	if not actions.speech.enabled():
-		actions.speech.enable()
-		need_to_go_back_to_sleep = True
-	actions.mimic("long mode")
+def open_app_switcher():
+	global app_switcher_open
+	app_switcher_open = True
+	step_app_switcher("next")
 
 
-def long_mode_stick_release(side: str):
-	global need_to_go_back_to_sleep, stick_holding
-	if stick_holding != side:
-		return
-	stick_holding = None
-	actions.mimic("done with long mode")
-	if need_to_go_back_to_sleep:
-		actions.speech.disable()
-		need_to_go_back_to_sleep = False
+def step_app_switcher(direction: str):
+	shift = direction == "previous"
+	ctrl.key_press("tab", super=True, shift=shift, down=True, up=False)
+	ctrl.key_press("tab", down=False, up=True)
+	if shift:
+		ctrl.key_press("shift", down=False, up=True)
+
+
+def close_app_switcher():
+	global app_switcher_open
+	app_switcher_open = False
+	ctrl.key_press("cmd", down=False, up=True)
 
 
 @mod.action_class
@@ -195,19 +198,19 @@ class Actions:
 
 	def gamepad_press_left_stick():
 		"""Gamepad press button left thumb stick"""
-		long_mode_stick_press("left")
+		actions.user.push_to_talk_start()
 
 	def gamepad_release_left_stick(held: int):
 		"""Gamepad release button left thumb stick"""
-		long_mode_stick_release("left")
+		actions.user.push_to_talk_stop()
 
 	def gamepad_press_right_stick():
 		"""Gamepad press button right thumb stick"""
-		long_mode_stick_press("right")
+		open_app_switcher()
 
 	def gamepad_release_right_stick(held: int):
 		"""Gamepad release button right thumb stick"""
-		long_mode_stick_release("right")
+		close_app_switcher()
 
 	def gamepad_stick_left(x: float, y: float):
 		"""Gamepad left stick movement"""
@@ -229,6 +232,10 @@ class Actions:
 		"""Gamepad press button <button>"""
 		if button not in buttons:
 			raise ValueError(f"Unknown button: {button}")
+		if app_switcher_open and button in app_switcher_directions:
+			buttons_pressed_in_app_switcher.add(button)
+			step_app_switcher(app_switcher_directions[button])
+			return
 		timestamps[button] = time.perf_counter()
 		if allow_autorelease and button in buttons_with_autorelease:
 			scheduled_actions[button] = cron.after(
@@ -239,6 +246,9 @@ class Actions:
 
 	def gamepad_button_up(button: str):
 		"""Gamepad release button <button>"""
+		if button in buttons_pressed_in_app_switcher:
+			buttons_pressed_in_app_switcher.remove(button)
+			return
 		duration = time.perf_counter() - timestamps[button]
 		if duration > hold_timeout_long:
 			held = 2

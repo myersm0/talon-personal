@@ -20,8 +20,8 @@
 |R1|ctrl-tab||||
 |L2||||scroll up|
 |R2||||scroll down|
-|L3|||long mode|long mode|
-|R3|||long mode|long mode|
+|L3||||push-to-talk (speech on while held)|
+|R3||||app switcher (cmd held; see below)|
 |L-stick||||mouse move (slow)|
 |R-stick||||mouse move (fast)|
 
@@ -35,9 +35,17 @@
 |East (B)|right click||||
 |*Other buttons*|same as default||||
 
-## Long mode (L3/R3 held)
-- If already in long mode, pressing other stick → focus next
-- Speech enabled while held
+## App switcher (R3 held)
+Pressing R3 holds cmd and taps tab, opening the macOS app switcher; releasing R3 releases cmd and switches. A quick tap is therefore "focus last".
+
+While R3 is held, these buttons are intercepted before any context bindings:
+
+|Key|Action|
+|---|---|
+|D-pad left / L1|previous app (shift-tab)|
+|D-pad right / R1|next app (tab)|
+
+## Long mode (voice: "long mode")
 
 |Key|Tap|Short|Long|Hold|
 |---|---|---|---|---|
@@ -96,12 +104,13 @@
 ## Zoom
 |Key|Tap|Short|Long|Hold|
 |---|---|---|---|---|
-|R3||toggle mute|||
+|North||toggle mute|||
 |Select||cmd-q|||
 |Start|screenshot||||
 
 ## Special modes
-- **Meeting mode**: L3/R3 enable/disable speech without long mode
+- **Meeting mode**: L3 enables/disables speech (now the same as the default)
+- **Quiet mode** (`user.quiet`, see `modes/README.md`): gamepad stays live; L3 does nothing because speech is already on
 - **Recording mode**: East button exits recording and optionally wakes speech
 - **Seek mode**: Terminal navigation with different key mappings
 

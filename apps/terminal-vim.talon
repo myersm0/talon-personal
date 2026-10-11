@@ -1,4 +1,4 @@
-app: /term*/i
+app: /term/i
 
 -
 

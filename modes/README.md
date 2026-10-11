@@ -2,9 +2,19 @@
 
 Custom Talon modes for this setup. Modes are declared in `modes.py`, enabled/disabled from voice in `modes.talon`, and have their per-mode behavior in the remaining files.
 
-The full set: `user.long`, `user.recording`, `user.meeting`, `user.seek`, `user.mouse`, `user.symbol`.
+The full set: `user.long`, `user.recording`, `user.meeting`, `user.seek`, `user.mouse`, `user.symbol`, plus `user.quiet` (declared in `listening.py`).
 
 ## Files
+
+### `listening.py`
+Decides when Talon listens. Three parts:
+
+- **Push-to-talk is the default.** Speech is turned off when Talon starts. `user.push_to_talk_start()` / `user.push_to_talk_stop()` turn it on while a key is held (F1 via `push_to_talk.talon`, L3 via `gamepad/gamepad.py`). Release only turns speech off if the press turned it on, so a deliberate F7 toggle survives.
+- **No wake words.** Asserts `user.no_wake_commands`, which the opt-in fork uses to switch off "wake up", "talon wake" and "welcome back". Nothing spoken can turn speech on.
+- **Quiet apps.** `quiet_apps` lists substrings of app names (case-insensitive). An `app_activate` callback switches off sleep, command and dictation modes and switches on `user.quiet` when one of them is focused, and returns to command-plus-sleep when you leave. Only files with `mode: user.quiet` and a matching `app:` are live there (e.g. `apps/lightroom.talon`). No voice command enables or disables `user.quiet`. Adding a quiet app is one string in `quiet_apps`.
+
+### `push_to_talk.talon`
+F1 down/up → push-to-talk. Active in command and sleep modes, so not in quiet apps.
 
 ### `modes.py`
 Declares all six custom modes. Just `mod.mode(name, desc=...)` calls.
