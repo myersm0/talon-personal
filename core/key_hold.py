@@ -18,12 +18,16 @@ class Actions:
         actions.key(key)
 
         def repeated_press():
+            if key not in repeated_key_counts:
+                return
             repeated_key_counts[key] += 1
             actions.key(key)
             if repeated_key_counts[key] >= max_presses:
                 actions.user.key_release(key)
 
         def add_interval():
+            if key not in repeated_key_counts:
+                return
             repeated_key_jobs[key] = cron.interval(repeat_rate, repeated_press)
 
         repeated_key_jobs[key] = cron.after(repeat_delay, add_interval)

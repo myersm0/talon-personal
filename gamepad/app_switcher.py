@@ -36,6 +36,7 @@ def open_picker():
 def step(direction: str):
 	global selected_index
 	selected_index = (selected_index + offsets[direction]) % len(choices)
+	picker.show()
 
 
 def close_picker():
