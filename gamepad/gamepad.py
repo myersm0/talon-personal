@@ -2,6 +2,8 @@ from talon import Module, actions, ui, ctrl, cron
 from talon.screen import Screen
 import time
 
+from . import app_switcher
+
 hold_timeout_short = 0.3
 hold_timeout_long = 0.8
 
@@ -29,12 +31,13 @@ buttons_with_autorelease = (
 
 app_switcher_directions = {
 	"dpad_left": "previous",
-	"dpad_right": "next",
+	"dpad_up": "previous",
 	"left_shoulder": "previous",
+	"dpad_right": "next",
+	"dpad_down": "next",
 	"right_shoulder": "next",
 }
 
-app_switcher_open = False
 buttons_pressed_in_app_switcher = set()
 allow_autorelease = True
 mouse_mode_expiration = None
@@ -46,26 +49,6 @@ def initiate_mouse_mode(duration: str = "3s"):
 	if mouse_mode_expiration is not None:
 		cron.cancel(mouse_mode_expiration)
 	mouse_mode_expiration = cron.after(duration, lambda: actions.mode.disable("user.mouse"))
-
-
-def open_app_switcher():
-	global app_switcher_open
-	app_switcher_open = True
-	step_app_switcher("next")
-
-
-def step_app_switcher(direction: str):
-	shift = direction == "previous"
-	ctrl.key_press("tab", super=True, shift=shift, down=True, up=False)
-	ctrl.key_press("tab", down=False, up=True)
-	if shift:
-		ctrl.key_press("shift", down=False, up=True)
-
-
-def close_app_switcher():
-	global app_switcher_open
-	app_switcher_open = False
-	ctrl.key_press("cmd", down=False, up=True)
 
 
 @mod.action_class
@@ -206,11 +189,11 @@ class Actions:
 
 	def gamepad_press_right_stick():
 		"""Gamepad press button right thumb stick"""
-		open_app_switcher()
+		app_switcher.open_picker()
 
 	def gamepad_release_right_stick(held: int):
 		"""Gamepad release button right thumb stick"""
-		close_app_switcher()
+		app_switcher.close_picker()
 
 	def gamepad_stick_left(x: float, y: float):
 		"""Gamepad left stick movement"""
@@ -232,9 +215,9 @@ class Actions:
 		"""Gamepad press button <button>"""
 		if button not in buttons:
 			raise ValueError(f"Unknown button: {button}")
-		if app_switcher_open and button in app_switcher_directions:
+		if app_switcher.picker.showing and button in app_switcher_directions:
 			buttons_pressed_in_app_switcher.add(button)
-			step_app_switcher(app_switcher_directions[button])
+			app_switcher.step(app_switcher_directions[button])
 			return
 		timestamps[button] = time.perf_counter()
 		if allow_autorelease and button in buttons_with_autorelease:

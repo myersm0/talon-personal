@@ -36,14 +36,14 @@
 |*Other buttons*|same as default||||
 
 ## App switcher (R3 held)
-Pressing R3 holds cmd and taps tab, opening the macOS app switcher; releasing R3 releases cmd and switches. A quick tap is therefore "focus last".
+Pressing R3 shows a list of running apps, most recently used first, with the previous app highlighted. Releasing R3 focuses the highlighted app, so a quick tap is "focus last". Implemented in `app_switcher.py` as a Talon imgui list; recency comes from an `app_activate` callback.
 
 While R3 is held, these buttons are intercepted before any context bindings:
 
 |Key|Action|
 |---|---|
-|D-pad left / L1|previous app (shift-tab)|
-|D-pad right / R1|next app (tab)|
+|D-pad left / up, L1|move highlight up|
+|D-pad right / down, R1|move highlight down|
 
 ## Long mode (voice: "long mode")
 
