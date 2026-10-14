@@ -19,16 +19,6 @@ def south_long_release():
 	actions.insert("p")
 
 
-def select_release(held):
-	actions.key("escape")
-	actions.key("0")
-	actions.key("v")
-	actions.key("$")
-	actions.key("ctrl-c:2")
-	actions.sleep("100ms")
-	actions.key("j")
-
-
 bindings.install(context, {
 	"dpad_left":      bindings.repeat_key("left"),
 	"dpad_right":     bindings.repeat_key("right"),
@@ -40,8 +30,6 @@ bindings.install(context, {
 	"east":           bindings.by_hold("ctrl-c", lambda: actions.insert("c$"), lambda: actions.insert("cc")),
 	"select":         bindings.tap_keys("escape", "0", "V", "g", "s"),
 	"start":          bindings.tap_keys("escape", "g", "b"),
-	"left_shoulder":  bindings.tap_key("cmd-left"),
-	"right_shoulder": bindings.tap_key("cmd-right"),
-	"left_trigger":   bindings.tap_keys("escape", "g", "g"),
-	"right_trigger":  bindings.tap_keys("escape", "G"),
+	"left_shoulder":  bindings.tap_keys("ctrl-t", "left", "enter"),
+	"right_shoulder": bindings.tap_keys("ctrl-t", "right", "enter"),
 })

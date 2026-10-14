@@ -11,10 +11,3 @@ key(f5:down):
 
 key(f5:up):
 	speech.disable()
-
-gamepad(l3:down):
-	speech.enable()
-gamepad(l3:up):
-	speech.disable()
-
-

@@ -1,10 +1,28 @@
 # Gamepad mappings
 
+The controller is a DualSense Edge, read by InputConfig rather than Talon. InputConfig handles everything that means the same in every app: both sticks move the mouse, L2 and R2 scroll with pressure-scaled speed, and a 2 s PS hold is the emergency stop. Every other button is sent to Talon as a private key, held for exactly as long as the button is, and `gamepad.talon` turns those keys into the button names below.
+
+## Key scheme
+|Control|Key from InputConfig|Talon|
+|---|---|---|
+|Touchpad press|F1|push-to-talk (`modes/push_to_talk.talon`)|
+|Mute|F7|speech toggle (`modes/push_to_talk.talon`)|
+|D-pad left, up, right, down|F13, F14, F15, F16|`dpad_left`, `dpad_up`, `dpad_right`, `dpad_down`|
+|West, north, east, south|F17, F18, F19, F20|`west`, `north`, `east`, `south`|
+|Create, Options|shift-F13, shift-F14|`select`, `start`|
+|L1, R1|shift-F15, shift-F16|`left_shoulder`, `right_shoulder`|
+|Back paddle left, right|shift-F17, shift-F18|`left_paddle`, `right_paddle`|
+|Fn left, right|shift-F19, shift-F20|`left_function`, `right_function`|
+|Sticks, L2, R2, PS|not sent|handled in InputConfig|
+|Stick clicks|unbound||
+
+The paddles are only reported in the Edge's default profile (Fn + Triangle). Talon still receives native gamepad events while the Edge is wired, so no `gamepad()` matcher may exist anywhere in the user directory: it would double every press.
+
 ## Press durations
 - Tap: < 0.3s
-- Short: 0.3-0.8s  
+- Short: 0.3-0.8s
 - Long: > 0.8s
-- Hold: continuous (with autorelease except for triggers/sticks)
+- Hold: continuous (with autorelease at 0.8s for face buttons, Create, Options and shoulders)
 
 ## Default (no mode) behavior
 |Key|Tap|Short|Long|Hold|
@@ -14,18 +32,18 @@
 |South (A)|enter||||
 |West (X)|backspace||||
 |East (B)|dot||||
-|Select|cmd-w|cmd-q|||
-|Start|cmd-t|cmd-n|cmd-shift-n||
+|Create|cmd-w|cmd-q|||
+|Options|cmd-t|cmd-n|cmd-shift-n||
 |L1|ctrl-shift-tab||||
 |R1|ctrl-tab||||
-|L2||||scroll up|
-|R2||||scroll down|
-|L3||||push-to-talk (speech on while held)|
-|R3||||app switcher (cmd held; see below)|
-|L-stick||||mouse move (slow)|
-|R-stick||||mouse move (fast)|
+|Left paddle||||window picker (see below)|
+|Right paddle||||app picker (see below)|
+|Left Fn|clip selection to file||||
+|Right Fn|screenshot||||
 
-## Mouse mode (auto-activated by stick movement)
+## Mouse mode
+Previously entered by stick movement, which Talon no longer sees; nothing enters it at the moment. The table stays in `mouse.py` until it's decided whether InputConfig can signal stick deflection with a key.
+
 |Key|Tap|Short|Long|Hold|
 |---|---|---|---|---|
 |D-pad|mouse jump (halve distance to edge)||||
@@ -33,12 +51,11 @@
 |South (A)||||drag (no autorelease)|
 |West (X)|shift+click||||
 |East (B)|right click||||
-|*Other buttons*|same as default||||
 
-## App switcher (R3 held)
-Pressing R3 shows a list of running apps, most recently used first, with the previous app highlighted. Releasing R3 focuses the highlighted app, so a quick tap is "focus last". Implemented in `app_switcher.py` as a Talon imgui list; recency comes from an `app_activate` callback.
+## Pickers (paddles held)
+The right paddle shows running apps, most recently used first; the left paddle shows the current app's windows, in the order macOS reports them (expected front to back), skipping untitled and minimized ones. Either opens with the second entry highlighted and focuses the highlighted entry on release, so a quick tap is "focus last app" or "focus last window". Implemented in `picker.py` as one Talon imgui list; app recency comes from an `app_activate` callback.
 
-While R3 is held, these buttons are intercepted before any context bindings:
+While a picker is showing, these buttons are intercepted before any context bindings:
 
 |Key|Action|
 |---|---|
@@ -54,10 +71,8 @@ While R3 is held, these buttons are intercepted before any context bindings:
 |South|window last||||
 |West|focus last||||
 |East|focus last||||
-|Select|set dummy mike||||
-|Start|set default mike||||
-|L2|undo||||
-|R2|redo||||
+|Create|set dummy mike||||
+|Options|set default mike||||
 
 ## Terminal
 |Key|Tap|Short|Long|Hold|
@@ -66,17 +81,15 @@ While R3 is held, these buttons are intercepted before any context bindings:
 |South|enter||put||
 |West|backspace|del to end|del line||
 |East|ctrl-c|change to end|change line||
-|Select|exec line||||
-|Start|exec block||||
-|L1|cmd-left (tab prev)||||
-|R1|cmd-right (tab next)||||
-|L2|go doc start||||
-|R2|go doc end||||
+|Create|exec line||||
+|Options|exec block||||
+|L1|zellij previous tab||||
+|R1|zellij next tab||||
 
 ## Terminal + long mode
 |Key|Tap|Short|Long|Hold|
 |---|---|---|---|---|
-|D-pad|tmux pane navigation (ctrl-a + hjkl)||||
+|D-pad|tmux pane navigation (ctrl-a + hjkl; stale since zellij)||||
 |L1|undo (esc u)||||
 |R1|redo (esc ctrl-r)||||
 
@@ -89,14 +102,13 @@ While R3 is held, these buttons are intercepted before any context bindings:
 |West|escape||||
 |East|escape||||
 
-## Julia
+## kenburns-renderer (`julia.py`, app `/kbr/i`)
 |Key|Tap|Short|Long|Hold|
 |---|---|---|---|---|
 |D-pad left/right|arrow keys|||hold|
 |D-pad up/down|arrow keys (on release)||||
 |North|space||||
 |South|enter||||
-|West|backspace||||
 |East|q||||
 |L1|ctrl-pagedown||||
 |R1|ctrl-pageup||||
@@ -105,20 +117,21 @@ While R3 is held, these buttons are intercepted before any context bindings:
 |Key|Tap|Short|Long|Hold|
 |---|---|---|---|---|
 |North||toggle mute|||
-|Select||cmd-q|||
-|Start|screenshot||||
+|Create||cmd-q|||
+|Options|screenshot||||
 
 ## Special modes
-- **Meeting mode**: L3 enables/disables speech (now the same as the default)
-- **Quiet mode** (`user.quiet`, see `modes/README.md`): gamepad stays live; L3 does nothing because speech is already on
+- **Quiet mode** (`user.quiet`, see `modes/README.md`): gamepad stays live
 - **Recording mode**: East button exits recording and optionally wakes speech
 - **Seek mode**: Terminal navigation with different key mappings
 
 ## Architecture
 
-Voice/Talon → `gamepad.talon` → `user.gamepad_button_down/up(button)` in
-`gamepad.py` → timestamps press, schedules 800ms autorelease for buttons in
-`buttons_with_autorelease`, computes `held ∈ {0,1,2}` on release, dispatches via
+InputConfig → key → `gamepad.talon` → `user.gamepad_button_down/up(button)` in
+`gamepad.py` → ignores a down for a button already held (key repeat, stray
+duplicates) and an up for a button not held, timestamps the press, schedules
+an 800ms autorelease for buttons in `buttons_with_autorelease`, computes
+`held ∈ {0,1,2}` on release, dispatches via
 `getattr(actions.user, "gamepad_press_X" / "gamepad_release_X")`.
 
 Per-context behavior lives in the small files (`general.py`, `terminal.py`,
@@ -129,11 +142,5 @@ a context doesn't bind falls through to the module-level defaults in
 `gamepad.py`, which implement gamepad-as-mouse behavior (drag on west/north,
 right-click on east, etc.).
 
-## Stick safeguards
-Some controllers, in some connection modes, report a stick axis as permanently deflected, which used to send the mouse running in one direction until Talon was killed. Three guards in `gamepad.py`:
-
-- **Dead zone:** readings within 0.15 of center are ignored.
-- **Arm on center:** a stick moves the mouse only after it has been seen at rest, so a stick stuck from the moment of connection never moves anything.
-- **Stuck detection:** an identical off-center reading for 1.5 s disarms that stick (with a notification) until it returns to center.
-
-**Kill switch:** F9 toggles all stick input off/on, in every mode (`kill_switch.talon`).
+## Kill switch
+InputConfig's preset toggle shortcut turns the sticks off if an axis ever sticks; the old F9 toggle in Talon is gone with the stick handling.

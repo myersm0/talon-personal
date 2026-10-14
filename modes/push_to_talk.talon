@@ -6,3 +6,6 @@ key(f1:down):
 
 key(f1:up):
 	user.push_to_talk_stop()
+
+key(f7):
+	speech.toggle()
