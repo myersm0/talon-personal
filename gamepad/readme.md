@@ -128,3 +128,12 @@ etc.), each declared as a data table via `bindings.install(ctx, {...})`. The
 a context doesn't bind falls through to the module-level defaults in
 `gamepad.py`, which implement gamepad-as-mouse behavior (drag on west/north,
 right-click on east, etc.).
+
+## Stick safeguards
+Some controllers, in some connection modes, report a stick axis as permanently deflected, which used to send the mouse running in one direction until Talon was killed. Three guards in `gamepad.py`:
+
+- **Dead zone:** readings within 0.15 of center are ignored.
+- **Arm on center:** a stick moves the mouse only after it has been seen at rest, so a stick stuck from the moment of connection never moves anything.
+- **Stuck detection:** an identical off-center reading for 1.5 s disarms that stick (with a notification) until it returns to center.
+
+**Kill switch:** F9 toggles all stick input off/on, in every mode (`kill_switch.talon`).

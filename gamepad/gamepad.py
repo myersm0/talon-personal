@@ -1,4 +1,5 @@
-from talon import Module, actions, ui, ctrl, cron
+from dataclasses import dataclass
+from talon import Module, actions, app, ui, ctrl, cron
 from talon.screen import Screen
 import time
 
@@ -41,6 +42,37 @@ app_switcher_directions = {
 buttons_pressed_in_app_switcher = set()
 allow_autorelease = True
 mouse_mode_expiration = None
+
+
+stick_dead_zone = 0.15
+stick_stuck_after_seconds = 1.5
+sticks_enabled = True
+
+
+@dataclass
+class Stick:
+	name: str
+	armed: bool = False
+	last_reading: tuple = (0.0, 0.0)
+	unchanged_since: float = 0.0
+
+
+sticks = {"left": Stick("left"), "right": Stick("right")}
+
+
+def stick_may_move_mouse(stick: Stick, x: float, y: float) -> bool:
+	now = time.perf_counter()
+	if (x**2 + y**2) ** 0.5 < stick_dead_zone:
+		stick.armed = True
+		stick.last_reading = (x, y)
+		return False
+	if (x, y) != stick.last_reading:
+		stick.last_reading = (x, y)
+		stick.unchanged_since = now
+	elif stick.armed and now - stick.unchanged_since > stick_stuck_after_seconds:
+		stick.armed = False
+		app.notify(f"{stick.name} stick looks stuck; ignored until centered")
+	return sticks_enabled and stick.armed
 
 
 def initiate_mouse_mode(duration: str = "3s"):
@@ -197,13 +229,21 @@ class Actions:
 
 	def gamepad_stick_left(x: float, y: float):
 		"""Gamepad left stick movement"""
-		initiate_mouse_mode("1s")
-		gamepad_mouse_move(x, y, 0.05)
+		if stick_may_move_mouse(sticks["left"], x, y):
+			initiate_mouse_mode("1s")
+			gamepad_mouse_move(x, y, 0.05)
 
 	def gamepad_stick_right(x: float, y: float):
 		"""Gamepad right stick movement"""
-		initiate_mouse_mode()
-		gamepad_mouse_move(x, y, 0.3)
+		if stick_may_move_mouse(sticks["right"], x, y):
+			initiate_mouse_mode()
+			gamepad_mouse_move(x, y, 0.3)
+
+	def gamepad_sticks_toggle():
+		"""Turn gamepad stick input off or on"""
+		global sticks_enabled
+		sticks_enabled = not sticks_enabled
+		app.notify("gamepad sticks " + ("on" if sticks_enabled else "off"))
 
 	def gamepad_action_dispatch(button: str, held: int):
 		"""Dispatch a release for the given button"""
