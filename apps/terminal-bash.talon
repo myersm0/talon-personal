@@ -1,4 +1,4 @@
-app: /term*/i
+app: /term/i
 
 -
 
@@ -153,26 +153,6 @@ cmus:
 
 cmus remote:
 	insert("cmus-remote ")
-
-julia main [{user.dont_go}]:
-	insert("julia main.jl")
-	go = dont_go or "go"
-	user.optional_enter(go)
-
-julia go [{user.dont_go}]:
-	insert("julia go.jl")
-	go = dont_go or "go"
-	user.optional_enter(go)
-
-python main [{user.dont_go}]:
-	insert("python main.py")
-	go = dont_go or "go"
-	user.optional_enter(go)
-
-python go [{user.dont_go}]:
-	insert("python go.py")
-	go = dont_go or "go"
-	user.optional_enter(go)
 
 conda activate:
 	insert("conda activate ")

@@ -1,3 +1,7 @@
+mode: command
+mode: dictation
+mode: sleep
+mode: user.quiet
 tag: user.my_overrides
 -
 

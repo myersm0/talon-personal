@@ -11,7 +11,7 @@ and not mode: user.recording
 """
 
 
-def right_stick_release(held):
+def north_release(held):
 	if held >= 1:
 		actions.key("cmd-shift-a")
 
@@ -22,7 +22,7 @@ def select_release(held):
 
 
 bindings.install(context, {
-	"right_stick": (bindings.skip_press, right_stick_release),
+	"north":       (bindings.skip_press, north_release),
 	"select":      (bindings.skip_press, select_release),
 	"start":       bindings.tap_call(actions.user.take_screenshot),
 })

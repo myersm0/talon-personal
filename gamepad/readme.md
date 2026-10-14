@@ -20,8 +20,8 @@
 |R1|ctrl-tab||||
 |L2||||scroll up|
 |R2||||scroll down|
-|L3|||long mode|long mode|
-|R3|||long mode|long mode|
+|L3||||push-to-talk (speech on while held)|
+|R3||||app switcher (cmd held; see below)|
 |L-stick||||mouse move (slow)|
 |R-stick||||mouse move (fast)|
 
@@ -35,9 +35,17 @@
 |East (B)|right click||||
 |*Other buttons*|same as default||||
 
-## Long mode (L3/R3 held)
-- If already in long mode, pressing other stick → focus next
-- Speech enabled while held
+## App switcher (R3 held)
+Pressing R3 shows a list of running apps, most recently used first, with the previous app highlighted. Releasing R3 focuses the highlighted app, so a quick tap is "focus last". Implemented in `app_switcher.py` as a Talon imgui list; recency comes from an `app_activate` callback.
+
+While R3 is held, these buttons are intercepted before any context bindings:
+
+|Key|Action|
+|---|---|
+|D-pad left / up, L1|move highlight up|
+|D-pad right / down, R1|move highlight down|
+
+## Long mode (voice: "long mode")
 
 |Key|Tap|Short|Long|Hold|
 |---|---|---|---|---|
@@ -96,12 +104,13 @@
 ## Zoom
 |Key|Tap|Short|Long|Hold|
 |---|---|---|---|---|
-|R3||toggle mute|||
+|North||toggle mute|||
 |Select||cmd-q|||
 |Start|screenshot||||
 
 ## Special modes
-- **Meeting mode**: L3/R3 enable/disable speech without long mode
+- **Meeting mode**: L3 enables/disables speech (now the same as the default)
+- **Quiet mode** (`user.quiet`, see `modes/README.md`): gamepad stays live; L3 does nothing because speech is already on
 - **Recording mode**: East button exits recording and optionally wakes speech
 - **Seek mode**: Terminal navigation with different key mappings
 
@@ -119,3 +128,12 @@ etc.), each declared as a data table via `bindings.install(ctx, {...})`. The
 a context doesn't bind falls through to the module-level defaults in
 `gamepad.py`, which implement gamepad-as-mouse behavior (drag on west/north,
 right-click on east, etc.).
+
+## Stick safeguards
+Some controllers, in some connection modes, report a stick axis as permanently deflected, which used to send the mouse running in one direction until Talon was killed. Three guards in `gamepad.py`:
+
+- **Dead zone:** readings within 0.15 of center are ignored.
+- **Arm on center:** a stick moves the mouse only after it has been seen at rest, so a stick stuck from the moment of connection never moves anything.
+- **Stuck detection:** an identical off-center reading for 1.5 s disarms that stick (with a notification) until it returns to center.
+
+**Kill switch:** F9 toggles all stick input off/on, in every mode (`kill_switch.talon`).

@@ -1,6 +1,9 @@
-from talon import Module, actions, ui, ctrl, cron
+from dataclasses import dataclass
+from talon import Module, actions, app, ui, ctrl, cron
 from talon.screen import Screen
 import time
+
+from . import app_switcher
 
 hold_timeout_short = 0.3
 hold_timeout_long = 0.8
@@ -27,10 +30,49 @@ buttons_with_autorelease = (
 	"left_shoulder", "right_shoulder",
 )
 
-need_to_go_back_to_sleep = False
-stick_holding = None
+app_switcher_directions = {
+	"dpad_left": "previous",
+	"dpad_up": "previous",
+	"left_shoulder": "previous",
+	"dpad_right": "next",
+	"dpad_down": "next",
+	"right_shoulder": "next",
+}
+
+buttons_pressed_in_app_switcher = set()
 allow_autorelease = True
 mouse_mode_expiration = None
+
+
+stick_dead_zone = 0.15
+stick_stuck_after_seconds = 1.5
+sticks_enabled = True
+
+
+@dataclass
+class Stick:
+	name: str
+	armed: bool = False
+	last_reading: tuple = (0.0, 0.0)
+	unchanged_since: float = 0.0
+
+
+sticks = {"left": Stick("left"), "right": Stick("right")}
+
+
+def stick_may_move_mouse(stick: Stick, x: float, y: float) -> bool:
+	now = time.perf_counter()
+	if (x**2 + y**2) ** 0.5 < stick_dead_zone:
+		stick.armed = True
+		stick.last_reading = (x, y)
+		return False
+	if (x, y) != stick.last_reading:
+		stick.last_reading = (x, y)
+		stick.unchanged_since = now
+	elif stick.armed and now - stick.unchanged_since > stick_stuck_after_seconds:
+		stick.armed = False
+		app.notify(f"{stick.name} stick looks stuck; ignored until centered")
+	return sticks_enabled and stick.armed
 
 
 def initiate_mouse_mode(duration: str = "3s"):
@@ -39,30 +81,6 @@ def initiate_mouse_mode(duration: str = "3s"):
 	if mouse_mode_expiration is not None:
 		cron.cancel(mouse_mode_expiration)
 	mouse_mode_expiration = cron.after(duration, lambda: actions.mode.disable("user.mouse"))
-
-
-def long_mode_stick_press(side: str):
-	global need_to_go_back_to_sleep, stick_holding
-	other_side = "right" if side == "left" else "left"
-	if stick_holding == other_side:
-		actions.mimic("focus last")
-		return
-	stick_holding = side
-	if not actions.speech.enabled():
-		actions.speech.enable()
-		need_to_go_back_to_sleep = True
-	actions.mimic("long mode")
-
-
-def long_mode_stick_release(side: str):
-	global need_to_go_back_to_sleep, stick_holding
-	if stick_holding != side:
-		return
-	stick_holding = None
-	actions.mimic("done with long mode")
-	if need_to_go_back_to_sleep:
-		actions.speech.disable()
-		need_to_go_back_to_sleep = False
 
 
 @mod.action_class
@@ -195,29 +213,37 @@ class Actions:
 
 	def gamepad_press_left_stick():
 		"""Gamepad press button left thumb stick"""
-		long_mode_stick_press("left")
+		actions.user.push_to_talk_start()
 
 	def gamepad_release_left_stick(held: int):
 		"""Gamepad release button left thumb stick"""
-		long_mode_stick_release("left")
+		actions.user.push_to_talk_stop()
 
 	def gamepad_press_right_stick():
 		"""Gamepad press button right thumb stick"""
-		long_mode_stick_press("right")
+		app_switcher.open_picker()
 
 	def gamepad_release_right_stick(held: int):
 		"""Gamepad release button right thumb stick"""
-		long_mode_stick_release("right")
+		app_switcher.close_picker()
 
 	def gamepad_stick_left(x: float, y: float):
 		"""Gamepad left stick movement"""
-		initiate_mouse_mode("1s")
-		gamepad_mouse_move(x, y, 0.05)
+		if stick_may_move_mouse(sticks["left"], x, y):
+			initiate_mouse_mode("1s")
+			gamepad_mouse_move(x, y, 0.05)
 
 	def gamepad_stick_right(x: float, y: float):
 		"""Gamepad right stick movement"""
-		initiate_mouse_mode()
-		gamepad_mouse_move(x, y, 0.3)
+		if stick_may_move_mouse(sticks["right"], x, y):
+			initiate_mouse_mode()
+			gamepad_mouse_move(x, y, 0.3)
+
+	def gamepad_sticks_toggle():
+		"""Turn gamepad stick input off or on"""
+		global sticks_enabled
+		sticks_enabled = not sticks_enabled
+		app.notify("gamepad sticks " + ("on" if sticks_enabled else "off"))
 
 	def gamepad_action_dispatch(button: str, held: int):
 		"""Dispatch a release for the given button"""
@@ -229,6 +255,10 @@ class Actions:
 		"""Gamepad press button <button>"""
 		if button not in buttons:
 			raise ValueError(f"Unknown button: {button}")
+		if app_switcher.picker.showing and button in app_switcher_directions:
+			buttons_pressed_in_app_switcher.add(button)
+			app_switcher.step(app_switcher_directions[button])
+			return
 		timestamps[button] = time.perf_counter()
 		if allow_autorelease and button in buttons_with_autorelease:
 			scheduled_actions[button] = cron.after(
@@ -239,6 +269,9 @@ class Actions:
 
 	def gamepad_button_up(button: str):
 		"""Gamepad release button <button>"""
+		if button in buttons_pressed_in_app_switcher:
+			buttons_pressed_in_app_switcher.remove(button)
+			return
 		duration = time.perf_counter() - timestamps[button]
 		if duration > hold_timeout_long:
 			held = 2
