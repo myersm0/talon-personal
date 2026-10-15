@@ -1,27 +1,23 @@
-from dataclasses import dataclass
-from talon import Module, actions, app, ui, ctrl, cron
-from talon.screen import Screen
+from talon import Module, actions, ui, ctrl, cron
 import time
 
-from . import app_switcher
+from . import picker
 
 hold_timeout_short = 0.3
 hold_timeout_long = 0.8
 
-screen: Screen = ui.main_screen()
 mod = Module()
-slow_scroll = False
 timestamps = {}
 scheduled_actions = {}
-trigger_jobs = {}
+buttons_held = set()
 
 buttons = (
 	"dpad_left", "dpad_up", "dpad_right", "dpad_down",
 	"west", "north", "east", "south",
 	"select", "start",
 	"left_shoulder", "right_shoulder",
-	"left_trigger", "right_trigger",
-	"left_stick", "right_stick",
+	"left_paddle", "right_paddle",
+	"left_function", "right_function",
 )
 
 buttons_with_autorelease = (
@@ -30,7 +26,7 @@ buttons_with_autorelease = (
 	"left_shoulder", "right_shoulder",
 )
 
-app_switcher_directions = {
+picker_directions = {
 	"dpad_left": "previous",
 	"dpad_up": "previous",
 	"left_shoulder": "previous",
@@ -39,48 +35,8 @@ app_switcher_directions = {
 	"right_shoulder": "next",
 }
 
-buttons_pressed_in_app_switcher = set()
+buttons_pressed_in_picker = set()
 allow_autorelease = True
-mouse_mode_expiration = None
-
-
-stick_dead_zone = 0.15
-stick_stuck_after_seconds = 1.5
-sticks_enabled = True
-
-
-@dataclass
-class Stick:
-	name: str
-	armed: bool = False
-	last_reading: tuple = (0.0, 0.0)
-	unchanged_since: float = 0.0
-
-
-sticks = {"left": Stick("left"), "right": Stick("right")}
-
-
-def stick_may_move_mouse(stick: Stick, x: float, y: float) -> bool:
-	now = time.perf_counter()
-	if (x**2 + y**2) ** 0.5 < stick_dead_zone:
-		stick.armed = True
-		stick.last_reading = (x, y)
-		return False
-	if (x, y) != stick.last_reading:
-		stick.last_reading = (x, y)
-		stick.unchanged_since = now
-	elif stick.armed and now - stick.unchanged_since > stick_stuck_after_seconds:
-		stick.armed = False
-		app.notify(f"{stick.name} stick looks stuck; ignored until centered")
-	return sticks_enabled and stick.armed
-
-
-def initiate_mouse_mode(duration: str = "3s"):
-	global mouse_mode_expiration
-	actions.mode.enable("user.mouse")
-	if mouse_mode_expiration is not None:
-		cron.cancel(mouse_mode_expiration)
-	mouse_mode_expiration = cron.after(duration, lambda: actions.mode.disable("user.mouse"))
 
 
 @mod.action_class
@@ -164,19 +120,19 @@ class Actions:
 			actions.user.mouse_freeze_toggle()
 
 	def gamepad_press_select():
-		"""Gamepad press button select"""
+		"""Gamepad press button select (Create on the DualSense)"""
 		actions.user.quick_pick_show()
 
 	def gamepad_release_select(held: int):
-		"""Gamepad release button select"""
+		"""Gamepad release button select (Create on the DualSense)"""
 		actions.skip()
 
 	def gamepad_press_start():
-		"""Gamepad press button start"""
+		"""Gamepad press button start (Options on the DualSense)"""
 		actions.skip()
 
 	def gamepad_release_start(held: int):
-		"""Gamepad release button start"""
+		"""Gamepad release button start (Options on the DualSense)"""
 		actions.skip()
 
 	def gamepad_press_left_shoulder():
@@ -195,55 +151,37 @@ class Actions:
 		"""Gamepad release button right shoulder"""
 		actions.skip()
 
-	def gamepad_press_left_trigger():
-		"""Gamepad press button left trigger"""
-		trigger_jobs["left"] = cron.interval("128ms", lambda: gamepad_scroll(0, -1.15))
+	def gamepad_press_left_paddle():
+		"""Gamepad press left back paddle"""
+		picker.open_window_picker()
 
-	def gamepad_release_left_trigger(held: int):
-		"""Gamepad release button left trigger"""
-		cron.cancel(trigger_jobs["left"])
+	def gamepad_release_left_paddle(held: int):
+		"""Gamepad release left back paddle"""
+		picker.close_picker()
 
-	def gamepad_press_right_trigger():
-		"""Gamepad press button right trigger"""
-		trigger_jobs["right"] = cron.interval("128ms", lambda: gamepad_scroll(0, 1.15))
+	def gamepad_press_right_paddle():
+		"""Gamepad press right back paddle"""
+		picker.open_app_picker()
 
-	def gamepad_release_right_trigger(held: int):
-		"""Gamepad release button right trigger"""
-		cron.cancel(trigger_jobs["right"])
+	def gamepad_release_right_paddle(held: int):
+		"""Gamepad release right back paddle"""
+		picker.close_picker()
 
-	def gamepad_press_left_stick():
-		"""Gamepad press button left thumb stick"""
-		actions.user.push_to_talk_start()
+	def gamepad_press_left_function():
+		"""Gamepad press left Fn button"""
+		actions.user.take_screenshot()
 
-	def gamepad_release_left_stick(held: int):
-		"""Gamepad release button left thumb stick"""
-		actions.user.push_to_talk_stop()
+	def gamepad_release_left_function(held: int):
+		"""Gamepad release left Fn button"""
+		actions.skip()
 
-	def gamepad_press_right_stick():
-		"""Gamepad press button right thumb stick"""
-		app_switcher.open_picker()
+	def gamepad_press_right_function():
+		"""Gamepad press right Fn button"""
+		actions.user.save_selected_text_to_file()
 
-	def gamepad_release_right_stick(held: int):
-		"""Gamepad release button right thumb stick"""
-		app_switcher.close_picker()
-
-	def gamepad_stick_left(x: float, y: float):
-		"""Gamepad left stick movement"""
-		if stick_may_move_mouse(sticks["left"], x, y):
-			initiate_mouse_mode("1s")
-			gamepad_mouse_move(x, y, 0.05)
-
-	def gamepad_stick_right(x: float, y: float):
-		"""Gamepad right stick movement"""
-		if stick_may_move_mouse(sticks["right"], x, y):
-			initiate_mouse_mode()
-			gamepad_mouse_move(x, y, 0.3)
-
-	def gamepad_sticks_toggle():
-		"""Turn gamepad stick input off or on"""
-		global sticks_enabled
-		sticks_enabled = not sticks_enabled
-		app.notify("gamepad sticks " + ("on" if sticks_enabled else "off"))
+	def gamepad_release_right_function(held: int):
+		"""Gamepad release right Fn button"""
+		actions.skip()
 
 	def gamepad_action_dispatch(button: str, held: int):
 		"""Dispatch a release for the given button"""
@@ -255,10 +193,13 @@ class Actions:
 		"""Gamepad press button <button>"""
 		if button not in buttons:
 			raise ValueError(f"Unknown button: {button}")
-		if app_switcher.picker.showing and button in app_switcher_directions:
-			buttons_pressed_in_app_switcher.add(button)
-			app_switcher.step(app_switcher_directions[button])
+		if button in buttons_held or button in buttons_pressed_in_picker:
 			return
+		if picker.picker.showing and button in picker_directions:
+			buttons_pressed_in_picker.add(button)
+			picker.step(picker_directions[button])
+			return
+		buttons_held.add(button)
 		timestamps[button] = time.perf_counter()
 		if allow_autorelease and button in buttons_with_autorelease:
 			scheduled_actions[button] = cron.after(
@@ -269,9 +210,12 @@ class Actions:
 
 	def gamepad_button_up(button: str):
 		"""Gamepad release button <button>"""
-		if button in buttons_pressed_in_app_switcher:
-			buttons_pressed_in_app_switcher.remove(button)
+		if button in buttons_pressed_in_picker:
+			buttons_pressed_in_picker.remove(button)
 			return
+		if button not in buttons_held:
+			return
+		buttons_held.remove(button)
 		duration = time.perf_counter() - timestamps[button]
 		if duration > hold_timeout_long:
 			held = 2
@@ -279,41 +223,12 @@ class Actions:
 			held = 1
 		else:
 			held = 0
-		if button in buttons_with_autorelease and button in scheduled_actions:
-			job = scheduled_actions[button]
+		if button in scheduled_actions:
+			job = scheduled_actions.pop(button)
 			cron.cancel(job)
-			expiration_time = job.expiry
-			now = cron.time.perf_counter()
-			if now >= expiration_time:
+			if cron.time.perf_counter() >= job.expiry:
 				return
 		actions.user.gamepad_action_dispatch(button, held)
-
-
-def gamepad_scroll(x: float, y: float):
-	multiplier = 1.5 if slow_scroll else 3
-	x = x**3 * multiplier
-	y = y**3 * multiplier
-	if x != 0 or y != 0:
-		actions.mouse_scroll(x=x, y=y, by_lines=True)
-
-
-def gamepad_mouse_move(delta_x: float, delta_y: float, multiplier: float):
-	x, y = ctrl.mouse_pos()
-	screen = get_screen(x, y)
-	magnitude = (delta_x**2 + delta_y**2) ** 0.5
-	if magnitude > 0.1:
-		scaled_magnitude = magnitude**3
-		delta_x = (delta_x / magnitude) * scaled_magnitude * screen.dpi * multiplier
-		delta_y = (delta_y / magnitude) * scaled_magnitude * screen.dpi * multiplier
-	else:
-		delta_x = delta_x**3 * screen.dpi * multiplier
-		delta_y = delta_y**3 * screen.dpi * multiplier
-	actions.mouse_move(x + delta_x, y + delta_y)
-
-
-def gamepad_scroll_slow_toggle():
-	global slow_scroll
-	slow_scroll = not slow_scroll
 
 
 def gamepad_mouse_jump(direction: str):
@@ -329,10 +244,3 @@ def gamepad_mouse_jump(direction: str):
 		case "right":
 			x = rect.right - (rect.right - x) / 2
 	actions.mouse_move(x, y)
-
-
-def get_screen(x: float, y: float) -> Screen:
-	global screen
-	if not screen.contains(x, y):
-		screen = ui.screen_containing(x, y)
-	return screen

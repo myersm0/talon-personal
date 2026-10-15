@@ -19,6 +19,4 @@ bindings.install(context, {
 	"east":          bindings.mimic_phrase("focus last"),
 	"select":        bindings.mimic_phrase("set dummy Mike"),
 	"start":         bindings.mimic_phrase("set default Mike"),
-	"left_trigger":  bindings.mimic_phrase("undo"),
-	"right_trigger": bindings.mimic_phrase("redo"),
 })

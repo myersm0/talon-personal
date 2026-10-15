@@ -6,7 +6,7 @@ My custom [Talon Voice](https://talonvoice.com/) commands and configuration.
 
 - `apps/` — per-app command palettes (Terminal, Photoshop, Finder). See `apps/README.md`.
 - `core/` — general commands plus Python utility modules: mic switching, screenshot, hiss-as-click, key auto-repeat, clip-selection-to-file. See `core/README.md`.
-- `gamepad/` — gamepad button and thumbstick handling, including the gamepad-triggered `user.mouse` and `user.symbol` modes. **TODO: README pending.**
+- `gamepad/` — DualSense Edge buttons, received as keys from InputConfig, with per-app and per-mode tables; see `gamepad/readme.md`.
 - `lists/` — talon-list definitions consumed by commands elsewhere: vim actions, Greek letters, project codes, common paths, formatter aliases, and so on. See `lists/README.md`.
 - `modes/` — custom modes (long, recording, meeting, seek, mouse, symbol) and the voice commands that enter or exit them. See `modes/README.md`.
 - `overrides/` — replacements and tweaks for upstream community files, all gated by the `user.my_overrides` tag. See `overrides/README.md`.
@@ -25,7 +25,7 @@ My custom [Talon Voice](https://talonvoice.com/) commands and configuration.
 
 **NATO alphabet.** The default community alphabet (air, bat, cap, …) is replaced with NATO (alpha, bravo, Charlie, …) in `overrides/letter.talon-list`. Requires `user.my_overrides` to be asserted; otherwise the community default remains active and saying NATO words produces nothing.
 
-**Inverted-polarity meeting mode.** Normal operation has speech on by default with F6 as push-to-mute. Meeting mode inverts: speech off by default, with F5 or gamepad L3 as push-to-talk. The polarity flip is what makes meeting mode safe on calls.
+**Inverted-polarity meeting mode.** Normal operation has speech on by default with F6 as push-to-mute. Meeting mode inverts: speech off by default, with F5 as push-to-talk. The polarity flip is what makes meeting mode safe on calls.
 
 ## License
 

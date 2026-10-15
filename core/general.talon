@@ -35,9 +35,6 @@ key(f6:down):
 key(f6:up):
 	speech.enable()
 
-key(f7):
-	speech.toggle()
-
 take screenshot:
 	user.take_screenshot()
 

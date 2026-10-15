@@ -1,0 +1,1364 @@
+{
+  "appVersion" : "1.6",
+  "exportedAt" : "2026-10-15T12:05:19Z",
+  "first16LaunchAt" : 1792012446.3085809,
+  "groups" : [
+
+  ],
+  "motionCalibration" : "eyJEdWFsU2Vuc2UgRWRnZSBXaXJlbGVzcyBDb250cm9sbGVyfER1YWxTZW5zZSI6eyJneXJvRHJpZnRaIjowLjAwNDI2ODEsImFjY2VsRHJpZnRZIjowLCJzYXZlZEF0Ijo4MTM2NzgzNjUuODYwMjksImFjY2VsRHJpZnRaIjowLCJneXJvRHJpZnRYIjotMC4wMDI4MTAxNjM3LCJneXJvRHJpZnRZIjotMC4wMTI4NjE5NTksImNvbnRyb2xsZXJLZXkiOiJEdWFsU2Vuc2UgRWRnZSBXaXJlbGVzcyBDb250cm9sbGVyfER1YWxTZW5zZSIsImFjY2VsRHJpZnRYIjowfX0=",
+  "presets" : [
+    {
+      "automation" : {
+        "autoRecenterCursor" : false,
+        "autoRecenterIntervalMs" : 500,
+        "confineBufferPx" : 24,
+        "confineCursor" : false,
+        "hideCursorWhileActive" : false,
+        "launchAppPath" : "",
+        "launchURL" : "",
+        "scrollMultiplier" : 1,
+        "sensitivityMultiplier" : 1
+      },
+      "createdAt" : 813610471.72235,
+      "cursorRegions" : [
+
+      ],
+      "filename" : "3EAB2675-3629-417E-9CDF-16CB163D6FD8.json",
+      "formatVersion" : 2,
+      "id" : "574D9032-B0C3-4453-9524-6A1DA2280336",
+      "isActive" : false,
+      "joysticks" : [
+        {
+          "bindings" : [
+            {
+              "id" : "699A734D-43B8-45B3-B3C0-ABEB0BB01B8A",
+              "input" : {
+                "axisDirection" : "-",
+                "index" : 0,
+                "type" : "axi"
+              },
+              "note" : "Left stick left",
+              "outputs" : [
+
+              ],
+              "section" : "Left stick"
+            },
+            {
+              "id" : "A050B4B9-8A1E-4851-9006-0672D7D5B98F",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 0,
+                "type" : "axi"
+              },
+              "note" : "Left stick right",
+              "outputs" : [
+
+              ],
+              "section" : "Left stick"
+            },
+            {
+              "id" : "3BB12A43-2F98-46A2-8100-51745C1BCB6F",
+              "input" : {
+                "axisDirection" : "-",
+                "index" : 1,
+                "type" : "axi"
+              },
+              "note" : "Left stick up",
+              "outputs" : [
+
+              ],
+              "section" : "Left stick"
+            },
+            {
+              "id" : "952C540C-C460-41C1-8A80-1A47EF77DFAD",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 1,
+                "type" : "axi"
+              },
+              "note" : "Left stick down",
+              "outputs" : [
+
+              ],
+              "section" : "Left stick"
+            },
+            {
+              "id" : "DE86A442-A9A8-4F52-BC78-5548B5386F8E",
+              "input" : {
+                "axisDirection" : "-",
+                "index" : 2,
+                "type" : "axi"
+              },
+              "note" : "Right stick left",
+              "outputs" : [
+
+              ],
+              "section" : "Right stick"
+            },
+            {
+              "id" : "98D81A14-67C6-4521-89BE-3BF0B1888001",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 2,
+                "type" : "axi"
+              },
+              "note" : "Right stick right",
+              "outputs" : [
+
+              ],
+              "section" : "Right stick"
+            },
+            {
+              "id" : "00D86035-162F-4715-A9D1-DF7018A59D45",
+              "input" : {
+                "axisDirection" : "-",
+                "index" : 3,
+                "type" : "axi"
+              },
+              "note" : "Right stick up",
+              "outputs" : [
+
+              ],
+              "section" : "Right stick"
+            },
+            {
+              "id" : "5EE12908-8E31-4AE6-95ED-A0B89569BCD5",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 3,
+                "type" : "axi"
+              },
+              "note" : "Right stick down",
+              "outputs" : [
+
+              ],
+              "section" : "Right stick"
+            },
+            {
+              "id" : "E557919B-F423-42AE-A0A8-1376E24468F6",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 4,
+                "type" : "axi"
+              },
+              "note" : "Left trigger (L2), analog pull",
+              "outputs" : [
+
+              ],
+              "section" : "Triggers"
+            },
+            {
+              "id" : "1E02126A-7DBE-48F5-B2E9-744F396098B1",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 5,
+                "type" : "axi"
+              },
+              "note" : "Right trigger (R2), analog pull",
+              "outputs" : [
+
+              ],
+              "section" : "Triggers"
+            },
+            {
+              "id" : "F419058B-1DD0-4EE5-A35C-83AA932D33E6",
+              "input" : {
+                "hatDirection" : "U",
+                "index" : 0,
+                "type" : "hat"
+              },
+              "note" : "D-pad up",
+              "outputs" : [
+
+              ],
+              "section" : "D-pad"
+            },
+            {
+              "id" : "C3E9D212-7CAC-485B-AE40-8242E1F758D5",
+              "input" : {
+                "hatDirection" : "D",
+                "index" : 0,
+                "type" : "hat"
+              },
+              "note" : "D-pad down",
+              "outputs" : [
+
+              ],
+              "section" : "D-pad"
+            },
+            {
+              "id" : "8471C0D5-5E0E-43A3-A8CF-606F58B8F0E5",
+              "input" : {
+                "hatDirection" : "L",
+                "index" : 0,
+                "type" : "hat"
+              },
+              "note" : "D-pad left",
+              "outputs" : [
+
+              ],
+              "section" : "D-pad"
+            },
+            {
+              "id" : "21A61392-90BA-45CF-871B-1450EFF50F37",
+              "input" : {
+                "hatDirection" : "R",
+                "index" : 0,
+                "type" : "hat"
+              },
+              "note" : "D-pad right",
+              "outputs" : [
+
+              ],
+              "section" : "D-pad"
+            },
+            {
+              "id" : "17B2D883-CA31-4C70-828E-246AE1DBBEEB",
+              "input" : {
+                "index" : 0,
+                "type" : "btn"
+              },
+              "note" : "Cross",
+              "outputs" : [
+
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "F3B18802-B4D2-48E4-833C-E83038802648",
+              "input" : {
+                "index" : 1,
+                "type" : "btn"
+              },
+              "note" : "Circle",
+              "outputs" : [
+
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "CD19EE40-CCBE-4B6C-8492-B382504757DB",
+              "input" : {
+                "index" : 2,
+                "type" : "btn"
+              },
+              "note" : "Square",
+              "outputs" : [
+
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "693EA70B-B74F-46CD-8AE7-0B5597FAB538",
+              "input" : {
+                "index" : 3,
+                "type" : "btn"
+              },
+              "note" : "Triangle",
+              "outputs" : [
+
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "B1571B86-2B33-44FD-BB12-E7CFDE6F0938",
+              "input" : {
+                "index" : 4,
+                "type" : "btn"
+              },
+              "note" : "L1",
+              "outputs" : [
+
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "A609ACD1-8725-43BB-995A-0C58033EB8FF",
+              "input" : {
+                "index" : 5,
+                "type" : "btn"
+              },
+              "note" : "R1",
+              "outputs" : [
+
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "AA71BFC0-5673-40E0-AACE-55526D4C5DF7",
+              "input" : {
+                "index" : 8,
+                "type" : "btn"
+              },
+              "note" : "Create \/ Share",
+              "outputs" : [
+
+              ],
+              "section" : "Menu buttons"
+            },
+            {
+              "id" : "401E65F8-72A6-4C5D-A7F2-50ED800A1E93",
+              "input" : {
+                "index" : 9,
+                "type" : "btn"
+              },
+              "note" : "Options",
+              "outputs" : [
+
+              ],
+              "section" : "Menu buttons"
+            },
+            {
+              "id" : "20252464-2F40-48AB-B37E-DFA2079262E7",
+              "input" : {
+                "index" : 10,
+                "type" : "btn"
+              },
+              "note" : "PS button",
+              "outputs" : [
+
+              ],
+              "section" : "Menu buttons"
+            },
+            {
+              "id" : "90437B48-C091-4813-B5B6-4D55BEA6F8AC",
+              "input" : {
+                "index" : 11,
+                "type" : "btn"
+              },
+              "note" : "L3 (left stick press)",
+              "outputs" : [
+
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "705EC9BF-A32F-4E96-A75B-68F8809A53A9",
+              "input" : {
+                "index" : 12,
+                "type" : "btn"
+              },
+              "note" : "R3 (right stick press)",
+              "outputs" : [
+
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "8EAB719C-6E53-407E-87E7-B2CB41F5E836",
+              "input" : {
+                "index" : 15,
+                "type" : "btn"
+              },
+              "note" : "Mute",
+              "outputs" : [
+
+              ],
+              "section" : "Menu buttons"
+            },
+            {
+              "id" : "083DC76A-83E9-4860-B84B-F6C438F8FD34",
+              "input" : {
+                "index" : 16,
+                "type" : "btn"
+              },
+              "note" : "Left back button (Edge)",
+              "outputs" : [
+                {
+                  "id" : "331E7AE4-D5F9-44FD-A91F-64E1CCF9CA44",
+                  "keyCode" : 58,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Paddles and extras"
+            },
+            {
+              "id" : "2EA4B8B9-A14B-40A3-83BD-F7904D7EB1AC",
+              "input" : {
+                "index" : 17,
+                "type" : "btn"
+              },
+              "note" : "Right back button (Edge)",
+              "outputs" : [
+                {
+                  "id" : "5C326BF2-B462-4FA0-B56F-6A744846DA68",
+                  "keyCode" : 59,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Paddles and extras"
+            },
+            {
+              "id" : "0297451A-8DBF-4D7D-BA68-072ADA8E3DEF",
+              "input" : {
+                "index" : 20,
+                "type" : "btn"
+              },
+              "note" : "Left Fn (Edge)",
+              "outputs" : [
+
+              ],
+              "section" : "Paddles and extras"
+            },
+            {
+              "id" : "CB0FBA1E-DEF4-4A07-91D7-16F837A384B7",
+              "input" : {
+                "index" : 21,
+                "type" : "btn"
+              },
+              "note" : "Right Fn (Edge)",
+              "outputs" : [
+
+              ],
+              "section" : "Paddles and extras"
+            },
+            {
+              "id" : "A294708E-6ED2-4D98-90BC-139583A3498E",
+              "input" : {
+                "axisDirection" : "-",
+                "index" : 0,
+                "touchpadAxis" : "x",
+                "touchpadFinger" : 0,
+                "type" : "tpd"
+              },
+              "note" : "Touchpad finger left",
+              "outputs" : [
+                {
+                  "id" : "CA937F32-C0D1-4DCD-A9CC-37F0102B7FDC",
+                  "keyCode" : 4,
+                  "mouseAxis" : 1,
+                  "mouseDirection" : "-",
+                  "speed" : 6,
+                  "type" : "mou"
+                }
+              ],
+              "section" : "Touchpad"
+            },
+            {
+              "id" : "7FE95F58-3EB4-4AF9-8EDD-902A5D3C2CAF",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 0,
+                "touchpadAxis" : "x",
+                "touchpadFinger" : 0,
+                "type" : "tpd"
+              },
+              "note" : "Touchpad finger right",
+              "outputs" : [
+
+              ],
+              "section" : "Touchpad"
+            },
+            {
+              "id" : "A416E937-EAF9-4F9D-874F-F1973FD94362",
+              "input" : {
+                "axisDirection" : "-",
+                "index" : 0,
+                "touchpadAxis" : "y",
+                "touchpadFinger" : 0,
+                "type" : "tpd"
+              },
+              "note" : "Touchpad finger up",
+              "outputs" : [
+
+              ],
+              "section" : "Touchpad"
+            },
+            {
+              "id" : "EF814850-1CE0-4759-9A87-1DF7880F6F11",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 0,
+                "touchpadAxis" : "y",
+                "touchpadFinger" : 0,
+                "type" : "tpd"
+              },
+              "note" : "Touchpad finger down",
+              "outputs" : [
+
+              ],
+              "section" : "Touchpad"
+            },
+            {
+              "id" : "BD1052FD-9F3D-44FA-8FE1-D6D211C23F97",
+              "input" : {
+                "index" : 13,
+                "type" : "btn"
+              },
+              "note" : "Touchpad press",
+              "outputs" : [
+
+              ],
+              "section" : "Touchpad"
+            },
+            {
+              "id" : "98276825-B077-4FA0-BCF7-005732BE04AC",
+              "input" : {
+                "index" : 0,
+                "touchpadGestureKind" : "oneFingerTap",
+                "type" : "tpg"
+              },
+              "note" : "Touchpad tap (one finger)",
+              "outputs" : [
+
+              ],
+              "section" : "Touchpad"
+            },
+            {
+              "id" : "2A0FEB89-805B-482E-90A7-78DB04F6B940",
+              "input" : {
+                "index" : 0,
+                "touchpadGestureKind" : "twoFingerTap",
+                "type" : "tpg"
+              },
+              "note" : "Two-finger tap",
+              "outputs" : [
+
+              ],
+              "section" : "Touchpad"
+            },
+            {
+              "id" : "2C719362-30F8-421E-90DB-1CBA240449BE",
+              "input" : {
+                "index" : 0,
+                "touchpadGestureKind" : "doubleTap",
+                "type" : "tpg"
+              },
+              "note" : "Touchpad double tap",
+              "outputs" : [
+
+              ],
+              "section" : "Touchpad"
+            },
+            {
+              "id" : "7D9B4C67-4675-4409-A454-00414F583DA1",
+              "input" : {
+                "axisDirection" : "-",
+                "index" : 0,
+                "motionChannel" : "gyroY",
+                "type" : "mtn"
+              },
+              "note" : "Tilt left",
+              "outputs" : [
+
+              ],
+              "section" : "Motion"
+            },
+            {
+              "id" : "F1AA90C8-DC38-420B-B3DD-CB6BBDC3E6AB",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 0,
+                "motionChannel" : "gyroY",
+                "type" : "mtn"
+              },
+              "note" : "Tilt right",
+              "outputs" : [
+
+              ],
+              "section" : "Motion"
+            },
+            {
+              "id" : "B4914292-6FE8-49AF-BF85-A554A5FC2F91",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 0,
+                "motionChannel" : "gyroX",
+                "type" : "mtn"
+              },
+              "note" : "Tilt up (nose up)",
+              "outputs" : [
+
+              ],
+              "section" : "Motion"
+            },
+            {
+              "id" : "E40C9EE0-2AD6-47B9-A163-7D70E75EEFAA",
+              "input" : {
+                "axisDirection" : "-",
+                "index" : 0,
+                "motionChannel" : "gyroX",
+                "type" : "mtn"
+              },
+              "note" : "Tilt down (nose down)",
+              "outputs" : [
+
+              ],
+              "section" : "Motion"
+            }
+          ],
+          "id" : "DC9707AA-C572-4048-954D-7CF350BA31E3",
+          "inputKind" : "auto",
+          "isExpanded" : true,
+          "tag" : " "
+        }
+      ],
+      "modifiedAt" : 813705413.07667398,
+      "name" : "                                                   ",
+      "notes" : "",
+      "sortOrder" : 0,
+      "stickRegions" : {
+
+      },
+      "tag" : "No tag",
+      "touchpadRegions" : [
+
+      ]
+    },
+    {
+      "automation" : {
+        "autoRecenterCursor" : false,
+        "autoRecenterIntervalMs" : 500,
+        "confineBufferPx" : 24,
+        "confineCursor" : false,
+        "hideCursorWhileActive" : false,
+        "launchAppPath" : "",
+        "launchURL" : "",
+        "scrollMultiplier" : 1,
+        "sensitivityMultiplier" : 1
+      },
+      "createdAt" : 813612459.71095204,
+      "cursorRegions" : [
+
+      ],
+      "filename" : "68FD5727-0406-4465-AC7B-E64AB2AA633A.json",
+      "formatVersion" : 2,
+      "id" : "65A125B8-B2F9-426B-9B48-1DC5FBE2FE30",
+      "isActive" : true,
+      "joysticks" : [
+        {
+          "bindings" : [
+            {
+              "deadzone" : 0.01,
+              "id" : "331BC20D-CD73-421C-8FCF-0C39784FBD98",
+              "input" : {
+                "axisDirection" : "-",
+                "index" : 0,
+                "type" : "axi"
+              },
+              "note" : "Left stick left",
+              "outputs" : [
+                {
+                  "id" : "AE9D410D-3BAA-4A4F-AAF5-90B5DDEA0F70",
+                  "keyCode" : 4,
+                  "mouseAxis" : 0,
+                  "mouseDirection" : "-",
+                  "speed" : 6,
+                  "type" : "mou"
+                }
+              ],
+              "rampMs" : 500,
+              "section" : "Left stick"
+            },
+            {
+              "deadzone" : 0.01,
+              "id" : "4DA752D8-B5B4-415A-9321-1319FDC7B606",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 0,
+                "type" : "axi"
+              },
+              "note" : "Left stick right",
+              "outputs" : [
+                {
+                  "id" : "D5220D41-5606-473C-A022-9043FD76FB33",
+                  "keyCode" : 4,
+                  "mouseAxis" : 0,
+                  "mouseDirection" : "+",
+                  "speed" : 6,
+                  "type" : "mou"
+                }
+              ],
+              "rampMs" : 500,
+              "section" : "Left stick"
+            },
+            {
+              "deadzone" : 0.01,
+              "id" : "7690D781-B7DA-4790-A86E-1C1A0FD97764",
+              "input" : {
+                "axisDirection" : "-",
+                "index" : 1,
+                "type" : "axi"
+              },
+              "note" : "Left stick up",
+              "outputs" : [
+                {
+                  "id" : "F959ED6B-ED64-4771-9614-31D3083899C8",
+                  "keyCode" : 4,
+                  "mouseAxis" : 1,
+                  "mouseDirection" : "-",
+                  "speed" : 6,
+                  "type" : "mou"
+                }
+              ],
+              "rampMs" : 500,
+              "section" : "Left stick"
+            },
+            {
+              "deadzone" : 0.01,
+              "id" : "EFFE2260-9EF9-434E-A56D-16E6392FCB4C",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 1,
+                "type" : "axi"
+              },
+              "note" : "Left stick down",
+              "outputs" : [
+                {
+                  "id" : "26646FD0-D5AC-49D3-A134-2D878F3AA52B",
+                  "keyCode" : 5,
+                  "mouseAxis" : 1,
+                  "mouseDirection" : "+",
+                  "speed" : 6,
+                  "type" : "mou"
+                }
+              ],
+              "rampMs" : 500,
+              "section" : "Left stick"
+            },
+            {
+              "deadzone" : 0.10000000000000001,
+              "id" : "0CCF2E65-566F-4DC9-B108-1CAC6A0270E5",
+              "input" : {
+                "axisDirection" : "-",
+                "index" : 2,
+                "type" : "axi"
+              },
+              "note" : "Right stick left",
+              "outputs" : [
+                {
+                  "id" : "2214E8A0-1389-4E0E-98AD-E0F278C11704",
+                  "keyCode" : 4,
+                  "mouseAxis" : 0,
+                  "mouseDirection" : "-",
+                  "speed" : 21,
+                  "type" : "mou"
+                }
+              ],
+              "rampMs" : 1000,
+              "section" : "Right stick",
+              "sensitivityCurve" : "aggressive"
+            },
+            {
+              "deadzone" : 0.10000000000000001,
+              "id" : "5FCE62E2-9DF9-4EA2-854C-FB88AF923C16",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 2,
+                "type" : "axi"
+              },
+              "note" : "Right stick right",
+              "outputs" : [
+                {
+                  "id" : "DBAFA551-5CDE-4E87-AADF-4D530647DFEE",
+                  "keyCode" : 4,
+                  "mouseAxis" : 0,
+                  "mouseDirection" : "+",
+                  "speed" : 21,
+                  "type" : "mou"
+                }
+              ],
+              "rampMs" : 1000,
+              "section" : "Right stick",
+              "sensitivityCurve" : "aggressive"
+            },
+            {
+              "deadzone" : 0.10000000000000001,
+              "id" : "D4CE81A6-FE4C-4268-8147-885DF4C00641",
+              "input" : {
+                "axisDirection" : "-",
+                "index" : 3,
+                "type" : "axi"
+              },
+              "note" : "Right stick up",
+              "outputs" : [
+                {
+                  "id" : "5A962E3E-FED7-4B62-BE81-9DF7EF8997A0",
+                  "keyCode" : 4,
+                  "mouseAxis" : 1,
+                  "mouseDirection" : "-",
+                  "speed" : 21,
+                  "type" : "mou"
+                }
+              ],
+              "rampMs" : 1000,
+              "section" : "Right stick",
+              "sensitivityCurve" : "aggressive"
+            },
+            {
+              "deadzone" : 0.10000000000000001,
+              "id" : "C20AFEC7-BE6E-41F6-BDB2-7759643F11B2",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 3,
+                "type" : "axi"
+              },
+              "note" : "Right stick down",
+              "outputs" : [
+                {
+                  "id" : "4048DC6D-E775-41A1-A0CA-8252576301E6",
+                  "keyCode" : 4,
+                  "mouseAxis" : 1,
+                  "mouseDirection" : "+",
+                  "speed" : 21,
+                  "type" : "mou"
+                }
+              ],
+              "rampMs" : 1000,
+              "section" : "Right stick",
+              "sensitivityCurve" : "aggressive"
+            },
+            {
+              "deadzone" : 0.10000000000000001,
+              "id" : "4FBDDEE3-B00D-474E-8789-74EA99FE00C3",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 4,
+                "type" : "axi"
+              },
+              "note" : "Left trigger (L2), analog pull",
+              "outputs" : [
+                {
+                  "id" : "722365A9-3F46-46B1-93C8-4744ECF4CA7D",
+                  "keyCode" : 78,
+                  "mouseAxis" : 1,
+                  "mouseDirection" : "+",
+                  "speed" : 12,
+                  "type" : "whe"
+                }
+              ],
+              "section" : "Triggers",
+              "sensitivityCurve" : "exponential"
+            },
+            {
+              "deadzone" : 0.10000000000000001,
+              "id" : "BA45B563-E2D9-4286-88F2-CF963E0331A9",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 5,
+                "type" : "axi"
+              },
+              "note" : "Right trigger (R2), analog pull",
+              "outputs" : [
+                {
+                  "id" : "C2AFE4BF-929C-464A-8D4F-62FB5B4509D2",
+                  "keyCode" : 75,
+                  "mouseAxis" : 1,
+                  "mouseDirection" : "-",
+                  "speed" : 12,
+                  "type" : "whe"
+                }
+              ],
+              "section" : "Triggers",
+              "sensitivityCurve" : "exponential"
+            },
+            {
+              "id" : "943439C1-921A-469E-9E06-05B7866CED28",
+              "input" : {
+                "hatDirection" : "U",
+                "index" : 0,
+                "type" : "hat"
+              },
+              "note" : "D-pad up",
+              "outputs" : [
+                {
+                  "id" : "C7924F5C-E137-4F28-9CB7-69FEC7A7A1A6",
+                  "keyCode" : 105,
+                  "type" : "key"
+                }
+              ],
+              "section" : "D-pad"
+            },
+            {
+              "id" : "439A72CF-F730-4526-8D6C-1133B8291BF3",
+              "input" : {
+                "hatDirection" : "D",
+                "index" : 0,
+                "type" : "hat"
+              },
+              "note" : "D-pad down",
+              "outputs" : [
+                {
+                  "id" : "0B014D73-C7E6-4D09-9922-524CA79931BD",
+                  "keyCode" : 107,
+                  "type" : "key"
+                }
+              ],
+              "section" : "D-pad"
+            },
+            {
+              "id" : "0B31A229-64B6-436A-A738-1016994A0850",
+              "input" : {
+                "hatDirection" : "L",
+                "index" : 0,
+                "type" : "hat"
+              },
+              "note" : "D-pad left",
+              "outputs" : [
+                {
+                  "id" : "7D7B6149-3249-4E82-9D9E-87038D7C422A",
+                  "keyCode" : 104,
+                  "type" : "key"
+                }
+              ],
+              "section" : "D-pad"
+            },
+            {
+              "id" : "75826547-7C25-41F0-8B88-D76FF669C8BB",
+              "input" : {
+                "hatDirection" : "R",
+                "index" : 0,
+                "type" : "hat"
+              },
+              "note" : "D-pad right",
+              "outputs" : [
+                {
+                  "id" : "B9A8C760-1592-4407-81E1-39C5129B622C",
+                  "keyCode" : 106,
+                  "type" : "key"
+                }
+              ],
+              "section" : "D-pad"
+            },
+            {
+              "id" : "6206F045-650F-46E9-853E-0A48A9D68911",
+              "input" : {
+                "index" : 0,
+                "type" : "btn"
+              },
+              "note" : "Cross",
+              "outputs" : [
+                {
+                  "id" : "3DC83360-1C0F-4A0F-984D-1EB0C96CDBF9",
+                  "keyCode" : 111,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "64A0ADFA-67D0-45C9-8581-983D614E129A",
+              "input" : {
+                "index" : 1,
+                "type" : "btn"
+              },
+              "note" : "Circle",
+              "outputs" : [
+                {
+                  "id" : "987A4CBE-1D7E-4819-AA18-9656DC2CE7C1",
+                  "keyCode" : 110,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "B5031243-CF7B-425B-BC5B-4207F3DE420F",
+              "input" : {
+                "index" : 2,
+                "type" : "btn"
+              },
+              "note" : "Square",
+              "outputs" : [
+                {
+                  "id" : "8A6D63D6-3BEB-456C-9D37-23855D0DA50A",
+                  "keyCode" : 108,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "5ADA396A-5A10-492B-BF33-F06FE62353A5",
+              "input" : {
+                "index" : 3,
+                "type" : "btn"
+              },
+              "note" : "Triangle",
+              "outputs" : [
+                {
+                  "id" : "25585B99-D165-4E0A-BA7C-05C8CB9C5E08",
+                  "keyCode" : 109,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "093C452C-1817-49E1-BCB2-992B1A85F79D",
+              "input" : {
+                "index" : 4,
+                "type" : "btn"
+              },
+              "note" : "L1",
+              "outputs" : [
+                {
+                  "id" : "20F6C689-0745-4157-BAB3-AFFA2FD78C66",
+                  "keyCode" : 225,
+                  "type" : "key"
+                },
+                {
+                  "id" : "351ED6BE-4E2C-4834-B7F6-5CF150AEB545",
+                  "keyCode" : 106,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "4E3082FF-08E7-4BB4-BFCB-7510B2D442AB",
+              "input" : {
+                "index" : 5,
+                "type" : "btn"
+              },
+              "note" : "R1",
+              "outputs" : [
+                {
+                  "id" : "B7FFD972-19E4-4286-871A-8B167CB248B7",
+                  "keyCode" : 225,
+                  "type" : "key"
+                },
+                {
+                  "id" : "BA10FE33-BA66-4B0F-9187-FFCBF805FAC3",
+                  "keyCode" : 107,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "CD128EB6-89DD-48D1-AF56-1B9619AF78C7",
+              "input" : {
+                "index" : 8,
+                "type" : "btn"
+              },
+              "note" : "Create \/ Share",
+              "outputs" : [
+                {
+                  "id" : "31AA3E1B-8ABE-430C-807D-5667F2D68511",
+                  "keyCode" : 225,
+                  "type" : "key"
+                },
+                {
+                  "id" : "BB2F0F2C-9B0B-4CF6-B04E-DDA88EDFA21B",
+                  "keyCode" : 104,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Menu buttons"
+            },
+            {
+              "id" : "F07A91DE-2DB4-49CB-90A7-45588EBF25DC",
+              "input" : {
+                "index" : 9,
+                "type" : "btn"
+              },
+              "note" : "Options",
+              "outputs" : [
+                {
+                  "id" : "E0424931-5C82-4C55-8466-F4BE1774D41D",
+                  "keyCode" : 225,
+                  "type" : "key"
+                },
+                {
+                  "id" : "39B90F5A-B14F-40CA-9E88-CE7A510EC39F",
+                  "keyCode" : 105,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Menu buttons"
+            },
+            {
+              "id" : "05489AAC-300E-4B83-A2AB-DDEBB6FE263B",
+              "input" : {
+                "index" : 10,
+                "type" : "btn"
+              },
+              "note" : "PS button",
+              "outputs" : [
+
+              ],
+              "section" : "Menu buttons"
+            },
+            {
+              "id" : "54DE66BB-3E31-46C2-80F5-BA011FB19762",
+              "input" : {
+                "index" : 11,
+                "type" : "btn"
+              },
+              "note" : "L3 (left stick press)",
+              "outputs" : [
+                {
+                  "id" : "84413EBC-9D93-4C50-B043-805202656EBF",
+                  "keyCode" : 225,
+                  "type" : "key"
+                },
+                {
+                  "id" : "55866C7D-84D8-4B80-B230-6099DAA53A69",
+                  "keyCode" : 108,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "84EFA090-AA40-47FC-9938-476EAC414E95",
+              "input" : {
+                "index" : 12,
+                "type" : "btn"
+              },
+              "note" : "R3 (right stick press)",
+              "outputs" : [
+                {
+                  "id" : "0FB9EA01-37D8-4161-ABCF-F319F58E40D3",
+                  "keyCode" : 225,
+                  "type" : "key"
+                },
+                {
+                  "id" : "C1B89282-CD43-4A2A-84A8-FB28734A1AB0",
+                  "keyCode" : 109,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Buttons"
+            },
+            {
+              "id" : "50AD9762-6D71-410E-9A87-5ABDEBD27350",
+              "input" : {
+                "index" : 15,
+                "type" : "btn"
+              },
+              "note" : "Mute",
+              "outputs" : [
+                {
+                  "id" : "3F8B14FC-D966-499C-8B3C-AE0A6148BE6A",
+                  "keyCode" : 64,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Menu buttons"
+            },
+            {
+              "id" : "C502F766-AE42-44DA-971F-77378412F799",
+              "input" : {
+                "index" : 16,
+                "type" : "btn"
+              },
+              "note" : "Left back button (Edge)",
+              "outputs" : [
+
+              ],
+              "section" : "Paddles and extras"
+            },
+            {
+              "id" : "77FD831D-2E9C-4762-AEDE-937C4A226921",
+              "input" : {
+                "index" : 17,
+                "type" : "btn"
+              },
+              "note" : "Right back button (Edge)",
+              "outputs" : [
+
+              ],
+              "section" : "Paddles and extras"
+            },
+            {
+              "hapticEnabled" : true,
+              "hapticIntensity" : 0.10000000000000001,
+              "id" : "4A4955E1-0DDF-46EB-AB93-A8A869398DD5",
+              "input" : {
+                "index" : 20,
+                "type" : "btn"
+              },
+              "note" : "Left Fn (Edge)",
+              "outputs" : [
+                {
+                  "id" : "712CAE45-6386-47E6-B13C-8C0238A21DE4",
+                  "keyCode" : 58,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Paddles and extras"
+            },
+            {
+              "hapticEnabled" : true,
+              "hapticIntensity" : 0.10000000000000001,
+              "id" : "22C14335-50E5-40D2-99E2-BAF3772BB4F6",
+              "input" : {
+                "index" : 21,
+                "type" : "btn"
+              },
+              "note" : "Right Fn (Edge)",
+              "outputs" : [
+                {
+                  "id" : "75676538-4887-40DD-8191-8362810AA15C",
+                  "keyCode" : 58,
+                  "type" : "key"
+                }
+              ],
+              "section" : "Paddles and extras"
+            },
+            {
+              "hapticIntensity" : 0.10000000000000001,
+              "id" : "747FC136-B696-4AE8-A053-0840CE543FD0",
+              "input" : {
+                "index" : 13,
+                "type" : "btn"
+              },
+              "note" : "Touchpad press",
+              "outputs" : [
+                {
+                  "id" : "D93822D9-D8B7-4C51-B107-89A7E5B5FA33",
+                  "keyCode" : 58,
+                  "mouseButtonIndex" : 0,
+                  "type" : "mbt"
+                }
+              ],
+              "section" : "Touchpad"
+            },
+            {
+              "hapticIntensity" : 0.10000000000000001,
+              "id" : "39B24327-D17E-4833-BD74-08D08C25BF49",
+              "input" : {
+                "index" : 0,
+                "touchpadGestureKind" : "oneFingerTap",
+                "type" : "tpg"
+              },
+              "note" : "Touchpad tap (one finger)",
+              "outputs" : [
+                {
+                  "id" : "982A4F19-29B0-417B-B1D2-34C7CAE678F7",
+                  "keyCode" : 4,
+                  "mouseButtonIndex" : 0,
+                  "type" : "mbt"
+                }
+              ],
+              "section" : "Touchpad"
+            },
+            {
+              "hapticDurationMs" : 500,
+              "id" : "2BC66B68-E885-4BE2-88BB-2C8E119EFF27",
+              "input" : {
+                "index" : 0,
+                "touchpadGestureKind" : "twoFingerTap",
+                "type" : "tpg"
+              },
+              "note" : "Two-finger tap",
+              "outputs" : [
+                {
+                  "id" : "389952A3-1460-40C4-A12F-6378D2527E42",
+                  "keyCode" : 4,
+                  "mouseButtonIndex" : 1,
+                  "type" : "mbt"
+                }
+              ],
+              "section" : "Touchpad"
+            },
+            {
+              "id" : "68822E55-C232-4942-B5AF-B1218652366B",
+              "input" : {
+                "axisDirection" : "-",
+                "index" : 0,
+                "motionChannel" : "gyroY",
+                "type" : "mtn"
+              },
+              "note" : "Tilt left",
+              "outputs" : [
+
+              ],
+              "section" : "Motion"
+            },
+            {
+              "id" : "893EF89D-2531-4B20-977C-FE28362CE28F",
+              "input" : {
+                "axisDirection" : "+",
+                "index" : 0,
+                "motionChannel" : "gyroY",
+                "type" : "mtn"
+              },
+              "note" : "Tilt right",
+              "outputs" : [
+
+              ],
+              "section" : "Motion"
+            }
+          ],
+          "id" : "6241E8C9-2735-442B-BF15-BF78F727612B",
+          "inputKind" : "auto",
+          "isExpanded" : true,
+          "tag" : ""
+        }
+      ],
+      "modifiedAt" : 813758660.81423795,
+      "name" : "mstest",
+      "notes" : "",
+      "sortOrder" : -1,
+      "stickRegions" : {
+
+      },
+      "tag" : "No tag",
+      "touchpadRegions" : [
+
+      ]
+    }
+  ],
+  "schemaVersion" : 1,
+  "trash" : [
+
+  ],
+  "userDefaults" : {
+    "CursorGuard.autoRecenter" : false,
+    "CursorGuard.edgeBufferPx" : 24,
+    "CursorGuard.edgeConfine" : false,
+    "CursorGuard.hideWhileRunning" : false,
+    "CursorGuard.recenterIntervalMs" : 500,
+    "CursorGuard.sensitivity" : 1,
+    "InputConfig.accentColor" : "yellow",
+    "InputConfig.appliedDefaultGroupColors.v2" : true,
+    "InputConfig.autoPollHzByPower" : true,
+    "InputConfig.debugLogExpanded" : false,
+    "InputConfig.favoritesOnly" : false,
+    "InputConfig.freezeWatchdog.enabled" : true,
+    "InputConfig.groups.builtInFlagged" : true,
+    "InputConfig.libraryEmptiedOnPurpose" : false,
+    "InputConfig.panicControllerButton" : 8,
+    "InputConfig.panicControllerEnabled" : true,
+    "InputConfig.panicControllerWithStart" : true,
+    "InputConfig.panicHoldSeconds" : 3,
+    "InputConfig.panicHotkeyEnabled" : true,
+    "InputConfig.panicKeyCode" : 47,
+    "InputConfig.panicModifiers" : 6400,
+    "InputConfig.regionsPerPreset.v1" : true,
+    "InputConfig.review.activations" : 14,
+    "InputConfig.review.launches" : 7,
+    "InputConfig.seenControllerNames" : [
+      "dualsense edge wireless controller"
+    ],
+    "InputConfig.sessionRestore.enabled" : true,
+    "InputConfig.shippedNotesFilled.v1" : true,
+    "InputConfig.shippedSectionsFilled.v1" : true,
+    "InputConfig.showDockIcon" : true,
+    "InputConfig.touchpadCalibration.v1" : {
+      "__data" : "eyJncmlkQ2VsbHMiOlt0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZSx0cnVlLHRydWUsdHJ1ZV0sIm1heFkiOjEwODAsInNhdmVkQXQiOjgxMzcwNTQxMy4wODM1NzksIm1pblkiOjAsIm1heFgiOjE5MjAsIm1pblgiOjEyfQ=="
+    },
+    "InputConfig.trimmedAnkiNotes.v1" : true,
+    "InputConfig.visualizerBackground" : "normal",
+    "InputConfig.visualizerView.65A125B8-B2F9-426B-9B48-1DC5FBE2FE30.0" : {
+      "scale" : 1,
+      "x" : -49,
+      "y" : -45
+    },
+    "InputConfig.visualizerView.9573B85F-EA38-41C8-B114-658E5765F92E.0" : {
+      "scale" : 1,
+      "x" : 7,
+      "y" : -3
+    },
+    "InputConfig.visualizerView.FEEEDA61-2CF2-43B4-A689-D42F777CF616.0" : {
+      "scale" : 1,
+      "x" : 28,
+      "y" : -8
+    },
+    "InputConfig.welcomeIntroSeen" : true,
+    "suppressAccessibilityIntro" : true
+  }
+}

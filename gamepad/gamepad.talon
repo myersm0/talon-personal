@@ -5,50 +5,42 @@ mode: user.quiet
 tag: user.my_overrides
 -
 
-# DPAD buttons
-gamepad(dpad_left:down):    user.gamepad_button_down("dpad_left")
-gamepad(dpad_left:up):      user.gamepad_button_up("dpad_left")
-gamepad(dpad_up:down):      user.gamepad_button_down("dpad_up")
-gamepad(dpad_up:up):        user.gamepad_button_up("dpad_up")
-gamepad(dpad_right:down):   user.gamepad_button_down("dpad_right")
-gamepad(dpad_right:up):     user.gamepad_button_up("dpad_right")
-gamepad(dpad_down:down):    user.gamepad_button_down("dpad_down")
-gamepad(dpad_down:up):      user.gamepad_button_up("dpad_down")
+# keys sent by the InputConfig preset; sticks, triggers and PS never reach Talon
 
-# Compass / ABXY buttons
-gamepad(west:down):         user.gamepad_button_down("west")
-gamepad(west:up):           user.gamepad_button_up("west")
-gamepad(north:down):        user.gamepad_button_down("north")
-gamepad(north:up):          user.gamepad_button_up("north")
-gamepad(east:down):         user.gamepad_button_down("east")
-gamepad(east:up):           user.gamepad_button_up("east")
-gamepad(south:down):        user.gamepad_button_down("south")
-gamepad(south:up):          user.gamepad_button_up("south")
+key(f13:down):        user.gamepad_button_down("dpad_left")
+key(f13:up):          user.gamepad_button_up("dpad_left")
+key(f14:down):        user.gamepad_button_down("dpad_up")
+key(f14:up):          user.gamepad_button_up("dpad_up")
+key(f15:down):        user.gamepad_button_down("dpad_right")
+key(f15:up):          user.gamepad_button_up("dpad_right")
+key(f16:down):        user.gamepad_button_down("dpad_down")
+key(f16:up):          user.gamepad_button_up("dpad_down")
 
-# Select / Start buttons
-gamepad(select:down):       user.gamepad_button_down("select")
-gamepad(select:up):         user.gamepad_button_up("select")
-gamepad(start:down):        user.gamepad_button_down("start")
-gamepad(start:up):          user.gamepad_button_up("start")
+key(f17:down):        user.gamepad_button_down("west")
+key(f17:up):          user.gamepad_button_up("west")
+key(f18:down):        user.gamepad_button_down("north")
+key(f18:up):          user.gamepad_button_up("north")
+key(f19:down):        user.gamepad_button_down("east")
+key(f19:up):          user.gamepad_button_up("east")
+key(f20:down):        user.gamepad_button_down("south")
+key(f20:up):          user.gamepad_button_up("south")
 
-# Shoulder buttons
-gamepad(l1:down):           user.gamepad_button_down("left_shoulder")
-gamepad(l1:up):             user.gamepad_button_up("left_shoulder")
-gamepad(r1:down):           user.gamepad_button_down("right_shoulder")
-gamepad(r1:up):             user.gamepad_button_up("right_shoulder")
+key(shift-f13:down):  user.gamepad_button_down("select")
+key(shift-f13:up):    user.gamepad_button_up("select")
+key(shift-f14:down):  user.gamepad_button_down("start")
+key(shift-f14:up):    user.gamepad_button_up("start")
 
-# Stick buttons
-gamepad(l3:down):           user.gamepad_button_down("left_stick")
-gamepad(l3:up):             user.gamepad_button_up("left_stick")
-gamepad(r3:down):           user.gamepad_button_down("right_stick")
-gamepad(r3:up):             user.gamepad_button_up("right_stick")
+key(shift-f15:down):  user.gamepad_button_down("left_shoulder")
+key(shift-f15:up):    user.gamepad_button_up("left_shoulder")
+key(shift-f16:down):  user.gamepad_button_down("right_shoulder")
+key(shift-f16:up):    user.gamepad_button_up("right_shoulder")
 
-# Analog triggers
-gamepad(l2:up):				user.gamepad_button_up("left_trigger")
-gamepad(l2:down):				user.gamepad_button_down("left_trigger")
-gamepad(r2:up):				user.gamepad_button_up("right_trigger")
-gamepad(r2:down):				user.gamepad_button_down("right_trigger")
+key(shift-f17:down):  user.gamepad_button_down("left_paddle")
+key(shift-f17:up):    user.gamepad_button_up("left_paddle")
+key(shift-f18:down):  user.gamepad_button_down("right_paddle")
+key(shift-f18:up):    user.gamepad_button_up("right_paddle")
 
-# Analog thumb sticks
-gamepad(left_xy:repeat):    user.gamepad_stick_left(x * 1.0, y * -1.0)
-gamepad(right_xy:repeat):   user.gamepad_stick_right(x * 1.0, y * -1.0)
+key(shift-f19:down):  user.gamepad_button_down("left_function")
+key(shift-f19:up):    user.gamepad_button_up("left_function")
+key(shift-f20:down):  user.gamepad_button_down("right_function")
+key(shift-f20:up):    user.gamepad_button_up("right_function")
