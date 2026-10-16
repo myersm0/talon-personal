@@ -10,6 +10,7 @@ and not app: /kbr/i
 and not app: /zoom/i
 and not app: /safari/i
 and not app: /steam/i
+and not app: /claude/i
 not mode: user.seek
 and not mode: user.symbol
 and not mode: user.recording
