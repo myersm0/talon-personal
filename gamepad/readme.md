@@ -5,7 +5,7 @@ The controller is a DualSense Edge, read by InputConfig rather than Talon. Input
 ## Key scheme
 |Control|Key from InputConfig|Talon|
 |---|---|---|
-|Touchpad press|F1|push-to-talk (`modes/push_to_talk.talon`)|
+|Touchpad press|not sent|handled in InputConfig|
 |Mute|F7|speech toggle (`modes/push_to_talk.talon`)|
 |D-pad left, up, right, down|F13, F14, F15, F16|`dpad_left`, `dpad_up`, `dpad_right`, `dpad_down`|
 |West, north, east, south|F17, F18, F19, F20|`west`, `north`, `east`, `south`|
@@ -38,8 +38,8 @@ The paddles are only reported in the Edge's default profile (Fn + Triangle). Tal
 |R1|ctrl-tab||||
 |Left paddle||||window picker (see below)|
 |Right paddle||||app picker (see below)|
-|Left Fn|clip selection to file||||
-|Right Fn|screenshot||||
+|Left Fn|push to talk||||
+|Right Fn|push to talk||||
 
 ## Mouse mode
 Previously entered by stick movement, which Talon no longer sees; nothing enters it at the moment. The table stays in `mouse.py` until it's decided whether InputConfig can signal stick deflection with a key.
@@ -112,6 +112,21 @@ While a picker is showing, these buttons are intercepted before any context bind
 |East|q||||
 |L1|ctrl-pagedown||||
 |R1|ctrl-pageup||||
+
+## Claude Desktop (`claude.py`)
+|Key|Tap|Short|Long|Hold|
+|---|---|---|---|---|
+|D-pad|arrow keys||||
+|South|newline (shift-enter)|newline|send (enter)||
+|West|backspace|delete word|delete to line start||
+|East|escape|stop response (cmd-.)|||
+|North|space|focus input (cmd-shift-;)|||
+|Create|cmd-w|cmd-q|||
+|Options|new chat (cmd-shift-o)|search (cmd-k)|new window (cmd-n)||
+|L1|previous Claude window (cmd-shift-`)||||
+|R1|next Claude window (cmd-`)||||
+
+Send is long-press only so it can't be confused with a newline. The east, north and Options chords come from third-party cheat sheets, not Anthropic docs; verify against the menu bar.
 
 ## Zoom
 |Key|Tap|Short|Long|Hold|
